@@ -1,4 +1,20 @@
 ---
-layout: home
+layout: single
 author_profile: true
+title: ""
 ---
+
+## 최근 작성한 것들
+
+{% assign recent_pages = site.pages | where_exp: "p", "p.categories contains 'projects' or p.categories contains 'insights'" | sort: "date" | reverse %}
+
+<div class="entries-grid">
+  {% for p in recent_pages limit:6 %}
+  <article class="archive__item">
+    <h2 class="archive__item-title"><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h2>
+    {% if p.excerpt %}
+      <p class="archive__item-excerpt">{{ p.excerpt }}</p>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
