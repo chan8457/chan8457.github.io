@@ -133,6 +133,9 @@ author:
       url: "https://www.instagram.com/__ch_an.97/"
 
 
+collections:
+  projects:
+    output: true
 
 # Reading Files
 include:
