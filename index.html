@@ -6,7 +6,9 @@ title: ""
 
 ## 최근 작성한 것들
 
-{% assign recent_pages = site.pages | where_exp: "p", "p.categories contains 'projects' or p.categories contains 'insights'" | sort: "date" | reverse %}
+{% assign project_pages = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
+{% assign insight_pages = site.pages | where_exp: "p", "p.categories contains 'insights'" %}
+{% assign recent_pages = project_pages | concat: insight_pages | sort: "date" | reverse %}
 
 <div class="entries-grid">
   {% for p in recent_pages limit:6 %}
