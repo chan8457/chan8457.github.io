@@ -113,7 +113,7 @@ analytics:
 # Site Author
 author:
   name             : "조성찬"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/profile.jpg"
   bio              : "데이터로 문제를 정의하고, 실험으로 개선하는 데이터 분석가"
   location         : "Gyeonggi-do, South Korea"
   email            :
@@ -319,3 +319,5 @@ defaults:
       comments: # true
       share: true
       related: true
+navigation:
+  main: main

@@ -1,6 +1,9 @@
 ---
 layout: home
 author_profile: true
+show_excerpts: false
+paginate: false
+entries_layout: none
 ---
 
 # 👋 안녕하세요, 조성찬입니다.
