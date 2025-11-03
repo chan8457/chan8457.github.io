@@ -5,26 +5,62 @@ layout: single
 author_profile: false
 ---
 
+<style>
+/* 본문 전체 폰트, 줄간격 조정 */
+.page__content {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+}
+
+/* 제목 스타일 */
+h2 {
+  font-size: 20px;
+  font-weight: 700;
+  border-bottom: 1.5px solid #d4b483;
+  padding-bottom: 4px;
+  margin-top: 30px;
+}
+
+/* 타임라인 박스 */
+.timeline {
+  border-left: 3px solid #d4b483;
+  margin: 25px 0;
+  padding-left: 20px;
+}
+.timeline-item {
+  margin-bottom: 22px;
+}
+.timeline-item strong {
+  font-size: 15px;
+  color: #222;
+}
+.timeline-item span {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-top: 3px;
+}
+</style>
+
 ## 경력 요약
 
-<div style="border-left: 3px solid #d4b483; padding-left: 15px; margin-top: 20px;">
+<div class="timeline">
+  <div class="timeline-item">
+    <strong>2023.02 ~ 2025.01 | (주) 세이븐존 · 사원</strong>
+    <span>배송 물품 정리, 물류 흐름 최적화</span>
+  </div>
 
-**2023.02 ~ 2025.01 | (주) 세이브존**  
-사원 · 배송 물품 정리  
-<span style="color: #999;">배송 상품 흐름 최적화</span>
+  <div class="timeline-item">
+    <strong>2017.01 ~ 2022.12 | (주) 이랜드이츠 · 트레이너</strong>
+    <span>직원 교육, 매장 관리, 운영 효율화 담당</span>
+  </div>
 
----
-
-**2017.01 ~ 2022.12 | (주) 이랜드이츠**  
-트레이너 · 직원 교육 및 매장 관리  
-<span style="color: #999;">직원 관리 및 매장 운영 효율화 담당</span>
-
----
-
-**2015.10 ~ 2016.11 | SK네트웍스(주) 워커힐**  
-사원 · 재료 손질, 주방 보조  
-<span style="color: #999;">메뉴별 조리 효율 향상 시도</span>
-
+  <div class="timeline-item">
+    <strong>2015.10 ~ 2016.11 | SK네트웍스(주) 워커힐 · 사원</strong>
+    <span>재료 손질, 주방 보조, 메뉴별 조리 효율 개선</span>
+  </div>
 </div>
 
 ---
@@ -43,7 +79,7 @@ author_profile: false
 그 시기 체중이 160kg까지 늘었고,  
 제 삶의 루트를 완전히 다시 설계해야겠다고 결심했습니다.  
 
-그때 영화 *머니볼*과 게임 *풋볼 매니저*를 보며  
+그때 영화 <em>머니볼</em>과 게임 <em>풋볼 매니저</em>를 통해  
 데이터로 전략을 세우고 성과를 내는 세계에 매료됐습니다.  
 “이거다” 싶었죠.  
 그 순간부터 제 호기심은 주방이 아닌 데이터로 향했습니다.  
