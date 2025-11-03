@@ -1,0 +1,4 @@
+$color-primary: #C18F6A;  /* 웜 브라운 계열 예시 */
+$background-color: #FFF8F2;  /* 아이보리 바탕 */
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
