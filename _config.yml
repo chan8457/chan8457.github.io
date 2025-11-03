@@ -138,8 +138,8 @@ collections:
     output: true
   insights:
     output: true
-    permalink: /insights/:name/
-
+    permalink: /insights/:path/
+    
 # Reading Files
 include:
   - .htaccess
