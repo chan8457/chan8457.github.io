@@ -4,6 +4,7 @@ excerpt: "LED 패널 광고 시범 운영을 위한 대여소 입지 선정 및 
 layout: single
 classes: wide
 author_profile: false
+categories: [projects]
 header:
   overlay_color: "#2b2b2b"
   overlay_filter: 0.3
