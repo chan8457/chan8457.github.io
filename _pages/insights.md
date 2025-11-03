@@ -1,9 +1,9 @@
 ---
 title: "Insights"
 permalink: /insights/
-layout: posts
+layout: collection
+collection: insights
 entries_layout: grid
-taxonomy: insights
 ---
 
-여러가지 인사이트를 정리한 글들이 모입니다.
+여러 가지 인사이트를 정리한 글들입니다.

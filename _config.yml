@@ -136,7 +136,10 @@ author:
 collections:
   projects:
     output: true
-
+  insights:
+    output: true
+    permalink: /insights/:name/
+    
 # Reading Files
 include:
   - .htaccess
