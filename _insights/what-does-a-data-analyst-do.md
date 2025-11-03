@@ -5,7 +5,7 @@ layout: single
 classes: wide
 author_profile: false
 categories: [insights]
-date: 2025-11-04
+date: 2025-11-03
 teaser: /assets/images/insight-analyst.png
 header:
   overlay_color: "#2b2b2b"
