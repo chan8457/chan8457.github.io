@@ -9,6 +9,7 @@ header:
   overlay_color: "#2b2b2b"
   overlay_filter: 0.3
   caption: "데이터 분석가의 핵심 역할과 성장 방향에 대한 생각"
+  image: /assets/images/insight-analyst-thumb.png
 ---
 
 <img src="/assets/images/insight-analyst.png" alt="데이터 분석가 일러스트" width="720">
