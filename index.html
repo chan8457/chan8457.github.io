@@ -4,12 +4,27 @@ author_profile: true
 title: ""
 ---
 
-최근 작성한 것들
+최근 작성한 것들 ✨
 
+{%- comment -%}
+{%- endcomment -%}
 {% assign project_pages = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
+
+{%- for page in project_pages -%}
+  {%- if page.date == nil -%}
+    {%- assign page.date = '1970-01-01' | date: "%Y-%m-%d" -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- comment -%}
+{%- endcomment -%}
 {% assign insight_pages = site.insights %}
 
-{%- assign recent_pages = project_pages | concat: insight_pages | sort: "date" | reverse -%}
+{%- comment -%}
+{%- endcomment -%}
+{% assign combined = project_pages | concat: insight_pages %}
+
+{%- assign recent_pages = combined | sort: "date" | reverse -%}
 
 <div class="entries-grid">
   {% for p in recent_pages limit:6 %}
