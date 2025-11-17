@@ -7,13 +7,13 @@ title: ""
 최근 작성한 것들 ✨
 
 {%- comment -%}
-프로젝트 페이지 중 date가 있는 것만 필터링
+프로젝트 페이지 — categories 안에 'projects' 포함 + date 있는 것만
 {%- endcomment -%}
 {% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
 {% assign project_pages = project_pages_raw | where_exp: "p", "p.date" %}
 
 {%- comment -%}
-인사이트 페이지에서도 date가 있는 것만 필터링
+인사이트 페이지 — date 있는 것만
 {%- endcomment -%}
 {% assign insight_pages = site.insights | where_exp: "p", "p.date" %}
 
@@ -23,9 +23,19 @@ title: ""
 {% assign combined = project_pages | concat: insight_pages %}
 
 {%- comment -%}
-날짜 기준으로 최신순 정렬
 {%- endcomment -%}
-{% assign recent_pages = combined | sort: "date" | reverse %}
+{% assign cleaned = '' | split: '' %}
+
+{% for p in combined %}
+  {% assign sort_key = p.date | date: "%Y-%m-%d %H:%M:%S" %}
+  {% assign item = p | merge: "sort_key", sort_key %}
+  {% assign cleaned = cleaned | push: item %}
+{% endfor %}
+
+{%- comment -%}
+문자열 sort_key 기준으로 정렬하면 배열 비교 문제 완전 해결
+{%- endcomment -%}
+{% assign recent_pages = cleaned | sort: "sort_key" | reverse %}
 
 <div class="entries-grid">
   {% for p in recent_pages limit:6 %}
