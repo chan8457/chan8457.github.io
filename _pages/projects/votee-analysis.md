@@ -5,6 +5,7 @@ layout: single
 classes: wide
 author_profile: false
 categories: [projects]
+date: 2025-11-10
 header:
   overlay_color: "#2b2b2b"
   overlay_filter: 0.3
