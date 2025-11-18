@@ -31,3 +31,15 @@ $base-font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system,
   vertical-align: middle;
   display: inline-block;
 }
+
+/* 더 강력한 우선순위 규칙: 마크다운 파서가 <p><img> 형태로 감싸거나
+   다른 스타일이 적용되는 경우를 대비해 중요한 규칙으로 덮어씁니다. */
+.author__bio img.skill-badge,
+.author__bio p img.skill-badge,
+.author__bio .skill-badge {
+  height: 16px !important;
+  width: auto !important;
+  max-width: none !important;
+  display: inline-block !important;
+  vertical-align: middle !important;
+}
