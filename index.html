@@ -4,7 +4,41 @@ author_profile: true
 title: ""
 ---
 
-최근 작성한 글
+<!-- GitHub Stats Section -->
+<div style="margin-bottom: 35px;">
+  <h2 style="margin-bottom: 18px; font-size: 22px; font-weight: 700; color: #222;">
+    GitHub 활동 요약
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center;">
+    <!-- GitHub Stats -->
+    <img 
+      src="https://github-readme-stats.vercel.app/api?username=chan8457&show_icons=true&theme=default" 
+      alt="GitHub Stats" 
+      style="max-width: 48%; min-width: 300px; flex: 1;"
+    >
+
+    <!-- Top Languages -->
+    <img 
+      src="https://github-readme-stats.vercel.app/api/top-langs/?username=chan8457&layout=compact&theme=default" 
+      alt="Top Languages" 
+      style="max-width: 48%; min-width: 300px; flex: 1;"
+    >
+  </div>
+
+  <div style="margin-top: 20px;">
+    <!-- GitHub Streak -->
+    <img 
+      src="https://streak-stats.demolab.com/?user=chan8457&theme=default" 
+      alt="GitHub Streak" 
+      style="width: 100%; max-width: 800px;"
+    >
+  </div>
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
 
 {%- comment -%}
 프로젝트 페이지 — categories 안에 'projects' 포함 + date 있는 것만
@@ -22,10 +56,7 @@ title: ""
 {%- endcomment -%}
 {% assign combined = project_pages | concat: insight_pages %}
 
-{%- comment -%}
-{%- endcomment -%}
 {% assign cleaned = '' | split: '' %}
-
 {% for p in combined %}
   {% assign sort_key = p.date | date: "%Y-%m-%d %H:%M:%S" %}
   {% assign item = p | merge: "sort_key", sort_key %}
@@ -33,11 +64,11 @@ title: ""
 {% endfor %}
 
 {%- comment -%}
-문자열 sort_key 기준으로 정렬하면 배열 비교 문제 완전 해결
+문자열 sort_key 기준으로 정렬해 날짜 문제 해결
 {%- endcomment -%}
 {% assign recent_pages = cleaned | sort: "sort_key" | reverse %}
 
-<div class="entries-grid">
+<div class="entries-grid" style="margin-top: 20px;">
   {% for p in recent_pages limit:6 %}
   <article class="archive__item">
     <h2 class="archive__item-title">
