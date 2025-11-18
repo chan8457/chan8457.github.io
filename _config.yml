@@ -118,10 +118,10 @@ author:
     데이터로 문제를 정의하고, 실험으로 개선하는 데이터 분석가입니다.<br><br>
 
     <!-- Tech Stack Badges -->
-    <img height="20" src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white">
-    <img height="20" src="https://img.shields.io/badge/SQL-336791?style=flat&logo=postgresql&logoColor=white">
-    <img height="20" src="https://img.shields.io/badge/Airflow-017CEE?style=flat&logo=apache-airflow&logoColor=white">
-    <img height="20" src="https://img.shields.io/badge/LLM-412991?style=flat&logo=OpenAI&logoColor=white">
+    <img height="16" src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white">
+    <img height="16" src="https://img.shields.io/badge/SQL-336791?style=flat&logo=postgresql&logoColor=white">
+    <img height="16" src="https://img.shields.io/badge/Airflow-017CEE?style=flat&logo=apache-airflow&logoColor=white">
+    <img height="16" src="https://img.shields.io/badge/LLM-412991?style=flat&logo=OpenAI&logoColor=white">
   location         : "Gyeonggi-do, South Korea"
   avatar: "/assets/images/profile.png"
   email            :
