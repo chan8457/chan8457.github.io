@@ -65,6 +65,22 @@ h2 {
 
 ---
 
+## 자격증
+
+<div class="timeline">
+  <div class="timeline-item">
+    <strong>양식 조리기능사</strong>
+    <span>2015.07.02 · 한국산업인력공단</span>
+  </div>
+
+  <div class="timeline-item">
+    <strong>AI활용지도사 1급</strong>
+    <span>2025.11.14 · 한국평생학습진흥원</span>
+  </div>
+</div>
+
+---
+
 ## 저의 이야기
 
 요리사를 꿈꾸며 특성화 고등학교 조리과를 졸업했고,  
