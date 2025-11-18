@@ -4,6 +4,15 @@ author_profile: true
 title: ""
 ---
 
+<style>
+/* 메인 페이지 구분선 완전 개선 */
+.custom-hr {
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  margin: 40px 0;
+}
+</style>
+
 <!-- GitHub Stats Section -->
 <div style="margin-bottom: 35px;">
   <h2 style="margin-bottom: 18px; font-size: 22px; font-weight: 700; color: #222;">
@@ -59,7 +68,7 @@ title: ""
   >
 </div>
 
-<hr style="margin: 40px 0;">
+<hr class="custom-hr">
 
 <h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
 
@@ -74,9 +83,6 @@ title: ""
 {%- endcomment -%}
 {% assign insight_pages = site.insights | where_exp: "p", "p.date" %}
 
-{%- comment -%}
-두 그룹 합치기
-{%- endcomment -%}
 {% assign combined = project_pages | concat: insight_pages %}
 
 {% assign cleaned = '' | split: '' %}
@@ -86,9 +92,6 @@ title: ""
   {% assign cleaned = cleaned | push: item %}
 {% endfor %}
 
-{%- comment -%}
-문자열 sort_key 기준으로 정렬해 날짜 문제 해결
-{%- endcomment -%}
 {% assign recent_pages = cleaned | sort: "sort_key" | reverse %}
 
 <div class="entries-grid" style="margin-top: 20px;">
