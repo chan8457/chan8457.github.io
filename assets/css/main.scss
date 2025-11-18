@@ -19,15 +19,5 @@ $base-font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system,
   box-shadow: 0 4px 12px rgba(0, 0, 0, .15);  /* 부드러운 그림자 */
 
   /* 모양 조정 옵션 */
-  border-radius: 12px;   /* ↔ 동그라미 유지하고 싶으면 50%, 각진 카드 느낌이면 8~12px, 완전 네모면 0 */
-}
-
-/* 현재 활성화된 메뉴 스타일 */
-.masthead__menu-item--active > a {
-  font-weight: 700;      // 더 굵게
-  font-size: 1.1rem;     // 살짝 크게
-  border-bottom: 2px solid #333; // 아래 라인으로 강조 (원하면 색 바꿔도 됨)
-}
-.masthead__menu-item--active > a:hover {
-  cursor: default;
+  border-radius: 12px;   
 }
