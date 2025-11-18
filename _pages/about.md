@@ -6,6 +6,13 @@ author_profile: false
 ---
 
 <style>
+/* --- 구분선을 더 연하게, 얇게 변경 */
+hr {
+  border: none;
+  border-top: 1px solid #e5e5e5 !important;
+  margin: 35px 0;
+}
+
 /* 본문 전체 폰트, 줄간격 조정 */
 .page__content {
   font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
@@ -63,7 +70,6 @@ h2 {
   </div>
 </div>
 
----
 
 ## 자격증
 
@@ -79,7 +85,6 @@ h2 {
   </div>
 </div>
 
----
 
 ## 저의 이야기
 
@@ -114,7 +119,6 @@ h2 {
 제가 가장 몰입하고 살아 있음을 느낍니다.  
 요리할 때의 ‘최적화 본능’은 이제 데이터 분석으로 이어졌습니다.  
 
----
 
 ## 현재 목표
 
