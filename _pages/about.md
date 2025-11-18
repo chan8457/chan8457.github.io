@@ -121,3 +121,29 @@ h2 {
 - 데이터 기반으로 실행 가능한 인사이트를 도출하는 분석가로 성장  
 - 기술보다 문제 정의와 가설 검증 능력 중심의 성장 지속  
 - 협업과 소통을 통해 프로덕트 개선에 기여하는 데이터 분석가로 발전
+
+---
+
+## GitHub 활동 요약
+
+<div class="github-stats">
+  <img 
+    src="https://github-readme-stats.vercel.app/api?username=chan8457&show_icons=true&theme=default" 
+    alt="GitHub Stats" 
+    class="gh-card"
+  >
+
+  <img 
+    src="https://github-readme-stats.vercel.app/api/top-langs/?username=chan8457&layout=compact&theme=default" 
+    alt="Top Langs" 
+    class="gh-card"
+  >
+
+  <img 
+    src="https://streak-stats.demolab.com/?user=chan8457&theme=default" 
+    alt="GitHub Streak" 
+    class="gh-streak"
+  >
+</div>
+
+---
