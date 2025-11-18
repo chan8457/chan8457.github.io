@@ -12,15 +12,14 @@
           {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle | escape_once | strip }}</span>{% endif %}
         </a>
         <ul class="visible-links">
-          {%- for link in site.data.navigation.main -%}
-            <li class="masthead__menu-item">
-              <a
-                href="{{ link.url | relative_url }}"
-                {% if link.description %} title="{{ link.description }}"{% endif %}
-                {% if link.target %} target="{{ link.target }}"{% endif %}
-              >{{ link.title }}</a>
+          {% assign current = page.url %}
+          {% for item in site.data.navigation.main %}
+            {% assign item_url = item.url | relative_url %}
+            {% assign is_current = (current == item_url) or (current != "/" and current contains item_url) %}
+            <li class="masthead__menu-item{% if is_current %} masthead__menu-item--current{% endif %}">
+              <a href="{{ item_url }}">{{ item.title }}</a>
             </li>
-          {%- endfor -%}
+          {% endfor %}
         </ul>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
