@@ -21,3 +21,13 @@ $base-font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system,
   /* 모양 조정 옵션 */
   border-radius: 12px;   
 }
+
+/* 바이오 영역의 뱃지(인라인 이미지)를 고정된 높이로 표시
+   기본 reset에서 모든 이미지를 responsive하게 만들기 때문에
+   author bio 내부의 아이콘은 별도 규칙으로 고정 크기를 지정합니다. */
+.author__bio img {
+  height: 16px;        /* 원하는 픽셀 높이 */
+  width: auto;         /* 가로세로 비율 유지 */
+  vertical-align: middle;
+  display: inline-block;
+}

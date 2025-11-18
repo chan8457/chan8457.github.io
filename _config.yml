@@ -117,14 +117,12 @@ author:
   bio: >
      데이터로 문제를 정의하고, 실험으로 개선하는 데이터 분석가입니다.<br><br>
 
-     {% raw %}
      <span style="display:inline-block; vertical-align:middle;">
-       <img height="16" style="vertical-align:middle;" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
-       <img height="16" style="vertical-align:middle;" src="https://img.shields.io/badge/SQL-003B57?style=flat-square&logo=postgresql&logoColor=white"/>
-       <img height="16" style="vertical-align:middle;" src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apache-airflow&logoColor=white"/>
-       <img height="16" style="vertical-align:middle;" src="https://img.shields.io/badge/LLM-412991?style=flat-square&logo=OpenAI&logoColor=white"/>
+       <img class="skill-badge" alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+       <img class="skill-badge" alt="SQL" src="https://img.shields.io/badge/SQL-003B57?style=flat-square&logo=postgresql&logoColor=white" />
+       <img class="skill-badge" alt="Airflow" src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apache-airflow&logoColor=white" />
+       <img class="skill-badge" alt="LLM" src="https://img.shields.io/badge/LLM-412991?style=flat-square&logo=OpenAI&logoColor=white" />
      </span>
-     {% endraw %}
 
   location: "Gyeonggi-do, South Korea"
   email :
