@@ -113,31 +113,15 @@ analytics:
 # Site Author
 author:
   name: "조성찬"
-  bio: >
-    데이터로 문제를 정의하고, 실험으로 개선하는 데이터 분석가입니다.<br><br>
-    <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
-    <img src="https://img.shields.io/badge/SQL-003B57?style=flat-square&logo=postgresql&logoColor=white"/>
-    <img src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apache-airflow&logoColor=white"/>
-    <img src="https://img.shields.io/badge/LLM-412991?style=flat-square&logo=OpenAI&logoColor=white"/>
+bio: >
+  데이터로 문제를 정의하고, 실험으로 개선하는 데이터 분석가입니다.<br><br>
 
-  location: "Gyeonggi-do, South Korea"
-  avatar: "/assets/images/profile.png"
-  email            :
-  links:
-    - label: "Email"
-      icon: "fas fa-envelope"
-      url: "mailto:jscro@naver.com"
-    - label: "GitHub"
-      icon: "fab fa-github"
-      url: "https://github.com/chan8457"
-    - label: "LinkedIn"
-      icon: "fab fa-linkedin"
-      url: "https://www.linkedin.com/in/chan8457"
-
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/__ch_an.97/"
-
+  <span style="display:inline-block; vertical-align:middle;">
+    <img height="16" style="vertical-align:middle;" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+    <img height="16" style="vertical-align:middle;" src="https://img.shields.io/badge/SQL-003B57?style=flat-square&logo=postgresql&logoColor=white"/>
+    <img height="16" style="vertical-align:middle;" src="https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apache-airflow&logoColor=white"/>
+    <img height="16" style="vertical-align:middle;" src="https://img.shields.io/badge/LLM-412991?style=flat-square&logo=OpenAI&logoColor=white"/>
+  </span>
 
 collections:
   projects:
