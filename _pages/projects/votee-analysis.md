@@ -12,7 +12,7 @@ header:
   caption: "중·고등학생 대상 SNS형 투표 서비스 로그 분석"
   actions:
     - label: "PDF 보고서 보기"
-      url: /assets/docs/votee.pdf
+      url: /assets/docs/votee-analysis.pdf
     - label: "분석 코드 보기"
       url: /assets/notebooks/votee-analysis.ipynb
 ---
@@ -96,5 +96,5 @@ header:
 
 ## 참고자료
 
-- [PDF 보고서](/assets/docs/votee.pdf)  
+- [PDF 보고서](/assets/docs/votee-analysis.pdf)  
 - [분석 코드 노트북](/assets/notebooks/votee-analysis.ipynb)
