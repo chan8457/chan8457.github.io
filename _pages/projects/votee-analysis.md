@@ -6,6 +6,8 @@ classes: wide
 author_profile: false
 categories: [projects]
 date: "2025-11-10"
+toc: true
+toc_sticky: true
 header:
   overlay_color: "#2b2b2b"
   overlay_filter: 0.3
@@ -46,7 +48,8 @@ header:
 
 ### 1) DAU 97.7% 급락
 
-{% include figure image="/assets/images/votee-dau-trend.png" caption="피크 DAU 316,872 → 7,429로 97.7% 급락" %}
+<img src="/assets/images/votee-dau-trend.png" alt="DAU 급락 그래프" width="750">
+<p align="center"><em>피크 DAU 316,872 → 7,429로 97.7% 급락</em></p>
 
 서비스는 피크 시점 대비 **97.7%의 DAU 하락**을 기록하였습니다.  
 이는 운영·기획적 결함 또는 핵심 기능 경험 부재로 인한 급격한 이탈 가능성을 시사합니다.
@@ -55,7 +58,8 @@ header:
 
 ### 2) 신규 유저의 핵심 경험 미달성
 
-{% include figure image="/assets/images/votee2.png" caption="70%가 핵심 기능 미경험 / 첫 주 리텐션 44%" %}
+<img src="/assets/images/votee2.png" alt="핵심 기능 미경험 / 리텐션 44%" width="750">
+<p align="center"><em>약 70%가 핵심 기능 미경험 / 첫 주 리텐션 44%</em></p>
 
 - 신규 가입자의 **약 70%가 투표 및 질문 생성 기능을 한 번도 경험하지 않았습니다.**  
 - 첫 주 리텐션은 44% 수준으로, 커뮤니티 기반 서비스로서는 매우 낮은 수치입니다.
@@ -102,10 +106,11 @@ header:
 
 ## 운영 전략
 
-데이터 기반 모니터링 결과를 기반으로,  
+데이터 기반 모니터링 결과를 바탕으로,  
 **재런칭 시 적용 가능한 3단계 운영 전략을 수립하였습니다.**
 
-{% include figure image="/assets/images/votee3.png" caption="VOTEE 운영 전략 3단계" %}
+<img src="/assets/images/votee3.png" alt="운영 전략 3단계" width="750">
+<p align="center"><em>VOTEE 운영 전략 3단계</em></p>
 
 ---
 
@@ -146,7 +151,8 @@ header:
 운영 전략과 더불어 서비스 UX 자체를 개선하기 위한  
 **두 가지 핵심 신규 기능**을 추가로 제안하였습니다.
 
-{% include figure image="/assets/images/votee4.png" caption="질문 서비스 개편 + 커뮤니티 기능 추가" %}
+<img src="/assets/images/votee4.png" alt="질문 서비스 개편 + 커뮤니티 기능" width="750">
+<p align="center"><em>질문 서비스 개편 + 커뮤니티 기능 추가</em></p>
 
 ---
 
