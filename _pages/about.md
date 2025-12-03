@@ -85,6 +85,11 @@ h2 {
   </div>
 </div>
 
+  <div class="timeline-item">
+    <strong>Google Analytics 4 Certification</strong>
+    <span>2025.12.04 · Google Skillshop</span>
+  </div>
+
 
 ## 저의 이야기
 
