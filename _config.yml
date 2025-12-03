@@ -16,11 +16,11 @@ minimal_mistakes_skin    : "dirt" # "air", "aqua", "contrast", "dark", "dirt", "
 # Site Settings
 locale                   : "ko-KR"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "조성찬 | Data Analyst"
+title                    : "조성찬 | Portfolio"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "조성찬 (Seongchan Jo)"
-description              : "데이터로 비즈니스 문제를 정의하고, 실행 가능한 인사이트를 도출하는 데이터 분석가"
+description              : "데이터 기반으로 문제를 이해하고, 실험과 분석을 통해 개선 방향을 찾는 사람입니다."
 url                      : "https://chan8457.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"""
 repository               : "chan8457/chan8457.github.io"
@@ -115,7 +115,7 @@ author:
   name: "조성찬"
   avatar: "/assets/images/profile.png"
   bio: >
-     데이터로 문제를 정의하고, 실험으로 개선하는 데이터 분석가입니다.<br><br>
+     데이터 기반으로 문제를 정의하고 개선해 나가는 과정을 좋아합니다.<br><br>
 
      <span style="display:inline-block; vertical-align:middle;">
        <img class="skill-badge" alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
