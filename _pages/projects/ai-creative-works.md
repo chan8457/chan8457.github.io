@@ -24,7 +24,14 @@ AI 기반 콘텐츠 제작 역량을 보여주는 예시입니다.
 제가 제작한 AI 영상 콘텐츠는 아래와 같은 콘셉트로 구성되어 있으며,  
 직접 운영 중인 유튜브 채널에도 업로드하고 있습니다.
 
-👉 유튜브 채널: **https://www.youtube.com/@Hello_AI-p9l**
+<p>
+  👉 유튜브 채널: 
+  <a href="https://www.youtube.com/@Hello_AI-p9l" 
+     target="_blank" 
+     style="font-weight:600; color:#1a73e8;">
+     Hello AI YouTube 채널 바로가기
+  </a>
+</p>
 
 <div style="text-align: center; margin: 15px 0;">
   <img src="/assets/ai/01.png" width="750" style="border-radius: 10px;">
@@ -95,44 +102,81 @@ Midjourney를 활용해 촬영한 것처럼 표현한 이온음료 모델 콘셉
 
 ---
 
-# 🖼️ 자동 썸네일 갤러리 (반응형)
+# 🖼️ 썸네일 갤러리 
 
 아래는 위의 영상 및 이미지를 한눈에 볼 수 있도록 구성한  
 썸네일 기반 갤러리입니다.
 
-<div style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+<style>
+  .ai-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    justify-content: center;
+    margin-top: 20px;
+  }
 
-  <!-- 02 썸네일 -->
-  <div style="text-align:center;">
-    <iframe width="250" height="400" 
-      src="https://www.youtube.com/embed/Av9WaC6Iqag" 
-      frameborder="0" allowfullscreen style="border-radius:12px;">
-    </iframe>
-    <p style="margin-top:6px; font-size:13px;">한국의 일상 감성 AI 영상</p>
+  .ai-card {
+    width: 230px;
+    text-align: center;
+  }
+
+  .ai-thumb {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .ai-thumb:hover {
+    transform: scale(1.05);
+  }
+
+  .ai-desc {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+  }
+</style>
+
+<div class="ai-gallery">
+
+  <!-- 02 -->
+  <div class="ai-card">
+    <a href="https://youtube.com/shorts/Av9WaC6Iqag" target="_blank">
+      <img class="ai-thumb" 
+           src="https://img.youtube.com/vi/Av9WaC6Iqag/maxresdefault.jpg">
+    </a>
+    <div class="ai-desc">한국의 일상 감성 AI 영상</div>
   </div>
 
-  <!-- 03 썸네일 -->
-  <div style="text-align:center;">
-    <iframe width="250" height="400" 
-      src="https://www.youtube.com/embed/AZ5yTsydJug" 
-      frameborder="0" allowfullscreen style="border-radius:12px;">
-    </iframe>
-    <p style="margin-top:6px; font-size:13px;">코즈믹 호러 AI 영상</p>
+  <!-- 03 -->
+  <div class="ai-card">
+    <a href="https://youtube.com/shorts/AZ5yTsydJug" target="_blank">
+      <img class="ai-thumb" 
+           src="https://img.youtube.com/vi/AZ5yTsydJug/maxresdefault.jpg">
+    </a>
+    <div class="ai-desc">코즈믹 호러 AI 영상</div>
   </div>
 
-  <!-- 04 썸네일 -->
-  <div style="text-align:center;">
-    <iframe width="250" height="400" 
-      src="https://www.youtube.com/embed/OLAXpcrGjw4" 
-      frameborder="0" allowfullscreen style="border-radius:12px;">
-    </iframe>
-    <p style="margin-top:6px; font-size:13px;">이온음료 AI 영상</p>
+  <!-- 04 -->
+  <div class="ai-card">
+    <a href="https://youtube.com/shorts/OLAXpcrGjw4" target="_blank">
+      <img class="ai-thumb" 
+           src="https://img.youtube.com/vi/OLAXpcrGjw4/maxresdefault.jpg">
+    </a>
+    <div class="ai-desc">이온음료 AI 영상</div>
   </div>
 
-  <!-- 05 썸네일 -->
-  <div style="text-align:center;">
-    <img src="/assets/ai/05.png" width="250" style="border-radius:12px;">
-    <p style="margin-top:6px; font-size:13px;">이온음료 모델 이미지</p>
+  <!-- 05 이미지 -->
+  <div class="ai-card">
+    <a href="/assets/ai/05.png" target="_blank">
+      <img class="ai-thumb" 
+           src="/assets/ai/05.png">
+    </a>
+    <div class="ai-desc">이온음료 모델 이미지</div>
   </div>
 
 </div>
