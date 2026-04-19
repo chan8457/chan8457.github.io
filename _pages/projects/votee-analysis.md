@@ -5,7 +5,7 @@ layout: single
 classes: wide
 author_profile: false
 categories: [projects]
-date: "2025-11-10"
+date: 2025-11-10
 toc: true
 toc_sticky: true
 header:

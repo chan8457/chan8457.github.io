@@ -5,7 +5,7 @@ layout: single
 classes: wide
 author_profile: false
 categories: [insights]
-date: "2025-11-17"
+date: 2025-11-17
 teaser: /assets/images/what-is-llm.png
 header:
   overlay_color: "#2b2b2b"

@@ -167,9 +167,11 @@ title: ""
 <h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
 
 <div class="home-latest-list">
-  {% assign project_pages = site.pages | where_exp: "p", "p.categories contains 'projects'" | where_exp: "p", "p.date" %}
-  {% assign insight_pages = site.insights | where_exp: "p", "p.date" %}
-  {% assign recent_pages = project_pages | concat: insight_pages | sort: "date" | reverse %}
+  {% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
+  {% assign insight_pages_raw = site.insights %}
+
+  {% assign all_pages_raw = project_pages_raw | concat: insight_pages_raw %}
+  {% assign recent_pages = all_pages_raw | where_exp: "p", "p.date" | sort: "date" | reverse %}
 
   {% for p in recent_pages limit:6 %}
     <article class="home-latest-card">

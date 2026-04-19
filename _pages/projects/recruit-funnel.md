@@ -5,7 +5,7 @@ layout: single
 classes: wide
 author_profile: false
 categories: [projects]
-date: "2025-11-08"
+date: 2025-11-08
 header:
   teaser: /assets/images/recruit-funnel-overview.png
   overlay_color: "#2b2b2b"

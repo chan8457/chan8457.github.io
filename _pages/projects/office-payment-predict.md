@@ -5,7 +5,7 @@ layout: single
 classes: wide
 author_profile: false
 categories: [projects]
-date: "2025-11-07"
+date: 2025-11-07
 header:
   teaser: /assets/images/office-insight-summary.png
   overlay_color: "#2b2b2b"

@@ -6,7 +6,7 @@ layout: single
 classes: wide
 author_profile: false
 categories: [projects]
-date: "2026-04-19"
+date: 2026-04-19
 toc: true
 toc_sticky: true
 header:
