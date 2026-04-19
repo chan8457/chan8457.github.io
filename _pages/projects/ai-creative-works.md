@@ -8,6 +8,8 @@ categories: [projects]
 date: "2025-12-02"
 toc: true
 toc_sticky: true
+header:
+  teaser: /assets/ai/01.png
 ---
 
 데이터 분석 기반 프로젝트 외에도,  
