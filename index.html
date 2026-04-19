@@ -5,11 +5,105 @@ title: ""
 ---
 
 <style>
-/* 메인 페이지 구분선 완전 개선 */
+/* 메인 페이지 구분선 */
 .custom-hr {
   border: none;
   border-top: 1px solid #e5e5e5;
   margin: 40px 0;
+}
+
+/* 최근 작성한 글 카드형 목록 */
+.home-latest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  margin-top: 28px;
+}
+
+.home-latest-card {
+  display: flex;
+  gap: 22px;
+  padding: 22px 0;
+  border-bottom: 1px solid #e5e5e5;
+  align-items: flex-start;
+}
+
+.home-latest-thumb {
+  width: 220px;
+  min-width: 220px;
+  height: 135px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #eeeeee;
+  background: #f7f7f7;
+}
+
+.home-latest-placeholder {
+  width: 220px;
+  min-width: 220px;
+  height: 135px;
+  border-radius: 12px;
+  border: 1px solid #eeeeee;
+  background: linear-gradient(135deg, #f8f8f8, #eeeeee);
+}
+
+.home-latest-info {
+  flex: 1;
+}
+
+.home-latest-type {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #f5f1e8;
+  color: #8a6d3b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.home-latest-title {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  line-height: 1.35;
+}
+
+.home-latest-title a {
+  color: #444;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.home-latest-excerpt {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #555;
+  margin: 0 0 10px 0;
+}
+
+.home-latest-date {
+  font-size: 13px;
+  color: #999;
+}
+
+@media (max-width: 768px) {
+  .home-latest-card {
+    flex-direction: column;
+  }
+
+  .home-latest-thumb,
+  .home-latest-placeholder {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+  }
+
+  .home-latest-title {
+    font-size: 21px;
+  }
 }
 </style>
 
@@ -72,37 +166,52 @@ title: ""
 
 <h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
 
-{%- comment -%}
-프로젝트 페이지 — categories 안에 'projects' 포함 + date 있는 것만
-{%- endcomment -%}
-{% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
-{% assign project_pages = project_pages_raw | where_exp: "p", "p.date" %}
+<div class="home-latest-list">
+  {% assign project_pages = site.pages | where_exp: "p", "p.categories contains 'projects'" | where_exp: "p", "p.date" %}
+  {% assign insight_pages = site.insights | where_exp: "p", "p.date" %}
+  {% assign recent_pages = project_pages | concat: insight_pages | sort: "date" | reverse %}
 
-{%- comment -%}
-인사이트 페이지 — date 있는 것만
-{%- endcomment -%}
-{% assign insight_pages = site.insights | where_exp: "p", "p.date" %}
-
-{% assign combined = project_pages | concat: insight_pages %}
-
-{% assign cleaned = '' | split: '' %}
-{% for p in combined %}
-  {% assign sort_key = p.date | date: "%Y-%m-%d %H:%M:%S" %}
-  {% assign item = p | merge: "sort_key", sort_key %}
-  {% assign cleaned = cleaned | push: item %}
-{% endfor %}
-
-{% assign recent_pages = cleaned | sort: "sort_key" | reverse %}
-
-<div class="entries-grid" style="margin-top: 20px;">
   {% for p in recent_pages limit:6 %}
-  <article class="archive__item">
-    <h2 class="archive__item-title">
-      <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-    </h2>
-    {% if p.excerpt %}
-      <p class="archive__item-excerpt">{{ p.excerpt }}</p>
-    {% endif %}
-  </article>
+    <article class="home-latest-card">
+      {% if p.header.teaser %}
+        <a href="{{ p.url | relative_url }}">
+          <img
+            class="home-latest-thumb"
+            src="{{ p.header.teaser | relative_url }}"
+            alt="{{ p.title }}"
+          >
+        </a>
+      {% else %}
+        <a href="{{ p.url | relative_url }}">
+          <div class="home-latest-placeholder"></div>
+        </a>
+      {% endif %}
+
+      <div class="home-latest-info">
+        {% if p.categories contains "projects" %}
+          <span class="home-latest-type">PROJECT</span>
+        {% elsif p.collection == "insights" %}
+          <span class="home-latest-type">INSIGHT</span>
+        {% else %}
+          <span class="home-latest-type">POST</span>
+        {% endif %}
+
+        <h2 class="home-latest-title">
+          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        </h2>
+
+        {% if p.excerpt %}
+          <p class="home-latest-excerpt">
+            {{ p.excerpt | strip_html | truncate: 120 }}
+          </p>
+        {% endif %}
+
+        {% if p.date %}
+          <div class="home-latest-date">
+            {{ p.date | date: "%Y.%m.%d" }}
+          </div>
+        {% endif %}
+      </div>
+    </article>
   {% endfor %}
 </div>
