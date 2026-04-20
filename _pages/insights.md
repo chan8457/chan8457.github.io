@@ -24,7 +24,7 @@ classes: insights-page
 
 .insight-card {
   height: 100%;
-  min-height: 500px;
+  min-height: 470px;
   display: flex;
   flex-direction: column;
   background: #fffdf8;
@@ -43,13 +43,15 @@ classes: insights-page
 .insight-thumb {
   display: block;
   width: 100%;
-  height: 155px;
-  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  object-fit: contain;
   object-position: center;
   border-radius: 12px;
   border: 1px solid rgba(233, 228, 219, 0.9);
   background: #f7f4ee;
   margin-bottom: 20px;
+  padding: 10px;
 }
 
 .insight-title {
@@ -106,7 +108,8 @@ classes: insights-page
   }
 
   .insight-thumb {
-    height: 170px;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 
   .insight-title,
