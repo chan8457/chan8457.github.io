@@ -1,3 +1,6 @@
+cp _sass/minimal-mistakes/_custom.scss _sass/minimal-mistakes/_custom_backup.scss
+
+cat > _sass/minimal-mistakes/_custom.scss <<'EOF'
 /* =========================================================
    Portfolio Global Custom Design
    ========================================================= */
@@ -14,7 +17,10 @@
   --sc-title: #222222;
 }
 
-/* Base */
+/* =========================================================
+   Base
+   ========================================================= */
+
 html {
   font-size: 14px;
 }
@@ -26,7 +32,10 @@ body {
   letter-spacing: -0.025em;
 }
 
-/* Navigation */
+/* =========================================================
+   Header / Navigation
+   ========================================================= */
+
 .masthead {
   background: rgba(251, 250, 247, 0.94) !important;
   backdrop-filter: blur(10px);
@@ -54,7 +63,10 @@ body {
   color: var(--sc-accent) !important;
 }
 
-/* Layout */
+/* =========================================================
+   Layout
+   ========================================================= */
+
 #main {
   max-width: 1180px !important;
 }
@@ -67,7 +79,7 @@ body {
   max-width: 760px !important;
 }
 
-/* 상세 글: 본문 왼쪽, 목차 오른쪽 */
+/* 상세 글: 본문 왼쪽, TOC 오른쪽 */
 @media (min-width: 1024px) {
   .page {
     float: left !important;
@@ -114,7 +126,10 @@ body {
   }
 }
 
-/* Typography */
+/* =========================================================
+   Typography
+   ========================================================= */
+
 .page__content {
   font-family: "Pretendard", "Inter", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif !important;
   font-size: 14px !important;
@@ -185,18 +200,21 @@ body {
   margin: 34px 0 !important;
 }
 
-/* Hero Overlay */
+/* =========================================================
+   Hero Overlay
+   ========================================================= */
+
 .page__hero--overlay {
   padding: 4.2em 0 3.2em !important;
-  background-color: rgba(40, 32, 24, 0.40) !important;
+  background-color: rgba(40, 32, 24, 0.35) !important;
   background-blend-mode: multiply !important;
 }
 
 .page__hero--overlay .page__title {
   color: #ffffff !important;
   text-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.62),
-    0 0 2px rgba(0, 0, 0, 0.72) !important;
+    0 2px 6px rgba(0, 0, 0, 0.55),
+    0 0 2px rgba(0, 0, 0, 0.65) !important;
   -webkit-text-stroke: 0.25px rgba(0, 0, 0, 0.35);
   font-size: 30px !important;
   line-height: 1.32 !important;
@@ -206,8 +224,8 @@ body {
 .page__hero--overlay .page__lead {
   color: #ffffff !important;
   text-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.55),
-    0 0 2px rgba(0, 0, 0, 0.60) !important;
+    0 2px 5px rgba(0, 0, 0, 0.50),
+    0 0 2px rgba(0, 0, 0, 0.55) !important;
   font-size: 15px !important;
   line-height: 1.6 !important;
   max-width: 760px !important;
@@ -222,7 +240,11 @@ body {
   border-radius: 6px;
 }
 
-/* Tables - No Card Style */
+/* =========================================================
+   Tables - No Card Style
+   ========================================================= */
+
+/* 표를 감싸는 wrapper가 흰 카드처럼 커지는 현상 제거 */
 .page__content figure,
 .page__content .table-wrapper,
 .page__content div:has(> table) {
@@ -235,6 +257,7 @@ body {
   padding: 0 !important;
 }
 
+/* 표 자체도 카드 스타일 제거 */
 .page__content table {
   display: table !important;
   width: auto !important;
@@ -249,6 +272,7 @@ body {
   overflow: visible !important;
 }
 
+/* 표 헤더 */
 .page__content table th {
   background: #f3eee6 !important;
   color: #333 !important;
@@ -257,6 +281,7 @@ body {
   border-bottom: 1px solid #bdb4a7 !important;
 }
 
+/* 표 셀 */
 .page__content table th,
 .page__content table td {
   padding: 8px 12px !important;
@@ -271,6 +296,7 @@ body {
   vertical-align: top !important;
 }
 
+/* 2열 요약표 기준: 첫 컬럼은 좁게 */
 .page__content table th:first-child,
 .page__content table td:first-child {
   width: 90px !important;
@@ -282,14 +308,20 @@ body {
   border-bottom: 1px solid #d8d0c3 !important;
 }
 
-/* Images */
+/* =========================================================
+   Images
+   ========================================================= */
+
 .page__content img {
   max-width: 100% !important;
   height: auto !important;
   border-radius: 12px;
 }
 
-/* Archive / Recent Posts */
+/* =========================================================
+   Archive / Recent Posts
+   ========================================================= */
+
 .archive__item-title {
   font-size: 18px !important;
   line-height: 1.42 !important;
@@ -328,7 +360,10 @@ body {
   margin-bottom: 1.8em !important;
 }
 
-/* TOC */
+/* =========================================================
+   TOC
+   ========================================================= */
+
 .toc .nav__title {
   font-size: 13px !important;
 }
@@ -339,7 +374,10 @@ body {
   line-height: 1.45 !important;
 }
 
-/* Sidebar / Author */
+/* =========================================================
+   Sidebar / Author
+   ========================================================= */
+
 .sidebar {
   opacity: 0.95;
 }
@@ -361,7 +399,10 @@ body {
   color: #666 !important;
 }
 
-/* Mobile */
+/* =========================================================
+   Mobile
+   ========================================================= */
+
 @media (max-width: 768px) {
   html {
     font-size: 14px;
@@ -408,3 +449,6 @@ body {
     max-width: 90px !important;
   }
 }
+EOF
+
+git add _sass/minimal-mistakes/_custom.scss _sass/minimal-mistakes/_custom_backup.scss && git commit -m "Clean up custom portfolio styles" && git pull --rebase origin master && git push origin master
