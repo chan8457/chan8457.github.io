@@ -334,3 +334,48 @@ html { font-size: 14px !important; }
 .archive__item-excerpt {
   font-size: 13px !important;
 }
+
+/* emergency-fix-insight-card-text */
+.taxonomy__section .archive__item-title,
+.entries-grid .archive__item-title,
+.grid__item .archive__item-title,
+.archive__item .archive__item-title,
+.taxonomy__section .archive__item-title a,
+.entries-grid .archive__item-title a,
+.grid__item .archive__item-title a,
+.archive__item .archive__item-title a,
+.taxonomy__section .archive__item-excerpt,
+.entries-grid .archive__item-excerpt,
+.grid__item .archive__item-excerpt,
+.archive__item .archive__item-excerpt {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  color: #2f2f2f !important;
+  position: static !important;
+  transform: none !important;
+}
+
+.grid__item .archive__item-title,
+.archive__item .archive__item-title {
+  font-size: 17px !important;
+  line-height: 1.45 !important;
+  font-weight: 800 !important;
+  margin: 14px 0 8px !important;
+}
+
+.grid__item .archive__item-excerpt,
+.archive__item .archive__item-excerpt {
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+  color: #666 !important;
+  margin: 0 0 14px !important;
+}
+
+.grid__item .archive__item,
+.entries-grid .archive__item {
+  min-height: auto !important;
+}
