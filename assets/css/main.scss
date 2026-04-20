@@ -9,7 +9,6 @@ $base-font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system,
   BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes/custom";
 @import "minimal-mistakes"; // main partials
 
 /* ===== 커스텀 스타일 ===== */
@@ -32,3 +31,4 @@ $base-font-family: 'Pretendard', 'Noto Sans KR', system-ui, -apple-system,
   vertical-align: middle;
   display: inline-block;
 }
+@import "minimal-mistakes/custom";
