@@ -10,8 +10,8 @@ toc: true
 toc_sticky: true
 header:
   teaser: /assets/images/votee-dau-trend.png
-  overlay_color: "#2b2b2b"
-  overlay_filter: 0.3
+  overlay_color: "#f3eee6"
+  overlay_filter: 0.15
   caption: "중·고등학생 대상 SNS형 투표 서비스 로그 분석"
   actions:
     - label: "PDF 보고서 보기"

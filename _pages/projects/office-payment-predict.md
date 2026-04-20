@@ -8,8 +8,8 @@ categories: [projects]
 date: 2025-11-07
 header:
   teaser: /assets/images/office-insight-summary.png
-  overlay_color: "#2b2b2b"
-  overlay_filter: 0.3
+  overlay_color: "#f3eee6"
+  overlay_filter: 0.15
   caption: "공유오피스 체험 데이터 기반 유저 유형 분류 및 결제 예측"
   actions:
     - label: "PDF 보고서 보기"

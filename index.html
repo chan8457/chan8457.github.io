@@ -22,16 +22,17 @@ title: ""
 
 .home-latest-card {
   display: flex;
-  gap: 22px;
-  padding: 22px 0;
-  border-bottom: 1px solid #e5e5e5;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e9e4db;
   align-items: flex-start;
 }
 
-.home-latest-thumb {
-  width: 220px;
-  min-width: 220px;
-  height: 135px;
+.home-latest-thumb,
+.home-latest-placeholder {
+  width: 180px;
+  min-width: 180px;
+  height: 112px;
   border-radius: 12px;
   object-fit: cover;
   border: 1px solid #eeeeee;
@@ -53,38 +54,45 @@ title: ""
 
 .home-latest-type {
   display: inline-block;
-  margin-bottom: 8px;
-  padding: 3px 9px;
+  margin-bottom: 7px;
+  padding: 3px 8px;
   border-radius: 999px;
-  background: #f5f1e8;
+  background: #f6f0e7;
   color: #8a6d3b;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 800;
   letter-spacing: 0.02em;
 }
 
 .home-latest-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
-  margin: 0 0 8px 0;
-  line-height: 1.35;
+  margin: 0 0 7px 0;
+  line-height: 1.38;
+  letter-spacing: -0.045em;
 }
 
-.home-latest-title {
-  font-size: 21px;
-  font-weight: 800;
-  line-height: 1.35;
+.home-latest-title a {
+  color: #333;
+  text-decoration: none;
+}
+
+.home-latest-title a:hover {
+  color: #9a743f;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .home-latest-excerpt {
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.65;
   color: #666;
+  margin: 0 0 8px 0;
 }
 
 .home-latest-date {
-  font-size: 13px;
-  color: #999;
+  font-size: 12.5px;
+  color: #aaa;
 }
 
 @media (max-width: 768px) {

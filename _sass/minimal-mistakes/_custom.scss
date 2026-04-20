@@ -6,89 +6,163 @@
    Global Custom Design
    ============================== */
 
+/* =========================================================
+   Portfolio Global Redesign
+   ========================================================= */
+
+:root {
+  --sc-bg: #fbfaf7;
+  --sc-card: #ffffff;
+  --sc-text: #2f2f2f;
+  --sc-muted: #6f6f6f;
+  --sc-light-muted: #9a9a9a;
+  --sc-line: #e9e4db;
+  --sc-accent: #b0895b;
+  --sc-accent-light: #f6f0e7;
+  --sc-title: #222222;
+}
+
+/* 전체 배경/폰트 */
+html {
+  font-size: 15px;
+}
+
 body {
   font-family: "Pretendard", "Inter", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif !important;
-  color: #2f2f2f;
-  background-color: #fafafa;
-  letter-spacing: -0.02em;
+  background: var(--sc-bg) !important;
+  color: var(--sc-text) !important;
+  letter-spacing: -0.025em;
+}
+
+/* 상단 네비게이션 */
+.masthead {
+  background: rgba(251, 250, 247, 0.94) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--sc-line) !important;
+}
+
+.greedy-nav {
+  background: transparent !important;
+}
+
+.site-title {
+  font-weight: 800 !important;
+  color: #242424 !important;
+  letter-spacing: -0.04em;
+}
+
+.greedy-nav a {
+  font-family: "Inter", "Pretendard", sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+}
+
+.greedy-nav a:hover {
+  color: var(--sc-accent) !important;
+}
+
+/* 전체 레이아웃 폭 */
+#main {
+  max-width: 1120px !important;
 }
 
 .page {
-  max-width: 1080px;
+  padding-right: 1.2em;
 }
 
+.page__inner-wrap {
+  max-width: 850px;
+}
+
+/* 본문 기본 */
 .page__content {
-  font-size: 16px;
-  line-height: 1.78;
-  color: #333;
+  font-family: "Pretendard", "Inter", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif !important;
+  font-size: 15.5px !important;
+  line-height: 1.78 !important;
+  color: #333 !important;
 }
 
 .page__content p {
-  margin-bottom: 1.1em;
+  margin-bottom: 1.05em;
 }
 
+/* 제목 크기 축소 */
+.page__title {
+  font-size: 34px !important;
+  line-height: 1.35 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.055em;
+  color: var(--sc-title) !important;
+}
+
+.page__content h1 {
+  font-size: 30px !important;
+  line-height: 1.38 !important;
+  font-weight: 850 !important;
+  letter-spacing: -0.055em;
+  color: var(--sc-title) !important;
+}
+
+.page__content h2 {
+  font-size: 22px !important;
+  line-height: 1.45 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.045em;
+  color: var(--sc-title) !important;
+  margin-top: 2.2em !important;
+  margin-bottom: 0.9em !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid var(--sc-line) !important;
+}
+
+.page__content h3 {
+  font-size: 18px !important;
+  line-height: 1.5 !important;
+  font-weight: 750 !important;
+  margin-top: 1.8em !important;
+  color: #333 !important;
+}
+
+/* 링크 */
 .page__content a {
-  color: #2f2f2f;
-  text-decoration-color: #c7a66b;
+  color: #303030 !important;
+  text-decoration-color: var(--sc-accent) !important;
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
 }
 
 .page__content a:hover {
-  color: #9a743f;
+  color: var(--sc-accent) !important;
 }
 
-/* 제목 톤 조정 */
-.page__content h1,
-.page__content h2,
-.page__content h3 {
-  font-family: "Pretendard", "Inter", sans-serif !important;
-  letter-spacing: -0.04em;
-  color: #252525;
+/* 구분선 */
+.page__content hr {
+  border: none !important;
+  border-top: 1px solid var(--sc-line) !important;
+  margin: 38px 0 !important;
 }
 
-.page__content h1 {
-  font-size: 34px;
-  font-weight: 800;
-  line-height: 1.35;
-  margin-top: 0.6em;
-  margin-bottom: 0.8em;
-}
-
-.page__content h2 {
-  font-size: 24px;
-  font-weight: 800;
-  margin-top: 2.1em;
-  margin-bottom: 0.9em;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e8dfd2;
-}
-
-.page__content h3 {
-  font-size: 19px;
-  font-weight: 700;
-  margin-top: 1.8em;
-}
-
-/* 표 디자인 */
+/* 표 */
 .page__content table {
-  font-size: 15px;
-  border-radius: 10px;
+  font-size: 14.5px !important;
+  border-collapse: collapse !important;
+  border-radius: 12px;
   overflow: hidden;
-  border-collapse: collapse;
-  box-shadow: 0 0 0 1px #eeeeee;
+  background: #fff;
+  box-shadow: 0 0 0 1px #eee;
 }
 
 .page__content table th {
-  background: #f5f1e8;
-  color: #4b4033;
-  font-weight: 700;
+  background: var(--sc-accent-light) !important;
+  color: #4b4033 !important;
+  font-weight: 750 !important;
 }
 
 .page__content table th,
 .page__content table td {
-  padding: 12px 14px;
-  border: 1px solid #eeeeee;
+  padding: 10px 12px !important;
+  border: 1px solid #eee !important;
 }
 
 /* 이미지 */
@@ -96,63 +170,88 @@ body {
   border-radius: 12px;
 }
 
-/* 구분선 */
-.page__content hr {
-  border: none;
-  border-top: 1px solid #e8e8e8;
-  margin: 42px 0;
+/* 상세 글 상단 hero 검정 박스 완화 */
+.page__hero--overlay {
+  padding: 4.5em 0 3.5em !important;
+  background-color: #f3eee6 !important;
+  background-blend-mode: multiply;
 }
 
-/* 상단 메뉴 */
-.masthead {
-  background: rgba(250, 250, 250, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid #ececec;
+.page__hero--overlay .page__title {
+  color: #252525 !important;
+  text-shadow: none !important;
+  font-size: 34px !important;
 }
 
-.site-title {
-  font-weight: 800 !important;
-  letter-spacing: -0.04em;
+.page__hero--overlay .page__lead {
+  color: #555 !important;
+  text-shadow: none !important;
+  font-size: 17px !important;
+  line-height: 1.65 !important;
 }
 
-.greedy-nav a {
-  font-family: "Inter", "Pretendard", sans-serif !important;
-  font-weight: 600;
-  color: #333;
+.page__hero-caption {
+  background: rgba(255, 255, 255, 0.72) !important;
+  color: #777 !important;
+  font-size: 12px !important;
+  padding: 4px 8px !important;
+  border-radius: 6px;
 }
 
-/* 페이지 제목 */
-.page__title {
-  font-size: 38px;
-  font-weight: 850;
-  letter-spacing: -0.05em;
-  color: #222;
-}
-
-/* 목록 카드 공통 */
+/* archive item 기본 크기 조정 */
 .archive__item-title {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-size: 21px !important;
+  line-height: 1.42 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.045em;
 }
 
 .archive__item-excerpt {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #666;
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+  color: var(--sc-muted) !important;
+}
+
+/* sidebar */
+.sidebar {
+  opacity: 0.95;
+}
+
+.author__avatar img {
+  border-radius: 12px !important;
+}
+
+.author__name {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+}
+
+.author__bio {
+  font-size: 14px !important;
+  line-height: 1.65 !important;
+  color: #666 !important;
 }
 
 /* 모바일 */
 @media (max-width: 768px) {
-  .page__content {
-    font-size: 15px;
+  html {
+    font-size: 14px;
   }
 
-  .page__title {
-    font-size: 30px;
+  .page__content {
+    font-size: 15px !important;
+  }
+
+  .page__title,
+  .page__hero--overlay .page__title {
+    font-size: 28px !important;
+  }
+
+  .page__content h1 {
+    font-size: 26px !important;
   }
 
   .page__content h2 {
-    font-size: 22px;
+    font-size: 20px !important;
   }
 }

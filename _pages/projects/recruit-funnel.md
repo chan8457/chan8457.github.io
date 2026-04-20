@@ -8,8 +8,8 @@ categories: [projects]
 date: 2025-11-08
 header:
   teaser: /assets/images/recruit-funnel-overview.png
-  overlay_color: "#2b2b2b"
-  overlay_filter: 0.3
+  overlay_color: "#f3eee6"
+  overlay_filter: 0.15
   caption: "데이터 기반 사용자 퍼널 진단 및 개선 실험"
   actions:
     - label: "PDF 보고서 보기"

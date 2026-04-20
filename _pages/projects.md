@@ -9,56 +9,57 @@ author_profile: false
 .project-list {
   display: flex;
   flex-direction: column;
-  gap: 28px;
-  margin-top: 30px;
+  gap: 22px;
+  margin-top: 28px;
 }
 
 .project-card {
   display: flex;
-  gap: 22px;
-  padding: 22px 0;
-  border-bottom: 1px solid #e5e5e5;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e9e4db;
   align-items: flex-start;
 }
 
 .project-thumb {
-  width: 220px;
-  min-width: 220px;
-  height: 135px;
+  width: 190px;
+  min-width: 190px;
+  height: 118px;
   border-radius: 12px;
   object-fit: cover;
   border: 1px solid #eeeeee;
   background: #f7f7f7;
 }
 
-.project-info {
-  flex: 1;
-}
-
 .project-title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 800;
   margin: 0 0 8px 0;
-  line-height: 1.35;
+  line-height: 1.38;
+  letter-spacing: -0.045em;
 }
 
 .project-title a {
-  color: #444;
+  color: #333;
+  text-decoration: none;
+}
+
+.project-title a:hover {
+  color: #9a743f;
   text-decoration: underline;
-  text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
 
 .project-excerpt {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #555;
-  margin: 0 0 10px 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #666;
+  margin: 0 0 8px 0;
 }
 
 .project-date {
-  font-size: 13px;
-  color: #999;
+  font-size: 12.5px;
+  color: #aaa;
 }
 
 @media (max-width: 768px) {

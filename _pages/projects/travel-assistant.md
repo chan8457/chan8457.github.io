@@ -9,8 +9,8 @@ date: 2025-11-17
 toc: true
 toc_sticky: true
 header:
-  overlay_color: "#2b2b2b"
-  overlay_filter: 0.3
+  overlay_color: "#f3eee6"
+  overlay_filter: 0.15
   caption: "카카오맵·트리플 등 다양한 데이터를 활용한 LLM 여행 추천 서비스"
 ---
 
