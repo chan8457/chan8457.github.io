@@ -667,3 +667,189 @@ html { font-size: 14px !important; }
   }
 }
 
+
+/* table-no-card-style-v8 */
+
+/* 프로젝트/인사이트 본문 표 카드 스타일 제거 */
+.page__content figure,
+.page__content .table-wrapper,
+.page__content div:has(> table) {
+  width: 100% !important;
+  max-width: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow-x: auto !important;
+}
+
+/* 표 자체: 카드형 박스 제거 */
+.page__content table {
+  display: table !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 1em 0 1.6em 0 !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* 표 헤더 */
+.page__content table th {
+  background: #f3eee6 !important;
+  color: #333 !important;
+  font-weight: 750 !important;
+  border-top: 1px solid #d8d0c3 !important;
+  border-bottom: 1px solid #bdb4a7 !important;
+}
+
+/* 표 셀 */
+.page__content table th,
+.page__content table td {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e7e1d8 !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: anywhere !important;
+  vertical-align: top !important;
+}
+
+/* 첫 번째 컬럼은 너무 넓어지지 않게 */
+.page__content table th:first-child,
+.page__content table td:first-child {
+  width: 90px !important;
+  max-width: 120px !important;
+  white-space: nowrap !important;
+}
+
+/* 두 번째 컬럼은 내용에 맞게 */
+.page__content table th:nth-child(2),
+.page__content table td:nth-child(2) {
+  max-width: 620px !important;
+}
+
+/* 표 안쪽 마지막 행 하단선 정리 */
+.page__content table tr:last-child td {
+  border-bottom: 1px solid #d8d0c3 !important;
+}
+
+/* 모바일에서는 표가 화면에 맞게 */
+@media (max-width: 768px) {
+  .page__content table {
+    width: 100% !important;
+  }
+
+  .page__content table th,
+  .page__content table td {
+    font-size: 12.5px !important;
+    padding: 7px 9px !important;
+  }
+
+  .page__content table th:first-child,
+  .page__content table td:first-child {
+    width: 78px !important;
+    max-width: 90px !important;
+  }
+}
+
+
+/* table-no-card-style-v8 */
+
+/* 프로젝트/인사이트 본문 표 카드 스타일 제거 */
+.page__content figure,
+.page__content .table-wrapper,
+.page__content div:has(> table) {
+  width: 100% !important;
+  max-width: 100% !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  overflow-x: auto !important;
+}
+
+/* 표 자체: 카드형 박스 제거 */
+.page__content table {
+  display: table !important;
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 1em 0 1.6em 0 !important;
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+/* 표 헤더 */
+.page__content table th {
+  background: #f3eee6 !important;
+  color: #333 !important;
+  font-weight: 750 !important;
+  border-top: 1px solid #d8d0c3 !important;
+  border-bottom: 1px solid #bdb4a7 !important;
+}
+
+/* 표 셀 */
+.page__content table th,
+.page__content table td {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 1px solid #e7e1d8 !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: anywhere !important;
+  vertical-align: top !important;
+}
+
+/* 첫 번째 컬럼은 너무 넓어지지 않게 */
+.page__content table th:first-child,
+.page__content table td:first-child {
+  width: 90px !important;
+  max-width: 120px !important;
+  white-space: nowrap !important;
+}
+
+/* 두 번째 컬럼은 내용에 맞게 */
+.page__content table th:nth-child(2),
+.page__content table td:nth-child(2) {
+  max-width: 620px !important;
+}
+
+/* 표 안쪽 마지막 행 하단선 정리 */
+.page__content table tr:last-child td {
+  border-bottom: 1px solid #d8d0c3 !important;
+}
+
+/* 모바일에서는 표가 화면에 맞게 */
+@media (max-width: 768px) {
+  .page__content table {
+    width: 100% !important;
+  }
+
+  .page__content table th,
+  .page__content table td {
+    font-size: 12.5px !important;
+    padding: 7px 9px !important;
+  }
+
+  .page__content table th:first-child,
+  .page__content table td:first-child {
+    width: 78px !important;
+    max-width: 90px !important;
+  }
+}
+
