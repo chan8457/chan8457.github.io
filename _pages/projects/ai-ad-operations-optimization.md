@@ -2,7 +2,6 @@
 title: "AI 및 데이터 기반 광고 운영 효율화 프로젝트"
 excerpt: "생성형 AI와 Python을 활용해 광고 소재 제작, 성과 모니터링, 반복 업무 자동화 흐름을 설계하고 샘플 데이터 기반 대시보드로 재현한 프로젝트"
 layout: single
-classes: wide
 author_profile: false
 categories: [projects]
 date: 2026-04-20
