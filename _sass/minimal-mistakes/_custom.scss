@@ -7,7 +7,7 @@
 
 :root {
   --sc-bg: #fbfaf7;
-  --sc-card: #ffffff;
+  --sc-card: #fffdf8;
   --sc-text: #2f2f2f;
   --sc-muted: #6f6f6f;
   --sc-light-muted: #9a9a9a;
@@ -152,6 +152,29 @@ body {
 }
 
 /* =========================================================
+   Content Card Background
+   ========================================================= */
+
+/* 프로젝트/인사이트 상세 본문을 은은한 카드형 흰 배경으로 */
+.layout--single .page__inner-wrap {
+  background: var(--sc-card);
+  border: 1px solid rgba(233, 228, 219, 0.8);
+  border-radius: 18px;
+  padding: 34px 38px;
+  box-shadow: 0 10px 28px rgba(70, 55, 35, 0.035);
+}
+
+/* 홈 페이지는 GitHub 카드 때문에 본문 카드 배경 제외 */
+.home .page__inner-wrap,
+.layout--home .page__inner-wrap {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* =========================================================
    Typography
    ========================================================= */
 
@@ -222,7 +245,14 @@ body {
 .page__content hr {
   border: none !important;
   border-top: 1px solid var(--sc-line) !important;
-  margin: 34px 0 !important;
+  margin: 30px 0 !important;
+}
+
+/* 첫 번째 큰 표가 너무 아래로 밀리는 느낌 방지 */
+.page__content h2 + p,
+.page__content p + table,
+.page__content table + p {
+  margin-top: 0.9em !important;
 }
 
 /* =========================================================
@@ -289,7 +319,7 @@ body {
   width: 100% !important;
   max-width: 100% !important;
   table-layout: fixed !important;
-  margin: 1em 0 1.45em 0 !important;
+  margin: 0.95em 0 1.35em 0 !important;
   border-collapse: collapse !important;
   border-spacing: 0 !important;
   background: transparent !important;
@@ -317,7 +347,7 @@ body {
   border-right: 0 !important;
   border-bottom: 1px solid #e7e1d8 !important;
   white-space: normal !important;
-  word-break: normal !important;
+  word-break: break-word !important;
   overflow-wrap: anywhere !important;
   vertical-align: top !important;
 }
@@ -325,7 +355,7 @@ body {
 /* 2열 표 기준: 첫 컬럼 */
 .page__content table th:first-child,
 .page__content table td:first-child {
-  width: 32% !important;
+  width: 30% !important;
   max-width: none !important;
   white-space: normal !important;
 }
@@ -333,7 +363,7 @@ body {
 /* 2열 표 기준: 두 번째 컬럼 */
 .page__content table th:nth-child(2),
 .page__content table td:nth-child(2) {
-  width: 68% !important;
+  width: 70% !important;
   max-width: none !important;
   white-space: normal !important;
 }
@@ -442,6 +472,13 @@ body {
     font-size: 20px !important;
   }
 
+  .layout--single .page__inner-wrap {
+    background: var(--sc-card);
+    border: 1px solid rgba(233, 228, 219, 0.8);
+    border-radius: 14px;
+    padding: 22px 18px;
+  }
+
   .page__content {
     font-size: 14px !important;
   }
@@ -476,7 +513,7 @@ body {
   .page__content table td {
     font-size: 12.5px !important;
     padding: 7px 9px !important;
-    word-break: normal !important;
+    word-break: break-word !important;
     overflow-wrap: anywhere !important;
   }
 
