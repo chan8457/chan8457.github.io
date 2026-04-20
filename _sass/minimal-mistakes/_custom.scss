@@ -853,3 +853,53 @@ html { font-size: 14px !important; }
   }
 }
 
+
+/* recent-post-card-spacing-fix-v9 */
+
+/* 최근 작성한 글: 카테고리 배지와 제목 사이 공백 축소 */
+.recent-posts .archive__item,
+.archive .archive__item {
+  margin-bottom: 1.8em !important;
+}
+
+.archive__item .archive__item-category,
+.archive__item .page__taxonomy,
+.archive__item .taxonomy__item,
+.archive__item .archive__item-tag,
+.archive__item .category-tag,
+.archive__item .post-category {
+  margin-bottom: 6px !important;
+}
+
+.archive__item-title {
+  margin-top: 6px !important;
+  margin-bottom: 8px !important;
+}
+
+/* 배지 자체 높이도 살짝 압축 */
+.archive__item .archive__item-category,
+.archive__item .taxonomy__item,
+.archive__item .category-tag,
+.archive__item .post-category {
+  line-height: 1.2 !important;
+  padding: 5px 10px !important;
+}
+
+/* 이미지와 텍스트 영역 세로 정렬 보정 */
+.archive__item-teaser + .archive__item-body,
+.archive__item-teaser + div {
+  margin-top: 0 !important;
+}
+
+/* 목록형 카드 내부 여백 줄이기 */
+.list__item .archive__item-title,
+.archive__item .archive__item-title {
+  margin-top: 4px !important;
+}
+
+.list__item .archive__item-excerpt,
+.archive__item .archive__item-excerpt {
+  margin-top: 6px !important;
+  margin-bottom: 10px !important;
+}
+
