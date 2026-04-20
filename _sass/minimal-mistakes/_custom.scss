@@ -426,6 +426,61 @@ body {
 }
 
 /* =========================================================
+   Multi-column Tables
+   3열 이상 표는 가로 스크롤 + 자동 폭으로 처리
+   ========================================================= */
+
+/* 3열 이상 표는 fixed layout 해제 */
+.page__content table:has(th:nth-child(3)),
+.page__content table:has(td:nth-child(3)) {
+  table-layout: auto !important;
+  min-width: 720px !important;
+  width: 100% !important;
+}
+
+/* 3열 이상 표에서는 첫/두 번째 컬럼 강제 비율 해제 */
+.page__content table:has(th:nth-child(3)) th:first-child,
+.page__content table:has(td:nth-child(3)) td:first-child,
+.page__content table:has(th:nth-child(3)) th:nth-child(2),
+.page__content table:has(td:nth-child(3)) td:nth-child(2) {
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* 숫자/짧은 지표 컬럼은 너무 찢어지지 않게 */
+.page__content table:has(th:nth-child(3)) th,
+.page__content table:has(th:nth-child(3)) td {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+
+/* 3열 이상 표의 본문 긴 설명 컬럼은 줄바꿈 허용 */
+.page__content table:has(th:nth-child(4)) th:nth-child(4),
+.page__content table:has(th:nth-child(4)) td:nth-child(4) {
+  min-width: 260px !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+}
+
+/* 클릭률/전환율 같은 짧은 컬럼 */
+.page__content table:has(th:nth-child(4)) th:nth-child(2),
+.page__content table:has(th:nth-child(4)) td:nth-child(2),
+.page__content table:has(th:nth-child(4)) th:nth-child(3),
+.page__content table:has(th:nth-child(4)) td:nth-child(3) {
+  min-width: 90px !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+}
+
+/* 표를 감싸는 영역에서 가로 스크롤 허용 */
+.page__content .table-wrapper,
+.page__content div:has(> table),
+.page__content figure {
+  overflow-x: auto !important;
+}
+
+/* =========================================================
    Images
    ========================================================= */
 
