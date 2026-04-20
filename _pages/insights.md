@@ -8,50 +8,55 @@ author_profile: false
 <style>
 .insight-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 26px;
-  margin-top: 30px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px;
+  margin-top: 34px;
 }
 
 .insight-card {
-  border-bottom: 1px solid #e5e5e5;
-  padding-bottom: 20px;
+  background: #fff;
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+  padding: 14px 14px 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.035);
 }
 
 .insight-thumb {
   width: 100%;
-  height: 135px;
+  height: 125px;
   object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid #eeeeee;
-  background: #f7f7f7;
+  border-radius: 12px;
   margin-bottom: 14px;
 }
 
 .insight-title {
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 800;
   line-height: 1.45;
   margin: 0 0 10px 0;
 }
 
 .insight-title a {
-  color: #444;
+  color: #333;
+  text-decoration: none;
+}
+
+.insight-title a:hover {
   text-decoration: underline;
-  text-decoration-thickness: 1px;
+  text-decoration-color: #c7a66b;
   text-underline-offset: 4px;
 }
 
 .insight-excerpt {
-  font-size: 15px;
-  line-height: 1.7;
-  color: #555;
-  margin: 0 0 10px 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #666;
 }
 
 .insight-date {
-  font-size: 13px;
-  color: #999;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #aaa;
 }
 
 @media (max-width: 900px) {
