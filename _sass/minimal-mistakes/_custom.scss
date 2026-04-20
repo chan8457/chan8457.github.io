@@ -14,7 +14,10 @@
   --sc-title: #222222;
 }
 
-/* Base */
+/* =========================================================
+   Base
+   ========================================================= */
+
 html {
   font-size: 14px;
 }
@@ -26,7 +29,10 @@ body {
   letter-spacing: -0.025em;
 }
 
-/* Navigation */
+/* =========================================================
+   Navigation
+   ========================================================= */
+
 .masthead {
   background: rgba(251, 250, 247, 0.94) !important;
   backdrop-filter: blur(10px);
@@ -54,7 +60,10 @@ body {
   color: var(--sc-accent) !important;
 }
 
-/* Layout */
+/* =========================================================
+   Layout
+   ========================================================= */
+
 #main {
   max-width: 1180px !important;
 }
@@ -114,7 +123,10 @@ body {
   }
 }
 
-/* Typography */
+/* =========================================================
+   Typography
+   ========================================================= */
+
 .page__content {
   font-family: "Pretendard", "Inter", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif !important;
   font-size: 14px !important;
@@ -185,10 +197,13 @@ body {
   margin: 34px 0 !important;
 }
 
-/* Hero Overlay */
+/* =========================================================
+   Hero Overlay
+   ========================================================= */
+
 .page__hero--overlay {
   padding: 4.2em 0 3.2em !important;
-  background-color: rgba(40, 32, 24, 0.40) !important;
+  background-color: rgba(40, 32, 24, 0.4) !important;
   background-blend-mode: multiply !important;
 }
 
@@ -222,7 +237,11 @@ body {
   border-radius: 6px;
 }
 
-/* Tables - No Card Style */
+/* =========================================================
+   Tables
+   ========================================================= */
+
+/* 카드형 표 제거: 표는 깔끔한 라인형으로만 사용 */
 .page__content figure,
 .page__content .table-wrapper,
 .page__content div:has(> table) {
@@ -282,14 +301,20 @@ body {
   border-bottom: 1px solid #d8d0c3 !important;
 }
 
-/* Images */
+/* =========================================================
+   Images
+   ========================================================= */
+
 .page__content img {
   max-width: 100% !important;
   height: auto !important;
   border-radius: 12px;
 }
 
-/* Archive / Recent Posts */
+/* =========================================================
+   Archive / Listing
+   ========================================================= */
+
 .archive__item-title {
   font-size: 18px !important;
   line-height: 1.42 !important;
@@ -311,24 +336,10 @@ body {
   margin-bottom: 10px !important;
 }
 
-/* 최근 작성한 글: 배지와 제목 사이 간격 축소 */
-.archive__item .archive__item-category,
-.archive__item .page__taxonomy,
-.archive__item .taxonomy__item,
-.archive__item .archive__item-tag,
-.archive__item .category-tag,
-.archive__item .post-category {
-  margin-bottom: 4px !important;
-  line-height: 1.2 !important;
-  padding: 5px 10px !important;
-}
+/* =========================================================
+   TOC
+   ========================================================= */
 
-.recent-posts .archive__item,
-.archive .archive__item {
-  margin-bottom: 1.8em !important;
-}
-
-/* TOC */
 .toc .nav__title {
   font-size: 13px !important;
 }
@@ -339,7 +350,10 @@ body {
   line-height: 1.45 !important;
 }
 
-/* Sidebar / Author */
+/* =========================================================
+   Sidebar / Author
+   ========================================================= */
+
 .sidebar {
   opacity: 0.95;
 }
@@ -347,7 +361,7 @@ body {
 .author__avatar img {
   border: none !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .author__name {
@@ -361,7 +375,10 @@ body {
   color: #666 !important;
 }
 
-/* Mobile */
+/* =========================================================
+   Mobile
+   ========================================================= */
+
 @media (max-width: 768px) {
   html {
     font-size: 14px;
