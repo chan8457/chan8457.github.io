@@ -161,13 +161,13 @@ title: ""
 
 <h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
 
+{% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
+{% assign insight_pages_raw = site.insights %}
+
+{% assign all_pages = project_pages_raw | concat: insight_pages_raw %}
+{% assign recent_pages = all_pages | where_exp: "p", "p.date" | sort: "date" | reverse %}
+
 <div class="home-latest-list">
-  {% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
-  {% assign insight_pages_raw = site.insights %}
-
-  {% assign all_pages = project_pages_raw | concat: insight_pages_raw %}
-  {% assign recent_pages = all_pages | where_exp: "p", "p.date" | sort: "date" | reverse %}
-
   {% for p in recent_pages limit:6 %}
     <article class="home-latest-card">
       {% if p.header.teaser %}
