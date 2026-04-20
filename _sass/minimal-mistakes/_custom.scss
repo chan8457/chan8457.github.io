@@ -47,17 +47,18 @@ body {
 }
 
 .site-title {
-  font-size: 22px !important;
+  font-size: 28px !important;
   font-weight: 900 !important;
   color: #242424 !important;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.05em;
 }
 
 .greedy-nav a {
   font-family: "SUIT", "Pretendard", sans-serif !important;
-  font-size: 19px !important;
-  font-weight: 800 !important;
+  font-size: 23px !important;
+  font-weight: 850 !important;
   color: #333 !important;
+  letter-spacing: -0.035em;
 }
 
 .greedy-nav a:hover {
@@ -69,47 +70,47 @@ body {
    ========================================================= */
 
 #main {
-  max-width: 1220px !important;
+  max-width: 1240px !important;
 }
 
 /* 왼쪽 프로필과 본문 사이 여백 확보 */
 .sidebar {
-  opacity: 0.96;
-  padding-right: 34px !important;
+  opacity: 0.98;
+  padding-right: 48px !important;
 }
 
 .sidebar.sticky {
-  width: 240px !important;
+  width: 275px !important;
 }
 
 /* 본문 영역 */
 .page {
-  padding-left: 24px !important;
+  padding-left: 34px !important;
   padding-right: 1.2em;
 }
 
 .page__inner-wrap {
-  max-width: 760px !important;
+  max-width: 780px !important;
 }
 
 /* 상세 글: 본문 왼쪽, 목차 오른쪽 */
 @media (min-width: 1024px) {
   .page {
     float: left !important;
-    width: calc(100% - 350px) !important;
-    padding-right: 38px !important;
+    width: calc(100% - 360px) !important;
+    padding-right: 42px !important;
   }
 
   .page__inner-wrap {
-    max-width: 760px !important;
+    max-width: 780px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
 
   .sidebar__right {
     float: right !important;
-    width: 280px !important;
-    margin-left: 28px !important;
+    width: 285px !important;
+    margin-left: 30px !important;
     position: sticky !important;
     top: 90px !important;
     z-index: 5 !important;
@@ -117,14 +118,14 @@ body {
 
   .toc {
     width: 100% !important;
-    max-width: 280px !important;
+    max-width: 285px !important;
   }
 }
 
 /* 홈 화면처럼 author_profile 있는 페이지 */
 .layout--single .sidebar + .archive,
 .layout--single .sidebar + .page {
-  margin-left: 28px !important;
+  margin-left: 40px !important;
 }
 
 @media (max-width: 1023px) {
@@ -272,6 +273,7 @@ body {
 .page__content figure,
 .page__content .table-wrapper,
 .page__content div:has(> table) {
+  width: 100% !important;
   max-width: 100% !important;
   background: transparent !important;
   border: 0 !important;
@@ -281,7 +283,7 @@ body {
   padding: 0 !important;
 }
 
-/* 표는 본문 폭을 자연스럽게 사용 */
+/* 표는 본문 폭 전체 사용 */
 .page__content table {
   display: table !important;
   width: 100% !important;
@@ -310,28 +312,28 @@ body {
 .page__content table td {
   padding: 8px 12px !important;
   font-size: 13px !important;
-  line-height: 1.55 !important;
+  line-height: 1.6 !important;
   border-left: 0 !important;
   border-right: 0 !important;
   border-bottom: 1px solid #e7e1d8 !important;
   white-space: normal !important;
-  word-break: keep-all !important;
-  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
   vertical-align: top !important;
 }
 
-/* 첫 번째 컬럼만 적당히 좁게 */
+/* 2열 표 기준: 첫 컬럼 */
 .page__content table th:first-child,
 .page__content table td:first-child {
-  width: 28% !important;
+  width: 32% !important;
   max-width: none !important;
   white-space: normal !important;
 }
 
-/* 두 번째 컬럼 */
+/* 2열 표 기준: 두 번째 컬럼 */
 .page__content table th:nth-child(2),
 .page__content table td:nth-child(2) {
-  width: 72% !important;
+  width: 68% !important;
   max-width: none !important;
   white-space: normal !important;
 }
@@ -394,20 +396,33 @@ body {
    ========================================================= */
 
 .author__avatar img {
+  width: 170px !important;
+  max-width: 170px !important;
   border: none !important;
   border-radius: 12px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
 }
 
 .author__name {
-  font-size: 21px !important;
-  font-weight: 850 !important;
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.05em;
 }
 
 .author__bio {
-  font-size: 14px !important;
-  line-height: 1.65 !important;
+  font-size: 15.5px !important;
+  line-height: 1.7 !important;
   color: #666 !important;
+}
+
+.author__urls {
+  font-size: 15px !important;
+  line-height: 1.8 !important;
+}
+
+.author__urls-wrapper {
+  margin-top: 12px !important;
 }
 
 /* =========================================================
@@ -420,11 +435,11 @@ body {
   }
 
   .greedy-nav a {
-    font-size: 16px !important;
+    font-size: 17px !important;
   }
 
   .site-title {
-    font-size: 19px !important;
+    font-size: 20px !important;
   }
 
   .page__content {
@@ -454,17 +469,40 @@ body {
 
   .page__content table {
     width: 100% !important;
+    table-layout: fixed !important;
   }
 
   .page__content table th,
   .page__content table td {
     font-size: 12.5px !important;
     padding: 7px 9px !important;
+    word-break: normal !important;
+    overflow-wrap: anywhere !important;
   }
 
   .page__content table th:first-child,
   .page__content table td:first-child {
-    width: 78px !important;
-    max-width: 90px !important;
+    width: 34% !important;
+    max-width: none !important;
+    white-space: normal !important;
+  }
+
+  .page__content table th:nth-child(2),
+  .page__content table td:nth-child(2) {
+    width: 66% !important;
+    max-width: none !important;
+  }
+
+  .author__avatar img {
+    width: 145px !important;
+    max-width: 145px !important;
+  }
+
+  .author__name {
+    font-size: 24px !important;
+  }
+
+  .author__bio {
+    font-size: 14px !important;
   }
 }
