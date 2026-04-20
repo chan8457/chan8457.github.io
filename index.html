@@ -161,52 +161,54 @@ title: ""
 
 <h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
 
-{% assign project_pages = site.pages | where: "categories", "projects" %}
-{% assign insight_pages = site.insights %}
-{% assign recent_pages = project_pages | concat: insight_pages | sort: "date" | reverse %}
-
 <div class="home-latest-list">
+  {% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
+  {% assign insight_pages_raw = site.insights %}
+
+  {% assign all_pages = project_pages_raw | concat: insight_pages_raw %}
+  {% assign recent_pages = all_pages | where_exp: "p", "p.date" | sort: "date" | reverse %}
+
   {% for p in recent_pages limit:6 %}
-    {% if p.title and p.date %}
-      <article class="home-latest-card">
-        {% if p.header.teaser %}
-          <a href="{{ p.url | relative_url }}">
-            <img
-              class="home-latest-thumb"
-              src="{{ p.header.teaser | relative_url }}"
-              alt="{{ p.title }}"
-            >
-          </a>
+    <article class="home-latest-card">
+      {% if p.header.teaser %}
+        <a href="{{ p.url | relative_url }}">
+          <img
+            class="home-latest-thumb"
+            src="{{ p.header.teaser | relative_url }}"
+            alt="{{ p.title }}"
+          >
+        </a>
+      {% else %}
+        <a href="{{ p.url | relative_url }}">
+          <div class="home-latest-placeholder"></div>
+        </a>
+      {% endif %}
+
+      <div class="home-latest-info">
+        {% if p.categories contains "projects" %}
+          <span class="home-latest-type">PROJECT</span>
+        {% elsif p.collection == "insights" %}
+          <span class="home-latest-type">INSIGHT</span>
         {% else %}
-          <a href="{{ p.url | relative_url }}">
-            <div class="home-latest-placeholder"></div>
-          </a>
+          <span class="home-latest-type">POST</span>
         {% endif %}
 
-        <div class="home-latest-info">
-          {% if p.categories contains "projects" %}
-            <span class="home-latest-type">PROJECT</span>
-          {% elsif p.collection == "insights" %}
-            <span class="home-latest-type">INSIGHT</span>
-          {% else %}
-            <span class="home-latest-type">POST</span>
-          {% endif %}
+        <h2 class="home-latest-title">
+          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        </h2>
 
-          <h2 class="home-latest-title">
-            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-          </h2>
+        {% if p.excerpt %}
+          <p class="home-latest-excerpt">
+            {{ p.excerpt | strip_html | truncate: 120 }}
+          </p>
+        {% endif %}
 
-          {% if p.excerpt %}
-            <p class="home-latest-excerpt">
-              {{ p.excerpt | strip_html | truncate: 120 }}
-            </p>
-          {% endif %}
-
+        {% if p.date %}
           <div class="home-latest-date">
             {{ p.date | date: "%Y.%m.%d" }}
           </div>
-        </div>
-      </article>
-    {% endif %}
+        {% endif %}
+      </div>
+    </article>
   {% endfor %}
 </div>
