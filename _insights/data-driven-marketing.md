@@ -5,6 +5,8 @@ layout: single
 author_profile: false
 categories: [insights]
 date: 2026-04-20
+toc: true
+toc_sticky: true
 teaser: /assets/images/data-driven-marketing.png
 header:
   overlay_image: /assets/images/data-driven-marketing.png

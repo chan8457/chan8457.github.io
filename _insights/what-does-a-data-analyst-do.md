@@ -5,6 +5,8 @@ layout: single
 author_profile: false
 categories: [insights]
 date: 2025-11-03
+toc: true
+toc_sticky: true
 teaser: /assets/images/insight-analyst.png
 header:
   overlay_image: /assets/images/insight-analyst.png
