@@ -114,14 +114,12 @@ title: ""
   </h2>
 
   <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center;">
-    <!-- GitHub Stats -->
     <img 
       src="https://github-readme-stats.vercel.app/api?username=chan8457&show_icons=true&theme=default" 
       alt="GitHub Stats" 
       style="max-width: 48%; min-width: 300px; flex: 1;"
     >
 
-    <!-- Top Languages -->
     <img 
       src="https://github-readme-stats.vercel.app/api/top-langs/?username=chan8457&layout=compact&theme=default" 
       alt="Top Languages" 
@@ -130,7 +128,6 @@ title: ""
   </div>
 
   <div style="margin-top: 20px;">
-    <!-- GitHub Streak -->
     <img 
       src="https://streak-stats.demolab.com/?user=chan8457&theme=default" 
       alt="GitHub Streak" 
@@ -145,7 +142,6 @@ title: ""
     GitHub 활동 기록
   </h2>
 
-  <!-- Profile Summary Card -->
   <img 
     src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=chan8457&theme=default" 
     alt="GitHub Profile Summary" 
@@ -153,7 +149,6 @@ title: ""
     style="width: 100%; max-width: 900px;"
   >
 
-  <!-- Contribution Activity Graph -->
   <img 
     src="https://github-readme-activity-graph.vercel.app/graph?username=chan8457&theme=minimal" 
     alt="GitHub Contribution Graph" 
@@ -166,54 +161,52 @@ title: ""
 
 <h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
 
+{% assign project_pages = site.pages | where: "categories", "projects" %}
+{% assign insight_pages = site.insights %}
+{% assign recent_pages = project_pages | concat: insight_pages | sort: "date" | reverse %}
+
 <div class="home-latest-list">
-  {% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
-  {% assign insight_pages_raw = site.insights %}
-
-  {% assign all_pages_raw = project_pages_raw | concat: insight_pages_raw %}
-  {% assign recent_pages = all_pages_raw | where_exp: "p", "p.date" | sort: "date" | reverse %}
-
   {% for p in recent_pages limit:6 %}
-    <article class="home-latest-card">
-      {% if p.header.teaser %}
-        <a href="{{ p.url | relative_url }}">
-          <img
-            class="home-latest-thumb"
-            src="{{ p.header.teaser | relative_url }}"
-            alt="{{ p.title }}"
-          >
-        </a>
-      {% else %}
-        <a href="{{ p.url | relative_url }}">
-          <div class="home-latest-placeholder"></div>
-        </a>
-      {% endif %}
-
-      <div class="home-latest-info">
-        {% if p.categories contains "projects" %}
-          <span class="home-latest-type">PROJECT</span>
-        {% elsif p.collection == "insights" %}
-          <span class="home-latest-type">INSIGHT</span>
+    {% if p.title and p.date %}
+      <article class="home-latest-card">
+        {% if p.header.teaser %}
+          <a href="{{ p.url | relative_url }}">
+            <img
+              class="home-latest-thumb"
+              src="{{ p.header.teaser | relative_url }}"
+              alt="{{ p.title }}"
+            >
+          </a>
         {% else %}
-          <span class="home-latest-type">POST</span>
+          <a href="{{ p.url | relative_url }}">
+            <div class="home-latest-placeholder"></div>
+          </a>
         {% endif %}
 
-        <h2 class="home-latest-title">
-          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-        </h2>
+        <div class="home-latest-info">
+          {% if p.categories contains "projects" %}
+            <span class="home-latest-type">PROJECT</span>
+          {% elsif p.collection == "insights" %}
+            <span class="home-latest-type">INSIGHT</span>
+          {% else %}
+            <span class="home-latest-type">POST</span>
+          {% endif %}
 
-        {% if p.excerpt %}
-          <p class="home-latest-excerpt">
-            {{ p.excerpt | strip_html | truncate: 120 }}
-          </p>
-        {% endif %}
+          <h2 class="home-latest-title">
+            <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+          </h2>
 
-        {% if p.date %}
+          {% if p.excerpt %}
+            <p class="home-latest-excerpt">
+              {{ p.excerpt | strip_html | truncate: 120 }}
+            </p>
+          {% endif %}
+
           <div class="home-latest-date">
             {{ p.date | date: "%Y.%m.%d" }}
           </div>
-        {% endif %}
-      </div>
-    </article>
+        </div>
+      </article>
+    {% endif %}
   {% endfor %}
 </div>
