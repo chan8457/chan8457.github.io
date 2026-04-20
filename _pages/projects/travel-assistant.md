@@ -2,7 +2,6 @@
 title: "LLM 기반 여행지 추천 플랫폼 개발(진행중)"
 excerpt: "여러 여행·맛집 플랫폼 데이터를 통합하고, LLM이 사용자의 자연어 의도를 해석해 여행지를 추천하는 AI 여행 어시스턴트 프로젝트"
 layout: single
-classes: wide
 author_profile: false
 categories: [projects]
 date: 2025-11-17

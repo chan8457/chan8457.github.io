@@ -2,7 +2,6 @@
 title: "서비스 종료된 10대 익명 투표 앱 데이터 분석"
 excerpt: "DAU 97% 급락 원인 진단과 재출시 시 필요한 핵심 경험·잔존 유저 관리 전략 설계"
 layout: single
-classes: wide
 author_profile: false
 categories: [projects]
 date: 2025-11-10

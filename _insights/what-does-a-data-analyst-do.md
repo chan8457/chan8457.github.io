@@ -2,7 +2,6 @@
 title: "데이터 분석가는 정확히 무슨 일을 하는 사람일까요?"
 excerpt: "단순한 툴 사용을 넘어, 비즈니스 의사결정을 돕는 분석가의 본질에 대한 고민"
 layout: single
-classes: wide
 author_profile: false
 categories: [insights]
 date: 2025-11-03

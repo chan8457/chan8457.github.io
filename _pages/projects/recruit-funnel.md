@@ -2,7 +2,6 @@
 title: "채용 플랫폼 지원 퍼널 진단 및 단계별 개선 제안"
 excerpt: "구직자 여정 데이터를 기반으로 채용 퍼널 단계별 전환율 개선 전략 수립"
 layout: single
-classes: wide
 author_profile: false
 categories: [projects]
 date: 2025-11-08

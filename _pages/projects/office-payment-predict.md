@@ -2,7 +2,6 @@
 title: "머신러닝 기반 공유오피스 결제 유도 전략"
 excerpt: "유저 행동 데이터를 기반으로 결제 전환 가능성을 예측하고, 회원권 개선안을 도출한 프로젝트"
 layout: single
-classes: wide
 author_profile: false
 categories: [projects]
 date: 2025-11-07

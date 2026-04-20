@@ -2,7 +2,6 @@
 title: "데이터 기반 마케팅이란 정확히 무엇일까?"
 excerpt: "감이 아닌 데이터로 고객 행동을 이해하고, 마케팅 의사결정을 개선하는 방식에 대한 생각"
 layout: single
-classes: wide
 author_profile: false
 categories: [insights]
 date: 2026-04-20

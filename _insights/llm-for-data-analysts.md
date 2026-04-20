@@ -2,7 +2,6 @@
 title: "LLM은 무엇이고, 데이터 분석가는 왜 알아야 할까?"
 excerpt: "채용 공고에서 LLM을 자주 보게 되면서 시작된 고민 — 분석가에게 LLM은 어떤 의미일까?"
 layout: single
-classes: wide
 author_profile: false
 categories: [insights]
 date: 2025-11-17

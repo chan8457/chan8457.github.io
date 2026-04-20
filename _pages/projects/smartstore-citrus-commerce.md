@@ -3,7 +3,6 @@ title: "소규모 농산물 스마트스토어 구축 및 판매 콘텐츠 개�
 excerpt: "네이버 스마트스토어를 기반으로 농산물 판매 채널을 구축하고, AI 이미지 도구를 활용해 상세페이지·상품 문구·제품 콘텐츠를 개선한 커머스 프로젝트"
 permalink: /projects/smartstore-citrus-commerce/
 layout: single
-classes: wide
 author_profile: false
 categories: [projects]
 date: 2026-04-19

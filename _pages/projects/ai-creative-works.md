@@ -2,7 +2,6 @@
 title: "AI 기반 영상·이미지 창작 작업 모음"
 excerpt: "Sora2, Midjourney, Veo를 활용한 창작형 AI 콘텐츠 포트폴리오"
 layout: single
-classes: wide
 author_profile: false
 categories: [projects]
 date: 2025-12-02

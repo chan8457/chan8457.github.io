@@ -2,7 +2,6 @@
 title: "서울시 따릉이 대여소 광고 타겟 분석"
 excerpt: "LED 패널 광고 시범 운영을 위한 대여소 입지 선정 및 타겟 분석"
 layout: single
-classes: wide
 author_profile: false
 categories: [projects]
 date: 2025-11-02

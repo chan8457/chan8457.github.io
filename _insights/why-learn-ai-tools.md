@@ -2,7 +2,6 @@
 title: "다양한 AI 툴을 배워야 하는 이유"
 excerpt: "AI를 단순한 자동화 도구가 아니라, 문제 해결과 업무 생산성을 확장하는 도구로 바라본 생각"
 layout: single
-classes: wide
 author_profile: false
 categories: [insights]
 date: 2026-04-20
