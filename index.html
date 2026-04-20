@@ -159,13 +159,9 @@ title: ""
 
 <hr class="custom-hr">
 
-<h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
+<h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 프로젝트</h2>
 
-{% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
-{% assign insight_pages_raw = site.insights %}
-
-{% assign all_pages = project_pages_raw | concat: insight_pages_raw %}
-{% assign recent_pages = all_pages | where_exp: "p", "p.date" | sort: "date" | reverse %}
+{% assign recent_pages = site.pages | where_exp: "p", "p.categories contains 'projects' and p.date" | sort: "date" | reverse %}
 
 <div class="home-latest-list">
   {% for p in recent_pages limit:6 %}
@@ -185,13 +181,7 @@ title: ""
       {% endif %}
 
       <div class="home-latest-info">
-        {% if p.categories contains "projects" %}
-          <span class="home-latest-type">PROJECT</span>
-        {% elsif p.collection == "insights" %}
-          <span class="home-latest-type">INSIGHT</span>
-        {% else %}
-          <span class="home-latest-type">POST</span>
-        {% endif %}
+        <span class="home-latest-type">PROJECT</span>
 
         <h2 class="home-latest-title">
           <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
