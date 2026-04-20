@@ -12,6 +12,7 @@
   --sc-muted: #6f6f6f;
   --sc-light-muted: #9a9a9a;
   --sc-line: #e9e4db;
+  --sc-divider: #c9bda9;
   --sc-accent: #b0895b;
   --sc-accent-light: #f6f0e7;
   --sc-title: #222222;
@@ -287,8 +288,8 @@ body {
 
 .page__content hr {
   border: none !important;
-  border-top: 1px solid var(--sc-line) !important;
-  margin: 26px 0 !important;
+  border-top: 1.5px solid var(--sc-divider) !important;
+  margin: 30px 0 !important;
 }
 
 /* 문단/표 간격 압축 */
