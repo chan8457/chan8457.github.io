@@ -165,7 +165,9 @@ title: ""
 
 <div id="home-latest-source" style="display: none;">
 
-  {% assign project_pages = site.pages | where_exp: "p", "p.categories contains 'projects' and p.date" | sort: "date" | reverse %}
+  {% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
+  {% assign project_pages = project_pages_raw | where_exp: "p", "p.date" | sort: "date" | reverse %}
+
   {% for p in project_pages %}
     <article 
       class="home-latest-card latest-item"
@@ -206,6 +208,7 @@ title: ""
   {% endfor %}
 
   {% assign insight_pages = site.insights | where_exp: "p", "p.date" | sort: "date" | reverse %}
+
   {% for p in insight_pages %}
     <article 
       class="home-latest-card latest-item"
