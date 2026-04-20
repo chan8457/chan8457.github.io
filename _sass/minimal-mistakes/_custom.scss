@@ -535,3 +535,135 @@ html { font-size: 14px !important; }
   height: auto !important;
 }
 
+
+/* table-whitespace-fix-v6 */
+
+/* 표가 본문 전체를 억지로 채우면서 생기는 오른쪽 빈칸 제거 */
+.page__content table {
+  width: auto !important;
+  max-width: 100% !important;
+  display: table !important;
+  table-layout: auto !important;
+  margin: 1.1em 0 1.6em 0 !important;
+  border-collapse: collapse !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  box-shadow: 0 0 0 1px #eee !important;
+}
+
+/* 표가 너무 길 때만 가로 스크롤 허용 */
+.page__content .table-wrapper,
+.page__content div:has(> table) {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* 셀 간격 축소 */
+.page__content table th,
+.page__content table td {
+  padding: 7px 10px !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+  vertical-align: top !important;
+}
+
+/* 2열 요약표는 첫 번째 컬럼 좁게 */
+.page__content table th:first-child,
+.page__content table td:first-child {
+  width: 86px !important;
+  white-space: nowrap !important;
+}
+
+/* 표 위아래 문단 간격 정리 */
+.page__content p + table,
+.page__content table + p {
+  margin-top: 1em !important;
+}
+
+/* 본문 폭 살짝 조정: TOC와 겹치지 않게 */
+@media (min-width: 1024px) {
+  .page__inner-wrap {
+    max-width: 740px !important;
+  }
+
+  .page {
+    width: calc(100% - 360px) !important;
+    padding-right: 40px !important;
+  }
+
+  .sidebar__right {
+    width: 285px !important;
+    margin-left: 30px !important;
+  }
+}
+
+
+/* table-whitespace-fix-v6 */
+
+/* 표가 본문 전체를 억지로 채우면서 생기는 오른쪽 빈칸 제거 */
+.page__content table {
+  width: auto !important;
+  max-width: 100% !important;
+  display: table !important;
+  table-layout: auto !important;
+  margin: 1.1em 0 1.6em 0 !important;
+  border-collapse: collapse !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: #fff !important;
+  box-shadow: 0 0 0 1px #eee !important;
+}
+
+/* 표가 너무 길 때만 가로 스크롤 허용 */
+.page__content .table-wrapper,
+.page__content div:has(> table) {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+/* 셀 간격 축소 */
+.page__content table th,
+.page__content table td {
+  padding: 7px 10px !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+  vertical-align: top !important;
+}
+
+/* 2열 요약표는 첫 번째 컬럼 좁게 */
+.page__content table th:first-child,
+.page__content table td:first-child {
+  width: 86px !important;
+  white-space: nowrap !important;
+}
+
+/* 표 위아래 문단 간격 정리 */
+.page__content p + table,
+.page__content table + p {
+  margin-top: 1em !important;
+}
+
+/* 본문 폭 살짝 조정: TOC와 겹치지 않게 */
+@media (min-width: 1024px) {
+  .page__inner-wrap {
+    max-width: 740px !important;
+  }
+
+  .page {
+    width: calc(100% - 360px) !important;
+    padding-right: 40px !important;
+  }
+
+  .sidebar__right {
+    width: 285px !important;
+    margin-left: 30px !important;
+  }
+}
+
