@@ -2,6 +2,7 @@
 layout: single
 author_profile: true
 title: ""
+classes: home-page
 ---
 
 <style>
@@ -18,9 +19,12 @@ title: ""
 }
 
 .home-section-title {
-  margin-bottom: 16px;
-  font-size: 22px;
-  font-weight: 700;
+  margin: 0 0 16px 0 !important;
+  padding: 0 !important;
+  border-bottom: 0 !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  line-height: 1.35 !important;
   color: #222;
   letter-spacing: -0.04em;
 }
@@ -53,14 +57,14 @@ title: ""
 .home-latest-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-top: 20px;
+  gap: 8px;
+  margin-top: 18px;
 }
 
 .home-latest-card {
   display: flex;
   gap: 18px;
-  padding: 14px 0 16px;
+  padding: 13px 0 15px;
   border-bottom: 1px solid #e9e4db;
   align-items: flex-start;
 }
@@ -89,12 +93,14 @@ title: ""
 
 .home-latest-info {
   flex: 1;
-  padding-top: 0;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
+/* PROJECT / INSIGHT 태그 */
 .home-latest-type {
   display: inline-block;
-  margin: 0 0 5px 0;
+  margin: 0 0 2px 0 !important;
   padding: 3px 8px;
   border-radius: 999px;
   background: #f6f0e7;
@@ -105,11 +111,14 @@ title: ""
   letter-spacing: 0.02em;
 }
 
+/* 전역 h2 스타일 무력화 */
 .home-latest-title {
-  font-size: 19px;
-  font-weight: 800;
-  margin: 0 0 6px 0;
-  line-height: 1.35;
+  font-size: 19px !important;
+  font-weight: 800 !important;
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+  border-bottom: 0 !important;
+  line-height: 1.35 !important;
   letter-spacing: -0.045em;
 }
 
@@ -128,7 +137,7 @@ title: ""
   font-size: 14px;
   line-height: 1.58;
   color: #666;
-  margin: 0 0 7px 0;
+  margin: 0 0 7px 0 !important;
 }
 
 .home-latest-date {
@@ -145,7 +154,7 @@ title: ""
   }
 
   .home-latest-list {
-    gap: 16px;
+    gap: 14px;
   }
 
   .home-latest-card {
@@ -166,7 +175,10 @@ title: ""
   }
 
   .home-latest-title {
-    font-size: 20px;
+    font-size: 20px !important;
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+    border-bottom: 0 !important;
   }
 }
 </style>
