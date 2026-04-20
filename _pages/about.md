@@ -49,6 +49,38 @@ h2 {
   color: #666;
   margin-top: 3px;
 }
+
+/* About 이미지 */
+.about-image-box {
+  margin: 22px 0;
+  text-align: center;
+}
+
+.about-image-box img {
+  width: 100%;
+  max-width: 850px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+}
+
+.about-image-caption {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #777;
+}
+
+/* 성향 요약 박스 */
+.about-note {
+  background: #faf8f3;
+  border-left: 4px solid #d4b483;
+  padding: 18px 20px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+
+.about-note strong {
+  color: #222;
+}
 </style>
 
 ## 경력 요약
@@ -99,6 +131,23 @@ h2 {
 요리사를 목표로 특성화 고등학교 조리과를 졸업한 뒤, 호텔·레스토랑·프랜차이즈 매장에서 근무하며 다양한 운영 환경을 경험했습니다. 당시 제가 가장 자주 했던 고민은 “어떻게 하면 일을 더 수월하고 정확하게 할 수 있을까?”, “무엇을 바꾸면 결과가 더 좋아질까?”였습니다.
 
 업무 순서를 다시 정리하고, 재고 흐름을 조정하고, 직원 교육 방식을 개선하고, 불필요한 비용을 줄이려는 시도들은 단순한 현장 업무가 아니라 운영을 더 나은 방향으로 바꾸는 과정이었습니다. 이 경험을 통해 저는 문제를 관찰하고, 원인을 찾고, 실행 가능한 방식으로 개선하는 일에 자연스럽게 관심을 갖게 되었습니다.
+
+돌이켜보면 이러한 성향은 학창 시절부터 이어져 왔습니다. 생활기록부에는 성실함, 책임감, 규칙 준수, 배려심, 꾸준함에 대한 평가가 반복적으로 기록되어 있었습니다. 단순히 공부를 잘하는 학생이라기보다, 맡은 일을 꾸준히 해내고 주변 사람들과 함께 움직이는 데 강점이 있는 사람으로 평가받았습니다.
+
+<div class="about-image-box">
+  <img src="/assets/images/about-school-record-summary.png" alt="학창 시절 출결 및 특기사항 기록">
+  <div class="about-image-caption">학창 시절 출결 및 특기사항 기록</div>
+</div>
+
+<div class="about-image-box">
+  <img src="/assets/images/about-school-record-opinion.png" alt="학창 시절 행동특성 및 종합의견">
+  <div class="about-image-caption">학창 시절 행동특성 및 종합의견</div>
+</div>
+
+<div class="about-note">
+  <strong>저는 꾸준히 관찰하고, 책임 있게 수행하고, 주변과 함께 개선해 나가는 사람입니다.</strong><br>
+  학창 시절의 성실함과 책임감은 현장 운영 경험으로 이어졌고, 이후 데이터와 마케팅을 배우면서 문제를 더 구조적으로 바라보는 방향으로 확장되었습니다.
+</div>
 
 코로나19 이후 외식업 환경이 급격히 어려워지면서 저 역시 새로운 방향을 고민하게 되었습니다. 그 시기에 영화 머니볼과 게임 풋볼 매니저를 통해 데이터 기반으로 판단하고 전략을 세우는 방식에 강하게 매력을 느꼈습니다. 감이나 경험에만 의존하는 것이 아니라, 기록된 데이터를 바탕으로 문제를 해석하고 더 나은 선택을 만드는 방식이 제가 해왔던 운영 개선의 고민과 닮아 있었기 때문입니다.
 
