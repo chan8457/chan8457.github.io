@@ -132,30 +132,32 @@ body {
 /* =========================================================
    Detail Page Layout
    Projects / Insights
+   - TOC fixed on far right
    ========================================================= */
 
 .layout--single:not(.home-page) #main {
-  max-width: 1240px !important;
+  max-width: 980px !important;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
-/* 상세페이지 본문 */
+/* 상세페이지 본문: 중앙 카드 */
 .layout--single:not(.home-page) .page {
-  float: left !important;
-  width: calc(100% - 340px) !important;
+  float: none !important;
+  width: 100% !important;
   max-width: 880px !important;
   padding-left: 0 !important;
-  padding-right: 36px !important;
-  margin-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
 /* 본문 래퍼 */
 .layout--single:not(.home-page) .page__inner-wrap {
   width: 100% !important;
   max-width: 880px !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -174,29 +176,40 @@ body {
   box-shadow: 0 10px 28px rgba(70, 55, 35, 0.035) !important;
 }
 
-/* 목차는 오른쪽으로 분리 */
+/* 목차를 본문 흐름 밖, 화면 오른쪽 고정 영역으로 완전 분리 */
 .layout--single:not(.home-page) .sidebar__right {
-  float: right !important;
-  width: 300px !important;
-  max-width: 300px !important;
-  position: sticky !important;
+  float: none !important;
+  position: fixed !important;
+  right: 24px !important;
   top: 120px !important;
-  margin-left: 36px !important;
-  margin-right: 0 !important;
-  z-index: 5 !important;
+  width: 260px !important;
+  max-width: 260px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 20 !important;
 }
 
 /* 목차 내부 */
 .layout--single:not(.home-page) .toc {
-  width: 300px !important;
-  max-width: 300px !important;
+  width: 260px !important;
+  max-width: 260px !important;
 }
 
-/* float 정리 */
-.layout--single:not(.home-page) #main::after {
-  content: "";
-  display: table;
-  clear: both;
+/* 화면이 좁으면 목차 숨김 */
+@media (max-width: 1380px) {
+  .layout--single:not(.home-page) .sidebar__right {
+    display: none !important;
+  }
+
+  .layout--single:not(.home-page) #main {
+    max-width: 980px !important;
+  }
+
+  .layout--single:not(.home-page) .page {
+    max-width: 880px !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
 }
 
 /* =========================================================
