@@ -3,44 +3,68 @@ title: "Insights"
 permalink: /insights/
 layout: single
 author_profile: false
+classes: insights-page
 ---
 
 <style>
+.insight-intro {
+  margin: 0 0 28px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #444;
+}
+
 .insight-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 26px;
-  margin-top: 30px;
+  gap: 28px;
+  margin-top: 28px;
+  align-items: stretch;
 }
 
 .insight-card {
-  background: #fff;
-  border: 1px solid #eeeeee;
-  border-radius: 16px;
-  padding: 14px 14px 18px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.035);
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  background: #fffdf8;
+  border: 1px solid rgba(233, 228, 219, 0.9);
+  border-radius: 18px;
+  padding: 16px 16px 18px;
+  box-shadow: 0 10px 28px rgba(70, 55, 35, 0.045);
+  overflow: hidden;
+}
+
+.insight-card > a {
+  display: block;
+  line-height: 0;
 }
 
 .insight-thumb {
+  display: block;
   width: 100%;
-  height: 118px;
+  height: 155px;
   object-fit: cover;
+  object-position: center;
   border-radius: 12px;
-  border: 1px solid #eeeeee;
-  background: #f7f7f7;
-  margin-bottom: 13px;
+  border: 1px solid rgba(233, 228, 219, 0.9);
+  background: #f7f4ee;
+  margin-bottom: 20px;
 }
 
 .insight-title {
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.45;
-  margin: 0 0 8px 0;
-  letter-spacing: -0.045em;
+  font-size: 20px !important;
+  font-weight: 850 !important;
+  line-height: 1.35 !important;
+  margin: 0 0 12px 0 !important;
+  padding-bottom: 12px !important;
+  border-bottom: 1px solid #e9e4db !important;
+  letter-spacing: -0.05em;
+  min-height: 70px;
 }
 
 .insight-title a {
-  color: #333;
+  color: #2f2f2f;
   text-decoration: none;
 }
 
@@ -52,30 +76,47 @@ author_profile: false
 
 .insight-excerpt {
   font-size: 14px;
-  line-height: 1.65;
+  line-height: 1.7;
   color: #666;
-  margin: 0 0 10px 0;
+  margin: 0 0 18px 0;
+  min-height: 74px;
 }
 
 .insight-date {
-  font-size: 12px;
+  margin-top: auto;
+  font-size: 12.5px;
+  line-height: 1.3;
   color: #aaa;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .insight-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 600px) {
   .insight-grid {
     grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .insight-card {
+    min-height: auto;
+  }
+
+  .insight-thumb {
+    height: 170px;
+  }
+
+  .insight-title,
+  .insight-excerpt {
+    min-height: auto;
   }
 }
 </style>
 
-여러 가지 인사이트를 정리한 글들입니다.
+<p class="insight-intro">여러 가지 인사이트를 정리한 글들입니다.</p>
 
 <div class="insight-grid">
 {% assign insight_pages = site.insights | where_exp: "p", "p.date" | sort: "date" | reverse %}
