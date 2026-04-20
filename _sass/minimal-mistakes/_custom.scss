@@ -66,130 +66,52 @@ body {
 }
 
 /* =========================================================
-   Main Layout
+   Shared Layout Reset
    ========================================================= */
 
-#main {
-  max-width: 1320px !important;
-}
-
-/* 왼쪽 프로필과 본문 사이 여백 확보 */
-.sidebar {
-  opacity: 0.98;
-  padding-right: 42px !important;
-}
-
-.sidebar.sticky {
-  width: 270px !important;
-}
-
-/* 본문 영역 */
-.page {
-  padding-left: 26px !important;
-  padding-right: 0 !important;
-}
-
-.page__inner-wrap {
-  max-width: 860px !important;
-  position: relative !important;
-}
-
-/* 상세 글: 본문 넓게, 목차는 문서 흐름 밖으로 */
-@media (min-width: 1200px) {
-  .page {
-    float: none !important;
-    width: 100% !important;
-    max-width: 860px !important;
-    padding-right: 0 !important;
-  }
-
-  .page__inner-wrap {
-    max-width: 860px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-  }
-
-  .sidebar__right {
-    float: none !important;
-    position: fixed !important;
-    top: 92px !important;
-    right: calc((100vw - 1320px) / 2 + 48px) !important;
-    width: 270px !important;
-    margin: 0 !important;
-    z-index: 100 !important;
-  }
-
-  .toc {
-    width: 270px !important;
-    max-width: 270px !important;
-  }
-}
-
-/* 중간 화면에서는 목차 숨김 */
-@media (min-width: 1024px) and (max-width: 1199px) {
-  .page {
-    float: none !important;
-    width: 100% !important;
-    max-width: 860px !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  .page__inner-wrap {
-    max-width: 860px !important;
-  }
-
-  .sidebar__right {
-    display: none !important;
-  }
-}
-
-/* 홈 화면처럼 author_profile 있는 페이지 */
-.layout--single .sidebar + .archive,
-.layout--single .sidebar + .page {
-  margin-left: 34px !important;
-}
-
-@media (max-width: 1023px) {
-  .page {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .page__inner-wrap {
-    max-width: 100% !important;
-  }
-
-  .sidebar {
-    padding-right: 0 !important;
-  }
-
-  .sidebar__right {
-    float: none !important;
-    width: 100% !important;
-    position: static !important;
-    margin-left: 0 !important;
-  }
+.layout--single .page,
+.layout--single .sidebar__right {
+  float: none !important;
 }
 
 /* =========================================================
-   Content Card Background
+   Home Page Layout
+   index.html front matter:
+   classes: home-page
    ========================================================= */
 
-/* wrapper에는 카드 배경 금지 */
-.layout--single .page__inner-wrap {
-  background: transparent !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  box-shadow: none !important;
+.home-page #main {
+  display: grid !important;
+  grid-template-columns: 260px minmax(0, 900px) !important;
+  column-gap: 72px !important;
+  align-items: start !important;
+  max-width: 1240px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 
-/* 홈 페이지 제외 */
+.home-page .sidebar {
+  grid-column: 1 !important;
+  width: 260px !important;
+  max-width: 260px !important;
+  padding-right: 0 !important;
+  margin-right: 0 !important;
+  opacity: 0.98;
+}
+
+.home-page .page {
+  grid-column: 2 !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+}
+
 .home-page .page__inner-wrap,
 .home-page .page__content {
+  width: 100% !important;
+  max-width: 900px !important;
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -197,13 +119,85 @@ body {
   box-shadow: none !important;
 }
 
-/* 프로젝트/인사이트 상세 본문만 카드 배경 */
+/* 홈 최근 작성한 글 h2 전역 스타일 제거 */
+.home-page .home-section-title,
+.home-page .home-latest-title {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-bottom: 0 !important;
+}
+
+.home-page .home-latest-type {
+  margin-bottom: 2px !important;
+}
+
+.home-page .home-latest-title {
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+  line-height: 1.35 !important;
+}
+
+/* =========================================================
+   Detail Page Layout
+   Projects / Insights
+   ========================================================= */
+
+.layout--single:not(.home-page) #main {
+  display: grid !important;
+  grid-template-columns: minmax(0, 860px) 300px !important;
+  column-gap: 56px !important;
+  align-items: start !important;
+  max-width: 1240px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.layout--single:not(.home-page) .page {
+  grid-column: 1 !important;
+  width: 100% !important;
+  max-width: 860px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.layout--single:not(.home-page) .page__inner-wrap {
+  width: 100% !important;
+  max-width: 860px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
 .layout--single:not(.home-page) .page__content {
+  width: 100% !important;
+  max-width: 860px !important;
   background: var(--sc-card) !important;
   border: 1px solid rgba(233, 228, 219, 0.85) !important;
   border-radius: 18px !important;
   padding: 34px 38px !important;
   box-shadow: 0 10px 28px rgba(70, 55, 35, 0.035) !important;
+}
+
+/* 목차는 오른쪽 컬럼에 두고 sticky */
+.layout--single:not(.home-page) .sidebar__right {
+  grid-column: 2 !important;
+  display: block !important;
+  width: 300px !important;
+  max-width: 300px !important;
+  position: sticky !important;
+  top: 150px !important;
+  margin: 0 !important;
+  z-index: 5 !important;
+}
+
+.layout--single:not(.home-page) .toc {
+  width: 300px !important;
+  max-width: 300px !important;
 }
 
 /* =========================================================
@@ -255,7 +249,6 @@ body {
   border-bottom: 1px solid var(--sc-line) !important;
 }
 
-/* 본문 첫 제목은 위 여백 줄이기 */
 .page__content > h2:first-child,
 .page__content > h1:first-child {
   margin-top: 0 !important;
@@ -294,22 +287,16 @@ body {
   margin-top: 0.2em !important;
 }
 
-/* h2 직후 문단 간격은 자연스럽게 */
+/* h2 직후 문단 간격 */
 .page__content h2 + p {
   margin-top: 0.65em !important;
 }
 
-/* 빈 요소가 표를 밀어내는 경우 방지 */
+/* 빈 요소 제거 */
 .page__content p:empty {
   display: none !important;
   margin: 0 !important;
   padding: 0 !important;
-}
-
-/* 혹시 markdown 엔진이 table 앞에 빈 p/br을 만들면 제거 */
-.page__content p:empty,
-.page__content br + table {
-  margin-top: 0 !important;
 }
 
 /* =========================================================
@@ -509,8 +496,35 @@ body {
 }
 
 /* =========================================================
-   Mobile
+   Responsive
    ========================================================= */
+
+@media (max-width: 1199px) {
+  .layout--single:not(.home-page) #main,
+  .home-page #main {
+    display: block !important;
+    max-width: 100% !important;
+  }
+
+  .layout--single:not(.home-page) .page,
+  .home-page .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .layout--single:not(.home-page) .page__inner-wrap,
+  .layout--single:not(.home-page) .page__content,
+  .home-page .page__inner-wrap,
+  .home-page .page__content {
+    max-width: 100% !important;
+  }
+
+  .layout--single:not(.home-page) .sidebar__right {
+    display: none !important;
+  }
+}
 
 @media (max-width: 768px) {
   html {
