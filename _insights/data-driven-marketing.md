@@ -5,7 +5,7 @@ layout: single
 classes: wide
 author_profile: false
 categories: [insights]
-date: 2025-11-24
+date: 2026-04-20
 teaser: /assets/images/data-driven-marketing.png
 header:
   teaser: /assets/images/data-driven-marketing.png
