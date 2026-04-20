@@ -70,62 +70,80 @@ body {
    ========================================================= */
 
 #main {
-  max-width: 1240px !important;
+  max-width: 1320px !important;
 }
 
 /* 왼쪽 프로필과 본문 사이 여백 확보 */
 .sidebar {
   opacity: 0.98;
-  padding-right: 48px !important;
+  padding-right: 42px !important;
 }
 
 .sidebar.sticky {
-  width: 275px !important;
+  width: 270px !important;
 }
 
 /* 본문 영역 */
 .page {
-  padding-left: 34px !important;
-  padding-right: 1.2em;
+  padding-left: 26px !important;
+  padding-right: 0 !important;
 }
 
 .page__inner-wrap {
-  max-width: 780px !important;
+  max-width: 860px !important;
 }
 
-/* 상세 글: 본문 왼쪽, 목차 오른쪽 */
-@media (min-width: 1024px) {
+/* 상세 글: 본문 넓게, 목차는 오른쪽 고정 */
+@media (min-width: 1200px) {
   .page {
     float: left !important;
-    width: calc(100% - 360px) !important;
-    padding-right: 42px !important;
+    width: calc(100% - 310px) !important;
+    padding-right: 28px !important;
   }
 
   .page__inner-wrap {
-    max-width: 780px !important;
+    max-width: 860px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
 
   .sidebar__right {
-    float: right !important;
-    width: 285px !important;
-    margin-left: 30px !important;
+    float: none !important;
     position: sticky !important;
-    top: 90px !important;
-    z-index: 5 !important;
+    top: 92px !important;
+    width: 270px !important;
+    margin-left: 24px !important;
+    z-index: 10 !important;
   }
 
   .toc {
+    width: 270px !important;
+    max-width: 270px !important;
+  }
+}
+
+/* 중간 화면에서는 목차가 본문을 가리지 않게 */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .page {
+    float: none !important;
     width: 100% !important;
-    max-width: 285px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .page__inner-wrap {
+    max-width: 860px !important;
+  }
+
+  .sidebar__right {
+    display: none !important;
   }
 }
 
 /* 홈 화면처럼 author_profile 있는 페이지 */
 .layout--single .sidebar + .archive,
 .layout--single .sidebar + .page {
-  margin-left: 40px !important;
+  margin-left: 34px !important;
 }
 
 @media (max-width: 1023px) {
@@ -155,7 +173,7 @@ body {
    Content Card Background
    ========================================================= */
 
-/* 기본 wrapper에는 카드 배경 금지: 이게 표 밀림의 핵심 원인이었음 */
+/* wrapper에는 카드 배경 금지 */
 .layout--single .page__inner-wrap {
   background: transparent !important;
   border: 0 !important;
@@ -164,8 +182,9 @@ body {
   box-shadow: none !important;
 }
 
-/* 홈 페이지도 당연히 제외 */
-.home-page .page__inner-wrap {
+/* 홈 페이지 제외 */
+.home-page .page__inner-wrap,
+.home-page .page__content {
   background: transparent !important;
   border: 0 !important;
   border-radius: 0 !important;
@@ -173,7 +192,7 @@ body {
   box-shadow: none !important;
 }
 
-/* 프로젝트/인사이트 상세 본문만 은은한 카드 배경 */
+/* 프로젝트/인사이트 상세 본문만 카드 배경 */
 .layout--single:not(.home-page) .page__content {
   background: var(--sc-card) !important;
   border: 1px solid rgba(233, 228, 219, 0.85) !important;
@@ -267,7 +286,19 @@ body {
 .page__content table + p,
 .page__content ul + table,
 .page__content ol + table {
-  margin-top: 0.35em !important;
+  margin-top: 0.2em !important;
+}
+
+/* h2 직후 문단 간격은 자연스럽게 */
+.page__content h2 + p {
+  margin-top: 0.65em !important;
+}
+
+/* 빈 요소가 표를 밀어내는 경우 방지 */
+.page__content p:empty {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* 혹시 markdown 엔진이 table 앞에 빈 p/br을 만들면 제거 */
@@ -331,21 +362,22 @@ body {
   border-radius: 0 !important;
   overflow-x: auto !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* 표 위 코끼리 공백 제거 */
 .page__content table {
   display: table !important;
   width: 100% !important;
   max-width: 100% !important;
   table-layout: fixed !important;
-  margin: 0.45em 0 1.2em 0 !important;
+  margin: 0.3em 0 1.15em 0 !important;
   border-collapse: collapse !important;
   border-spacing: 0 !important;
   background: transparent !important;
   border-radius: 0 !important;
   box-shadow: none !important;
   overflow: visible !important;
+  clear: none !important;
 }
 
 .page__content table th {
@@ -372,14 +404,14 @@ body {
 
 .page__content table th:first-child,
 .page__content table td:first-child {
-  width: 30% !important;
+  width: 28% !important;
   max-width: none !important;
   white-space: normal !important;
 }
 
 .page__content table th:nth-child(2),
 .page__content table td:nth-child(2) {
-  width: 70% !important;
+  width: 72% !important;
   max-width: none !important;
   white-space: normal !important;
 }
