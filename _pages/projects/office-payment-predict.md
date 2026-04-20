@@ -15,7 +15,8 @@ header:
     - label: "PDF 보고서 보기"
       url: /assets/docs/office-payment.pdf
     - label: "분석 노트북 보기"
-      url: /assets/notebooks/office-payment.ipynb---
+      url: /assets/notebooks/office-payment.ipynb
+---
 
 ## 프로젝트 개요  
 

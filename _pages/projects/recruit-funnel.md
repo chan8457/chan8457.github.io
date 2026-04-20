@@ -15,7 +15,8 @@ header:
     - label: "PDF 보고서 보기"
       url: /assets/docs/recruit-funnel.pdf
     - label: "분석 노트북 보기"
-      url: /assets/notebooks/recruit-funnel.ipynb---
+      url: /assets/notebooks/recruit-funnel.ipynb
+---
 
 ## 프로젝트 개요  
 

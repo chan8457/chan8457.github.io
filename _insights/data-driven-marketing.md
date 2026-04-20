@@ -11,7 +11,8 @@ header:
   teaser: /assets/images/data-driven-marketing.png
   overlay_color: "#f3eee6"
   overlay_filter: 0.15
-  caption: "데이터 기반 마케팅의 의미와, 분석가에게 필요한 관점"---
+  caption: "데이터 기반 마케팅의 의미와, 분석가에게 필요한 관점"
+---
 
 <img src="/assets/images/data-driven-marketing.png" alt="데이터 기반 마케팅 일러스트" width="720">
 

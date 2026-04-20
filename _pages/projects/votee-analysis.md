@@ -17,7 +17,8 @@ header:
     - label: "PDF 보고서 보기"
       url: /assets/docs/votee-analysis.pdf
     - label: "분석 코드 보기"
-      url: /assets/notebooks/votee-analysis.ipynb---
+      url: /assets/notebooks/votee-analysis.ipynb
+---
 
 ## 프로젝트 개요
 

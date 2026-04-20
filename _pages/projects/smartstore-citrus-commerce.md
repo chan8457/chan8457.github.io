@@ -13,7 +13,8 @@ header:
   teaser: /assets/images/smartstore-citrus-ai-contents.png
   overlay_color: "#f3eee6"
   overlay_filter: 0.15
-  caption: "네이버 스마트스토어 기반 농산물 커머스 운영 프로젝트"---
+  caption: "네이버 스마트스토어 기반 농산물 커머스 운영 프로젝트"
+---
 
 ## 프로젝트 개요
 
