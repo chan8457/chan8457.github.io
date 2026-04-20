@@ -8,6 +8,7 @@ categories: [insights]
 date: 2025-11-03
 teaser: /assets/images/insight-analyst.png
 header:
+  teaser: /assets/images/insight-analyst.png
   overlay_color: "#2b2b2b"
   overlay_filter: 0.3
   caption: "데이터 분석가의 핵심 역할과 성장 방향에 대한 생각"
