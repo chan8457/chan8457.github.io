@@ -8,6 +8,7 @@ date: 2025-11-10
 toc: true
 toc_sticky: true
 header:
+  overlay_image: /assets/images/votee-dau-trend.png
   teaser: /assets/images/votee-dau-trend.png
   overlay_color: "#f3eee6"
   overlay_filter: 0.15
@@ -16,8 +17,7 @@ header:
     - label: "PDF 보고서 보기"
       url: /assets/docs/votee-analysis.pdf
     - label: "분석 코드 보기"
-      url: /assets/notebooks/votee-analysis.ipynb
----
+      url: /assets/notebooks/votee-analysis.ipynb---
 
 ## 프로젝트 개요
 

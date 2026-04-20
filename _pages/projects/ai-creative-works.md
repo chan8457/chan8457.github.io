@@ -8,8 +8,10 @@ date: 2025-12-02
 toc: true
 toc_sticky: true
 header:
-  teaser: /assets/ai/01.png
----
+  overlay_image: /assets/ai/01.png
+  overlay_color: "#f3eee6"
+  overlay_filter: 0.15
+  teaser: /assets/ai/01.png---
 
 데이터 분석 기반 프로젝트 외에도,  
 AI 모델(Sora2, Midjourney, Veo 등)을 활용하여  

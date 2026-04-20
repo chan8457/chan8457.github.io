@@ -12,7 +12,7 @@ header:
   overlay_color: "#f3eee6"
   overlay_filter: 0.15
   caption: "AI와 데이터 분석을 활용한 광고 운영 개선 사례"
----
+  teaser: /assets/images/ai-ad-operations-thumbnail.png---
 
 ## 프로젝트 개요
 

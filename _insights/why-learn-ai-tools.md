@@ -7,11 +7,11 @@ categories: [insights]
 date: 2026-04-20
 teaser: /assets/images/why-learn-ai-tools.png
 header:
+  overlay_image: /assets/images/why-learn-ai-tools.png
   teaser: /assets/images/why-learn-ai-tools.png
   overlay_color: "#f3eee6"
   overlay_filter: 0.15
-  caption: "AI 툴 활용 능력과 데이터 분석가의 성장 방향에 대한 생각"
----
+  caption: "AI 툴 활용 능력과 데이터 분석가의 성장 방향에 대한 생각"---
 
 <img src="/assets/images/why-learn-ai-tools.png" alt="AI 툴 활용 일러스트" width="720">
 

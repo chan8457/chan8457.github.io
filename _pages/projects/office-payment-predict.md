@@ -6,6 +6,7 @@ author_profile: false
 categories: [projects]
 date: 2025-11-07
 header:
+  overlay_image: /assets/images/office-insight-summary.png
   teaser: /assets/images/office-insight-summary.png
   overlay_color: "#f3eee6"
   overlay_filter: 0.15
@@ -14,8 +15,7 @@ header:
     - label: "PDF 보고서 보기"
       url: /assets/docs/office-payment.pdf
     - label: "분석 노트북 보기"
-      url: /assets/notebooks/office-payment.ipynb
----
+      url: /assets/notebooks/office-payment.ipynb---
 
 ## 프로젝트 개요  
 

@@ -6,6 +6,7 @@ author_profile: false
 categories: [projects]
 date: 2025-11-08
 header:
+  overlay_image: /assets/images/recruit-funnel-overview.png
   teaser: /assets/images/recruit-funnel-overview.png
   overlay_color: "#f3eee6"
   overlay_filter: 0.15
@@ -14,8 +15,7 @@ header:
     - label: "PDF 보고서 보기"
       url: /assets/docs/recruit-funnel.pdf
     - label: "분석 노트북 보기"
-      url: /assets/notebooks/recruit-funnel.ipynb
----
+      url: /assets/notebooks/recruit-funnel.ipynb---
 
 ## 프로젝트 개요  
 

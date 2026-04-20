@@ -7,11 +7,11 @@ categories: [insights]
 date: 2025-11-17
 teaser: /assets/images/what-is-llm.png
 header:
+  overlay_image: /assets/images/what-is-llm.png
   teaser: /assets/images/what-is-llm.png
   overlay_color: "#f3eee6"
   overlay_filter: 0.15
-  caption: "LLM의 개념과, 데이터 분석가에게 필요한 이유에 대한 생각"
----
+  caption: "LLM의 개념과, 데이터 분석가에게 필요한 이유에 대한 생각"---
 
 <img src="/assets/images/what-is-llm.png" alt="LLM Illustration" width="720">
 
