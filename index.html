@@ -9,66 +9,107 @@ title: ""
 .custom-hr {
   border: none;
   border-top: 1px solid #e5e5e5;
-  margin: 40px 0;
+  margin: 36px 0;
+}
+
+/* GitHub 영역 */
+.home-section {
+  margin-bottom: 34px;
+}
+
+.home-section-title {
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: -0.04em;
+}
+
+.github-card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+
+.github-card-wrap img {
+  max-width: 48%;
+  min-width: 300px;
+  flex: 1;
+}
+
+.gh-summary {
+  width: 100%;
+  max-width: 900px;
+}
+
+.gh-graph {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 20px;
 }
 
 /* 최근 작성한 글 카드형 목록 */
 .home-latest-list {
   display: flex;
   flex-direction: column;
-  gap: 26px;
-  margin-top: 28px;
+  gap: 12px;
+  margin-top: 20px;
 }
 
 .home-latest-card {
   display: flex;
-  gap: 20px;
-  padding: 20px 0;
+  gap: 18px;
+  padding: 14px 0 16px;
   border-bottom: 1px solid #e9e4db;
   align-items: flex-start;
 }
 
+.home-latest-card > a {
+  display: block;
+  flex: 0 0 180px;
+  line-height: 0;
+}
+
 .home-latest-thumb,
 .home-latest-placeholder {
+  display: block;
   width: 180px;
   min-width: 180px;
   height: 112px;
-  border-radius: 12px;
+  border-radius: 10px;
   object-fit: cover;
   border: 1px solid #eeeeee;
   background: #f7f7f7;
 }
 
 .home-latest-placeholder {
-  width: 220px;
-  min-width: 220px;
-  height: 135px;
-  border-radius: 12px;
-  border: 1px solid #eeeeee;
   background: linear-gradient(135deg, #f8f8f8, #eeeeee);
 }
 
 .home-latest-info {
   flex: 1;
+  padding-top: 0;
 }
 
 .home-latest-type {
   display: inline-block;
-  margin-bottom: 7px;
+  margin: 0 0 5px 0;
   padding: 3px 8px;
   border-radius: 999px;
   background: #f6f0e7;
   color: #8a6d3b;
   font-size: 11px;
   font-weight: 800;
+  line-height: 1.1;
   letter-spacing: 0.02em;
 }
 
 .home-latest-title {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
-  margin: 0 0 7px 0;
-  line-height: 1.38;
+  margin: 0 0 6px 0;
+  line-height: 1.35;
   letter-spacing: -0.045em;
 }
 
@@ -84,20 +125,37 @@ title: ""
 }
 
 .home-latest-excerpt {
-  font-size: 14.5px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.58;
   color: #666;
-  margin: 0 0 8px 0;
+  margin: 0 0 7px 0;
 }
 
 .home-latest-date {
   font-size: 12.5px;
+  line-height: 1.3;
   color: #aaa;
 }
 
+/* 모바일 */
 @media (max-width: 768px) {
+  .github-card-wrap img {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .home-latest-list {
+    gap: 16px;
+  }
+
   .home-latest-card {
     flex-direction: column;
+    gap: 10px;
+    padding: 16px 0;
+  }
+
+  .home-latest-card > a {
+    flex: none;
   }
 
   .home-latest-thumb,
@@ -108,28 +166,26 @@ title: ""
   }
 
   .home-latest-title {
-    font-size: 21px;
+    font-size: 20px;
   }
 }
 </style>
 
 <!-- GitHub Stats Section -->
-<div style="margin-bottom: 35px;">
-  <h2 style="margin-bottom: 18px; font-size: 22px; font-weight: 700; color: #222;">
+<div class="home-section">
+  <h2 class="home-section-title">
     GitHub 활동 요약
   </h2>
 
-  <div style="display: flex; flex-wrap: wrap; gap: 18px; align-items: center;">
+  <div class="github-card-wrap">
     <img 
       src="https://github-readme-stats.vercel.app/api?username=chan8457&show_icons=true&theme=default" 
-      alt="GitHub Stats" 
-      style="max-width: 48%; min-width: 300px; flex: 1;"
+      alt="GitHub Stats"
     >
 
     <img 
       src="https://github-readme-stats.vercel.app/api/top-langs/?username=chan8457&layout=compact&theme=default" 
-      alt="Top Languages" 
-      style="max-width: 48%; min-width: 300px; flex: 1;"
+      alt="Top Languages"
     >
   </div>
 
@@ -143,8 +199,8 @@ title: ""
 </div>
 
 <!-- GitHub Contribution Graph Section -->
-<div style="margin: 40px 0 50px 0;">
-  <h2 style="margin-bottom: 18px; font-size: 22px; font-weight: 700; color: #222;">
+<div style="margin: 38px 0 48px 0;">
+  <h2 class="home-section-title">
     GitHub 활동 기록
   </h2>
 
@@ -152,20 +208,18 @@ title: ""
     src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=chan8457&theme=default" 
     alt="GitHub Profile Summary" 
     class="gh-summary"
-    style="width: 100%; max-width: 900px;"
   >
 
   <img 
     src="https://github-readme-activity-graph.vercel.app/graph?username=chan8457&theme=minimal" 
     alt="GitHub Contribution Graph" 
     class="gh-graph"
-    style="width: 100%; max-width: 900px; margin-top: 20px;"
   >
 </div>
 
 <hr class="custom-hr">
 
-<h2 style="font-size: 22px; font-weight: 700; color: #222;">최근 작성한 글</h2>
+<h2 class="home-section-title">최근 작성한 글</h2>
 
 <div id="home-latest-output" class="home-latest-list"></div>
 
