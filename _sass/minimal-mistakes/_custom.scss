@@ -47,16 +47,16 @@ body {
 }
 
 .site-title {
-  font-size: 19px !important;
-  font-weight: 850 !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
   color: #242424 !important;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 }
 
 .greedy-nav a {
   font-family: "SUIT", "Pretendard", sans-serif !important;
-  font-size: 17px !important;
-  font-weight: 750 !important;
+  font-size: 19px !important;
+  font-weight: 800 !important;
   color: #333 !important;
 }
 
@@ -268,6 +268,7 @@ body {
    Tables
    ========================================================= */
 
+/* 표 wrapper: 카드 스타일 제거 */
 .page__content figure,
 .page__content .table-wrapper,
 .page__content div:has(> table) {
@@ -280,11 +281,12 @@ body {
   padding: 0 !important;
 }
 
+/* 표는 본문 폭을 자연스럽게 사용 */
 .page__content table {
   display: table !important;
-  width: auto !important;
+  width: 100% !important;
   max-width: 100% !important;
-  min-width: 0 !important;
+  table-layout: fixed !important;
   margin: 1em 0 1.45em 0 !important;
   border-collapse: collapse !important;
   border-spacing: 0 !important;
@@ -294,6 +296,7 @@ body {
   overflow: visible !important;
 }
 
+/* 표 헤더 */
 .page__content table th {
   background: #f3eee6 !important;
   color: #333 !important;
@@ -302,6 +305,7 @@ body {
   border-bottom: 1px solid #bdb4a7 !important;
 }
 
+/* 표 셀 */
 .page__content table th,
 .page__content table td {
   padding: 8px 12px !important;
@@ -312,15 +316,24 @@ body {
   border-bottom: 1px solid #e7e1d8 !important;
   white-space: normal !important;
   word-break: keep-all !important;
-  overflow-wrap: anywhere !important;
+  overflow-wrap: break-word !important;
   vertical-align: top !important;
 }
 
+/* 첫 번째 컬럼만 적당히 좁게 */
 .page__content table th:first-child,
 .page__content table td:first-child {
-  width: 90px !important;
-  max-width: 120px !important;
-  white-space: nowrap !important;
+  width: 28% !important;
+  max-width: none !important;
+  white-space: normal !important;
+}
+
+/* 두 번째 컬럼 */
+.page__content table th:nth-child(2),
+.page__content table td:nth-child(2) {
+  width: 72% !important;
+  max-width: none !important;
+  white-space: normal !important;
 }
 
 .page__content table tr:last-child td {
@@ -407,11 +420,11 @@ body {
   }
 
   .greedy-nav a {
-    font-size: 15px !important;
+    font-size: 16px !important;
   }
 
   .site-title {
-    font-size: 17px !important;
+    font-size: 19px !important;
   }
 
   .page__content {
