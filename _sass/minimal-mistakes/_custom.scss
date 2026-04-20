@@ -143,27 +143,6 @@ body {
   margin: 38px 0 !important;
 }
 
-/* 표 */
-.page__content table {
-  font-size: 14.5px !important;
-  border-collapse: collapse !important;
-  border-radius: 12px;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 0 0 1px #eee;
-}
-
-.page__content table th {
-  background: var(--sc-accent-light) !important;
-  color: #4b4033 !important;
-  font-weight: 750 !important;
-}
-
-.page__content table th,
-.page__content table td {
-  padding: 10px 12px !important;
-  border: 1px solid #eee !important;
-}
 
 /* 이미지 */
 .page__content img {
