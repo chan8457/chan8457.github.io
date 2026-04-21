@@ -564,7 +564,7 @@ body {
 }
 
 /* =========================================================
-   Mobile Final Override
+   Mobile Final Override v2
    - nav / home author / table scroll
    ========================================================= */
 
@@ -649,69 +649,94 @@ body {
   .home-page .sidebar,
   .home-page .sidebar.sticky {
     position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     width: 100% !important;
     max-width: 100% !important;
     float: none !important;
     clear: both !important;
     padding: 0 !important;
-    margin: 24px 0 34px 0 !important;
+    margin: 24px 0 38px 0 !important;
     text-align: center !important;
   }
 
+  /* 프로필 사진 */
   .home-page .author__avatar {
+    order: 1 !important;
+    float: none !important;
     display: block !important;
     width: 100% !important;
-    margin: 0 auto 14px auto !important;
+    max-width: 100% !important;
+    margin: 0 auto 12px auto !important;
+    padding: 0 !important;
     text-align: center !important;
   }
 
   .home-page .author__avatar img {
     display: block !important;
-    width: 150px !important;
-    max-width: 150px !important;
+    width: 108px !important;
+    max-width: 108px !important;
     height: auto !important;
     margin: 0 auto !important;
     border-radius: 14px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14) !important;
   }
 
+  /* 이름/소개 */
   .home-page .author__content {
+    order: 2 !important;
+    position: static !important;
     display: block !important;
     width: 100% !important;
-    max-width: 100% !important;
-    text-align: center !important;
+    max-width: 330px !important;
     margin: 0 auto !important;
+    padding: 0 !important;
+    text-align: center !important;
+    clear: both !important;
   }
 
   .home-page .author__name {
+    position: static !important;
     display: block !important;
     width: 100% !important;
-    font-size: 24px !important;
+    font-size: 22px !important;
     line-height: 1.25 !important;
-    margin: 10px 0 8px 0 !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
     white-space: normal !important;
     word-break: keep-all !important;
   }
 
   .home-page .author__bio {
+    position: static !important;
     display: block !important;
+    width: 100% !important;
     max-width: 310px !important;
-    margin: 0 auto 14px auto !important;
-    font-size: 13px !important;
-    line-height: 1.6 !important;
+    margin: 0 auto 12px auto !important;
+    padding: 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.55 !important;
     white-space: normal !important;
     word-break: keep-all !important;
+    color: #666 !important;
   }
 
   /* Minimal Mistakes 모바일 Follow 드롭다운 제거 */
   .home-page .author__urls-wrapper {
+    order: 3 !important;
     display: block !important;
     position: static !important;
     width: 100% !important;
-    margin: 12px auto 0 auto !important;
+    max-width: 340px !important;
+    margin: 8px auto 0 auto !important;
+    padding: 0 !important;
     text-align: center !important;
+    clear: both !important;
   }
 
-  .home-page .author__urls-wrapper button {
+  .home-page .author__urls-wrapper button,
+  .home-page .author__urls-wrapper .btn {
     display: none !important;
   }
 
@@ -722,8 +747,8 @@ body {
     opacity: 1 !important;
     transform: none !important;
     width: 100% !important;
-    max-width: 330px !important;
-    margin: 12px auto 0 auto !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     border: 0 !important;
     box-shadow: none !important;
@@ -734,23 +759,15 @@ body {
     gap: 8px 12px !important;
   }
 
-  .home-page .author__urls li {
+  .home-page .author__urls li,
+  .home-page .author__urls a {
     display: inline-flex !important;
     align-items: center !important;
     width: auto !important;
     margin: 0 !important;
     padding: 0 !important;
-    font-size: 12.5px !important;
-    line-height: 1.4 !important;
-    white-space: nowrap !important;
-  }
-
-  .home-page .author__urls a {
-    display: inline-flex !important;
-    align-items: center !important;
-    padding: 0 !important;
-    font-size: 12.5px !important;
-    line-height: 1.4 !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
     white-space: nowrap !important;
   }
 
@@ -767,6 +784,12 @@ body {
   /* ===============================
      3. 모바일 GitHub 카드
      =============================== */
+
+  .home-page .home-section-title {
+    font-size: 22px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 18px !important;
+  }
 
   .home-page .github-card-wrap {
     display: flex !important;
@@ -799,7 +822,7 @@ body {
   .layout--single:not(.home-page) .page__content {
     padding: 22px 18px !important;
     border-radius: 14px !important;
-    overflow-x: hidden !important;
+    overflow-x: visible !important;
   }
 
   .page__content {
@@ -825,19 +848,34 @@ body {
 
 
   /* ===============================
-     5. 모바일 표: 3열 이상은 진짜 가로 스크롤
+     5. 모바일 표: 진짜 가로 스크롤
      =============================== */
 
   body {
     overflow-x: hidden !important;
   }
 
-  /* 기본 2열 표 */
-  .page__content table {
+  .page__content figure,
+  .page__content .table-wrapper,
+  .page__content div:has(> table) {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    table-layout: fixed !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* 모든 표를 일단 스크롤 가능한 블록으로 */
+  .page__content table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
     border-collapse: collapse !important;
+    margin: 0.6em 0 1.2em 0 !important;
   }
 
   .page__content table th,
@@ -850,40 +888,41 @@ body {
     overflow-wrap: break-word !important;
   }
 
-  .page__content table th:first-child,
-  .page__content table td:first-child {
+  /* 2열 표는 모바일 폭 안에서 유지 */
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) {
+    table-layout: fixed !important;
+  }
+
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th:first-child,
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td:first-child {
     width: 34% !important;
     min-width: 0 !important;
   }
 
-  .page__content table th:nth-child(2),
-  .page__content table td:nth-child(2) {
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th:nth-child(2),
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td:nth-child(2) {
     width: 66% !important;
     min-width: 0 !important;
   }
 
-  /* 3열 이상 표는 카드 내부에서만 가로 스크롤 */
+  /* 3열 이상 표는 내부 table을 넓혀서 스크롤 발생 */
   .page__content table:has(th:nth-child(3)),
   .page__content table:has(td:nth-child(3)) {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
     table-layout: auto !important;
     white-space: nowrap !important;
   }
 
   .page__content table:has(th:nth-child(3)) thead,
+  .page__content table:has(th:nth-child(3)) tbody,
+  .page__content table:has(td:nth-child(3)) thead,
   .page__content table:has(td:nth-child(3)) tbody {
     display: table !important;
-    min-width: 640px !important;
-    width: 640px !important;
+    min-width: 680px !important;
+    width: 680px !important;
   }
 
-  .page__content table:has(th:nth-child(3)) tr {
+  .page__content table:has(th:nth-child(3)) tr,
+  .page__content table:has(td:nth-child(3)) tr {
     display: table-row !important;
   }
 
@@ -902,6 +941,6 @@ body {
   .page__content table:has(th:nth-child(4)) td:nth-child(4),
   .page__content table:has(td:nth-child(4)) th:nth-child(4),
   .page__content table:has(td:nth-child(4)) td:nth-child(4) {
-    min-width: 250px !important;
+    min-width: 260px !important;
   }
 }
