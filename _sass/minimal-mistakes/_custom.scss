@@ -1084,17 +1084,20 @@ body {
     background: #f6f0e7 !important;
     color: #9a743f !important;
   }
-  /* =========================================================
+}
+
+/* =========================================================
    Temporary Hide Profile Photo
    ========================================================= */
 
-  /* 메인페이지 프로필 사진 임시 숨김 */
-  .home-page .author__avatar,
-  .home-page .author__avatar img {
-    display: none !important;
-  }
-  .home-page .sidebar,
-  .home-page .sidebar.sticky {
-    margin-top: 24px !important;
-  }
+/* 메인페이지 프로필 사진 임시 숨김: PC + 모바일 전체 적용 */
+.home-page .author__avatar,
+.home-page .author__avatar img {
+  display: none !important;
+}
+
+/* 사진 숨긴 뒤 여백 정리 */
+.home-page .sidebar,
+.home-page .sidebar.sticky {
+  margin-top: 24px !important;
 }
