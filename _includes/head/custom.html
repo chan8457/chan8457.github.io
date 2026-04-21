@@ -14,3 +14,21 @@ href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretend
   href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" 
   rel="stylesheet"
 >
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tables = document.querySelectorAll(
+    ".layout--single:not(.home-page) .page__content table"
+  );
+
+  tables.forEach(function (table) {
+    if (table.closest(".mobile-table-scroll")) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "mobile-table-scroll";
+
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+});
+</script>
