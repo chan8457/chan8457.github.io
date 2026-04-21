@@ -32,3 +32,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  function syncMobileHamburgerMenu() {
+    const nav = document.querySelector(".greedy-nav");
+    if (!nav) return;
+
+    const visibleLinks = nav.querySelector(".visible-links");
+    const hiddenLinks = nav.querySelector(".hidden-links");
+
+    if (!visibleLinks || !hiddenLinks) return;
+
+    /* 기존 모바일 복사 메뉴 제거 */
+    hiddenLinks.querySelectorAll(".mobile-cloned-link").forEach(function (item) {
+      item.remove();
+    });
+
+    /* 모바일에서 숨긴 메뉴: visible-links의 3번째 이후 항목 */
+    const mobileOnlyItems = visibleLinks.querySelectorAll("li:nth-child(n+3)");
+
+    mobileOnlyItems.forEach(function (item) {
+      const clone = item.cloneNode(true);
+      clone.classList.add("mobile-cloned-link");
+      clone.style.display = "block";
+      hiddenLinks.appendChild(clone);
+    });
+  }
+
+  syncMobileHamburgerMenu();
+
+  /* Minimal Mistakes greedy nav가 나중에 메뉴를 만지는 경우 대비 */
+  setTimeout(syncMobileHamburgerMenu, 300);
+  window.addEventListener("resize", syncMobileHamburgerMenu);
+});
+</script>

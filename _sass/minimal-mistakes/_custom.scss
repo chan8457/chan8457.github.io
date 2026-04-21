@@ -949,85 +949,139 @@ body {
     line-height: 1.45 !important;
   }
 
+ /* ===============================
+     5. 모바일 표: 자동 가로 스크롤
+     =============================== */
 
-/* ===============================
-   5. 모바일 표: 자동 가로 스크롤
-   =============================== */
+  /* JS가 자동으로 감싸는 표 스크롤 박스 */
+  .mobile-table-scroll {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    box-sizing: border-box !important;
+    margin: 0.7em 0 1.2em 0 !important;
+    padding-bottom: 6px !important;
+  }
 
-/* JS가 자동으로 감싸는 표 스크롤 박스 */
-.mobile-table-scroll {
-  display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  -webkit-overflow-scrolling: touch !important;
-  box-sizing: border-box !important;
-  margin: 0.7em 0 1.2em 0 !important;
-  padding-bottom: 4px !important;
-}
+  /* 표 자체는 내용 길이만큼 넓어지게 */
+  .mobile-table-scroll table {
+    display: table !important;
+    width: max-content !important;
+    min-width: 680px !important;
+    max-width: none !important;
+    table-layout: auto !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+  }
 
-/* 표 자체는 내용 길이만큼 넓어지게 */
-.mobile-table-scroll table {
-  display: table !important;
-  width: max-content !important;
-  min-width: 680px !important;
-  max-width: none !important;
-  table-layout: auto !important;
-  border-collapse: collapse !important;
-  margin: 0 !important;
-}
+  /* 2열 표는 모바일에서도 본문 폭 안에 자연스럽게 */
+  .mobile-table-scroll table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed !important;
+  }
 
-/* 2열 표는 모바일에서도 너무 넓어지지 않게 */
-.mobile-table-scroll table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) {
-  width: 100% !important;
-  min-width: 100% !important;
-  max-width: 100% !important;
-  table-layout: fixed !important;
-}
+  /* 4열 이상 표는 더 넓게 */
+  .mobile-table-scroll table:has(th:nth-child(4)),
+  .mobile-table-scroll table:has(td:nth-child(4)) {
+    min-width: 760px !important;
+  }
 
-/* 4열 이상 표는 더 넓게 */
-.mobile-table-scroll table:has(th:nth-child(4)),
-.mobile-table-scroll table:has(td:nth-child(4)) {
-  min-width: 760px !important;
-}
+  /* 5열 이상 표는 더 넓게 */
+  .mobile-table-scroll table:has(th:nth-child(5)),
+  .mobile-table-scroll table:has(td:nth-child(5)) {
+    min-width: 920px !important;
+  }
 
-/* 5열 이상 표는 더 넓게 */
-.mobile-table-scroll table:has(th:nth-child(5)),
-.mobile-table-scroll table:has(td:nth-child(5)) {
-  min-width: 900px !important;
-}
+  .mobile-table-scroll th,
+  .mobile-table-scroll td {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    padding: 7px 10px !important;
+    vertical-align: top !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+  }
 
-.mobile-table-scroll th,
-.mobile-table-scroll td {
-  font-size: 12px !important;
-  line-height: 1.55 !important;
-  padding: 7px 10px !important;
-  vertical-align: top !important;
-  white-space: nowrap !important;
-  word-break: keep-all !important;
-  overflow-wrap: normal !important;
-}
+  /* 마지막 컬럼은 설명문일 가능성이 높아서 줄바꿈 허용 */
+  .mobile-table-scroll th:last-child,
+  .mobile-table-scroll td:last-child {
+    min-width: 240px !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
 
-/* 마지막 컬럼은 설명문일 가능성이 높아서 줄바꿈 허용 */
-.mobile-table-scroll th:last-child,
-.mobile-table-scroll td:last-child {
-  min-width: 240px !important;
-  white-space: normal !important;
-  word-break: keep-all !important;
-  overflow-wrap: break-word !important;
-}
+  /* 2열 표는 자연 줄바꿈 */
+  .mobile-table-scroll table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th,
+  .mobile-table-scroll table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td {
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
 
-/* 2열 표는 자연 줄바꿈 */
-.mobile-table-scroll table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th,
-.mobile-table-scroll table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td {
-  white-space: normal !important;
-  word-break: keep-all !important;
-  overflow-wrap: break-word !important;
-}
+  /* 표가 카드 밖으로 나가지 않게 */
+  .layout--single:not(.home-page) .page__content {
+    overflow-x: hidden !important;
+  }
 
-/* 표가 카드 밖으로 나가지 않게 */
-.layout--single:not(.home-page) .page__content {
-  overflow-x: hidden !important;
-}
+
+  /* ===============================
+     6. 모바일 햄버거 드롭다운
+     =============================== */
+
+  .greedy-nav .hidden-links {
+    position: absolute !important;
+    top: 100% !important;
+    right: 8px !important;
+    left: auto !important;
+    width: 170px !important;
+    margin-top: 8px !important;
+    padding: 8px 0 !important;
+    background: #fffdf8 !important;
+    border: 1px solid rgba(233, 228, 219, 0.95) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 24px rgba(70, 55, 35, 0.12) !important;
+    z-index: 2000 !important;
+  }
+
+  .greedy-nav .hidden-links.hidden {
+    display: none !important;
+  }
+
+  .greedy-nav .hidden-links:not(.hidden) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .greedy-nav .hidden-links li {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .greedy-nav .hidden-links a {
+    display: block !important;
+    width: 100% !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    color: #333 !important;
+    text-align: left !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+
+  .greedy-nav .hidden-links a:hover {
+    background: #f6f0e7 !important;
+    color: #9a743f !important;
+  }
 }
