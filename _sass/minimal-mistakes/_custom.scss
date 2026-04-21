@@ -946,71 +946,163 @@ body {
 }
 
 /* =========================================================
-   Mobile Home Profile Grid Final
-   - image > name > bio > skills/links
+   Mobile Final Override v3
+   - nav / home author stack / table scroll inside content
    ========================================================= */
 
 @media (max-width: 768px) {
-  /* 프로필 전체 박스 */
-  .home-page .sidebar,
-  .home-page .sidebar.sticky {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    justify-items: center !important;
-    align-items: start !important;
+  /* ===============================
+     1. 모바일 상단 네비 한 줄 정리
+     =============================== */
+
+  .masthead {
+    height: auto !important;
+  }
+
+  .masthead__inner-wrap {
+    padding: 12px 14px !important;
+  }
+
+  .greedy-nav {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+  }
+
+  .greedy-nav .site-title {
+    flex: 0 0 auto !important;
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.055em !important;
+    margin-right: 14px !important;
+    white-space: nowrap !important;
+  }
+
+  .greedy-nav .visible-links {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .greedy-nav .visible-links li {
+    flex: 0 0 auto !important;
+  }
+
+  .greedy-nav .visible-links a {
+    font-size: 14px !important;
+    font-weight: 850 !important;
+    line-height: 1.2 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  /* 모바일에서는 Contact는 햄버거 안으로 */
+  .greedy-nav .visible-links li:nth-child(n+4) {
+    display: none !important;
+  }
+
+  .greedy-nav__toggle,
+  .greedy-nav button {
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+  }
+
+
+  /* ===============================
+     2. 모바일 메인 프로필: 사진 > 이름 > 소개 > 링크
+     =============================== */
+
+  .home-page #main {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
+    padding: 0 18px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-page .sidebar,
+  .home-page .sidebar.sticky {
+    position: static !important;
     float: none !important;
     clear: both !important;
-    position: static !important;
-    margin: 26px auto 42px auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 24px auto 42px auto !important;
     padding: 0 !important;
+    text-align: center !important;
+  }
+
+  /* Minimal Mistakes author 전체 박스를 세로 flex로 강제 */
+  .home-page .sidebar > *,
+  .home-page .sidebar [itemscope],
+  .home-page .sidebar .h-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    position: static !important;
+    float: none !important;
+    clear: both !important;
+    transform: none !important;
     text-align: center !important;
   }
 
   /* 사진 */
   .home-page .author__avatar {
-    grid-row: 1 !important;
+    order: 1 !important;
     display: block !important;
+    position: static !important;
     float: none !important;
+    clear: both !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto 14px auto !important;
     padding: 0 !important;
-    text-align: center !important;
-    position: static !important;
     transform: none !important;
+    text-align: center !important;
+    z-index: 1 !important;
   }
 
   .home-page .author__avatar img {
     display: block !important;
-    width: 118px !important;
-    max-width: 118px !important;
+    width: 112px !important;
+    max-width: 112px !important;
     height: auto !important;
     margin: 0 auto !important;
     border-radius: 14px !important;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.14) !important;
   }
 
-  /* 이름 + 소개 */
+  /* 이름/소개 */
   .home-page .author__content {
-    grid-row: 2 !important;
+    order: 2 !important;
     display: block !important;
-    float: none !important;
     position: static !important;
-    transform: none !important;
+    float: none !important;
+    clear: both !important;
     width: 100% !important;
     max-width: 330px !important;
     margin: 0 auto 14px auto !important;
     padding: 0 !important;
+    transform: none !important;
     text-align: center !important;
-    clear: both !important;
+    z-index: 2 !important;
   }
 
   .home-page .author__name {
     display: block !important;
     position: static !important;
-    transform: none !important;
+    float: none !important;
     width: 100% !important;
     max-width: 330px !important;
     margin: 0 auto 8px auto !important;
@@ -1021,13 +1113,14 @@ body {
     letter-spacing: -0.05em !important;
     white-space: normal !important;
     word-break: keep-all !important;
+    transform: none !important;
     text-align: center !important;
   }
 
   .home-page .author__bio {
     display: block !important;
     position: static !important;
-    transform: none !important;
+    float: none !important;
     width: 100% !important;
     max-width: 310px !important;
     margin: 0 auto !important;
@@ -1037,22 +1130,24 @@ body {
     color: #666 !important;
     white-space: normal !important;
     word-break: keep-all !important;
+    transform: none !important;
     text-align: center !important;
   }
 
   /* 스킬/링크 */
   .home-page .author__urls-wrapper {
-    grid-row: 3 !important;
+    order: 3 !important;
     display: block !important;
-    float: none !important;
     position: static !important;
-    transform: none !important;
+    float: none !important;
+    clear: both !important;
     width: 100% !important;
     max-width: 380px !important;
     margin: 0 auto !important;
     padding: 0 !important;
-    clear: both !important;
+    transform: none !important;
     text-align: center !important;
+    z-index: 3 !important;
   }
 
   .home-page .author__urls-wrapper button,
@@ -1087,22 +1182,11 @@ body {
     text-align: center !important;
   }
 
-  .home-page .author__urls li {
-    display: inline-flex !important;
-    width: auto !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    align-items: center !important;
-    justify-content: center !important;
-    white-space: nowrap !important;
-    font-size: 12.5px !important;
-    line-height: 1.35 !important;
-  }
-
+  .home-page .author__urls li,
   .home-page .author__urls a {
     display: inline-flex !important;
     width: auto !important;
+    max-width: none !important;
     margin: 0 !important;
     padding: 0 !important;
     align-items: center !important;
@@ -1118,8 +1202,180 @@ body {
     margin-right: 4px !important;
   }
 
-  /* GitHub 섹션과 프로필 사이 */
+  .home-page .page,
+  .home-page .page__inner-wrap,
+  .home-page .page__content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+
+  /* ===============================
+     3. 모바일 GitHub 카드
+     =============================== */
+
   .home-page .home-section:first-of-type {
-    margin-top: 30px !important;
+    margin-top: 32px !important;
+  }
+
+  .home-page .home-section-title {
+    font-size: 22px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 18px !important;
+  }
+
+  .home-page .github-card-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .home-page .github-card-wrap img,
+  .home-page .gh-summary,
+  .home-page .gh-graph,
+  .home-page .home-section img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+  }
+
+
+  /* ===============================
+     4. 모바일 본문 폰트
+     =============================== */
+
+  body {
+    overflow-x: hidden !important;
+  }
+
+  .layout--single:not(.home-page) .page {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .layout--single:not(.home-page) .page__content {
+    padding: 22px 18px !important;
+    border-radius: 14px !important;
+    overflow-x: hidden !important;
+  }
+
+  .page__content {
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+  }
+
+  .page__content p,
+  .page__content li {
+    font-size: 13px !important;
+    line-height: 1.65 !important;
+  }
+
+  .page__content h2 {
+    font-size: 18px !important;
+    line-height: 1.42 !important;
+  }
+
+  .page__content h3 {
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+  }
+
+
+  /* ===============================
+     5. 모바일 표: 카드 내부 가로 스크롤
+     =============================== */
+
+  .page__content figure,
+  .page__content .table-wrapper,
+  .page__content div:has(> table) {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  /* 모든 표를 카드 안 스크롤 박스로 */
+  .page__content table {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-collapse: collapse !important;
+    margin: 0.6em 0 1.2em 0 !important;
+  }
+
+  .page__content table th,
+  .page__content table td {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    padding: 7px 9px !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* 2열 표 */
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) {
+    table-layout: fixed !important;
+  }
+
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th:first-child,
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td:first-child {
+    width: 34% !important;
+    min-width: 0 !important;
+  }
+
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th:nth-child(2),
+  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td:nth-child(2) {
+    width: 66% !important;
+    min-width: 0 !important;
+  }
+
+  /* 3열 이상 표: 내부 thead/tbody만 넓히고 table 자체가 스크롤 담당 */
+  .page__content table:has(th:nth-child(3)),
+  .page__content table:has(td:nth-child(3)) {
+    table-layout: auto !important;
+    white-space: nowrap !important;
+  }
+
+  .page__content table:has(th:nth-child(3)) thead,
+  .page__content table:has(th:nth-child(3)) tbody,
+  .page__content table:has(td:nth-child(3)) thead,
+  .page__content table:has(td:nth-child(3)) tbody {
+    display: table !important;
+    min-width: 680px !important;
+    width: 680px !important;
+  }
+
+  .page__content table:has(th:nth-child(3)) tr,
+  .page__content table:has(td:nth-child(3)) tr {
+    display: table-row !important;
+  }
+
+  .page__content table:has(th:nth-child(3)) th,
+  .page__content table:has(th:nth-child(3)) td,
+  .page__content table:has(td:nth-child(3)) th,
+  .page__content table:has(td:nth-child(3)) td {
+    width: auto !important;
+    min-width: 110px !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+  }
+
+  .page__content table:has(th:nth-child(4)) th:nth-child(4),
+  .page__content table:has(th:nth-child(4)) td:nth-child(4),
+  .page__content table:has(td:nth-child(4)) th:nth-child(4),
+  .page__content table:has(td:nth-child(4)) td:nth-child(4) {
+    min-width: 260px !important;
   }
 }
