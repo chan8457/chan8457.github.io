@@ -36,18 +36,66 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ===============================
-     2. 모바일 햄버거 메뉴 강제 구성
+     2. 네비 중복 제거 함수
      =============================== */
-  function buildMobileHamburgerMenu() {
+  function removeDuplicateLinks(container) {
+    if (!container) return;
+
+    const seen = new Set();
+
+    Array.from(container.querySelectorAll("li")).forEach(function (item) {
+      const link = item.querySelector("a");
+
+      if (!link) return;
+
+      const text = link.textContent.trim().replace(/\s+/g, " ");
+      const href = link.getAttribute("href") || "";
+      const key = text + "|" + href;
+
+      if (seen.has(key)) {
+        item.remove();
+      } else {
+        seen.add(key);
+      }
+    });
+  }
+
+
+  /* ===============================
+     3. 모바일 햄버거 메뉴 구성
+     =============================== */
+  function setupMobileNav() {
     const nav = document.querySelector(".greedy-nav");
     if (!nav) return;
 
+    const visibleLinks = nav.querySelector(".visible-links");
     const hiddenLinks = nav.querySelector(".hidden-links");
-    if (!hiddenLinks) return;
+
+    if (!visibleLinks || !hiddenLinks) return;
+
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
     /*
-      모바일 햄버거 안에 들어갈 메뉴를 직접 지정.
-      기존에 있던 중복/빈 li를 전부 지우고 다시 만듦.
+      데스크톱에서는 JS가 메뉴를 추가하면 안 됨.
+      혹시 이전 실행으로 중복이 생겼다면 visible/hidden 둘 다 정리.
+    */
+    if (!isMobile) {
+      hiddenLinks.querySelectorAll(".mobile-only-menu").forEach(function (item) {
+        item.remove();
+      });
+
+      visibleLinks.querySelectorAll(".mobile-only-menu").forEach(function (item) {
+        item.remove();
+      });
+
+      removeDuplicateLinks(visibleLinks);
+      removeDuplicateLinks(hiddenLinks);
+      return;
+    }
+
+    /*
+      모바일에서는 hidden-links를 비우고,
+      햄버거 안에 들어갈 메뉴만 직접 구성.
     */
     hiddenLinks.innerHTML = "";
 
@@ -66,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const li = document.createElement("li");
       const a = document.createElement("a");
 
+      li.className = "mobile-only-menu";
       a.href = menu.href;
       a.textContent = menu.text;
 
@@ -74,17 +123,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  buildMobileHamburgerMenu();
+  setupMobileNav();
 
   /*
     Minimal Mistakes greedy nav가 로드 후 메뉴를 다시 만질 수 있어서
-    약간의 딜레이를 두고 다시 한 번 구성
+    딜레이를 두고 재정리
   */
-  setTimeout(buildMobileHamburgerMenu, 300);
-  setTimeout(buildMobileHamburgerMenu, 800);
+  setTimeout(setupMobileNav, 300);
+  setTimeout(setupMobileNav, 800);
+  setTimeout(setupMobileNav, 1500);
 
-  window.addEventListener("resize", function () {
-    buildMobileHamburgerMenu();
-  });
+  window.addEventListener("resize", setupMobileNav);
 });
 </script>
