@@ -564,8 +564,8 @@ body {
 }
 
 /* =========================================================
-   Mobile Final Override v4
-   - nav / home author stack / table scroll inside content
+   Mobile Final Override v5
+   - nav / home author stack / hamburger / reliable table scroll
    ========================================================= */
 
 @media (max-width: 768px) {
@@ -585,8 +585,9 @@ body {
     display: flex !important;
     align-items: center !important;
     flex-wrap: nowrap !important;
-    gap: 0 !important;
+    width: 100% !important;
     min-width: 0 !important;
+    gap: 0 !important;
   }
 
   .greedy-nav .site-title {
@@ -622,15 +623,42 @@ body {
     letter-spacing: -0.045em !important;
   }
 
-  /* 모바일에서는 Insights/Contact는 햄버거 안으로 */
+  /* 모바일에서는 About Me, Projects만 직접 노출 */
   .greedy-nav .visible-links li:nth-child(n+3) {
     display: none !important;
   }
 
-  .greedy-nav__toggle,
-  .greedy-nav button {
-    flex: 0 0 auto !important;
+  /* 햄버거 버튼 강제 복구 */
+  .greedy-nav .greedy-nav__toggle,
+  .greedy-nav .greedy-nav__toggle.hidden,
+  .greedy-nav button.greedy-nav__toggle,
+  .greedy-nav button.greedy-nav__toggle.hidden {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    flex: 0 0 34px !important;
+    width: 34px !important;
+    min-width: 34px !important;
+    height: 34px !important;
     margin-left: auto !important;
+    padding: 0 !important;
+    z-index: 999 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  .greedy-nav .navicon,
+  .greedy-nav .navicon::before,
+  .greedy-nav .navicon::after {
+    display: block !important;
+    background: #333 !important;
+  }
+
+  .greedy-nav .hidden-links {
+    right: 0 !important;
+    left: auto !important;
+    z-index: 1000 !important;
   }
 
 
@@ -660,7 +688,6 @@ body {
     text-align: center !important;
   }
 
-  /* author 전체 박스만 정확히 세로 flex */
   .home-page .sidebar [itemscope],
   .home-page .sidebar .h-card,
   .home-page .sidebar .author__profile {
@@ -929,86 +956,87 @@ body {
 
   /*
     핵심:
-    - table 자체를 100%로 누르지 않음
-    - 카드 안에 table을 block scroll 영역으로 만듦
-    - 긴 컬럼/값은 table 내부에서만 가로 스크롤
+    - 모바일에서는 모든 표를 일단 가로 스크롤 박스로 처리
+    - table 자체가 스크롤 컨테이너
+    - tr을 넓게 잡아서 스크롤이 실제로 발생하게 함
   */
 
-  .page__content figure,
-  .page__content .table-wrapper,
-  .page__content div:has(> table) {
+  .layout--single:not(.home-page) .page__content table {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: auto !important;
     overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch !important;
-    box-sizing: border-box !important;
-  }
-
-  .page__content table {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
+    table-layout: auto !important;
     border-collapse: collapse !important;
-    margin: 0.6em 0 1.2em 0 !important;
+    margin: 0.7em 0 1.2em 0 !important;
     box-sizing: border-box !important;
   }
 
-  .page__content table thead,
-  .page__content table tbody {
+  .layout--single:not(.home-page) .page__content table thead,
+  .layout--single:not(.home-page) .page__content table tbody {
+    display: table-row-group !important;
+    width: auto !important;
+    min-width: 0 !important;
+  }
+
+  .layout--single:not(.home-page) .page__content table tr {
     display: table !important;
-    min-width: max-content !important;
+    table-layout: auto !important;
     width: max-content !important;
+    min-width: 680px !important;
   }
 
-  .page__content table tr {
-    display: table-row !important;
-  }
-
-  .page__content table th,
-  .page__content table td {
+  .layout--single:not(.home-page) .page__content table th,
+  .layout--single:not(.home-page) .page__content table td {
     display: table-cell !important;
-    font-size: 12px !important;
-    line-height: 1.55 !important;
-    padding: 7px 10px !important;
+    width: auto !important;
+    min-width: 120px !important;
+    max-width: none !important;
     white-space: nowrap !important;
     word-break: keep-all !important;
     overflow-wrap: normal !important;
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+    padding: 7px 10px !important;
     vertical-align: top !important;
   }
 
-  /* 너무 짧은 표도 최소 폭은 본문 안에 맞춤 */
-  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) thead,
-  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) tbody {
-    min-width: 100% !important;
-    width: 100% !important;
-  }
-
-  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th,
-  .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td {
+  /* 마지막 컬럼은 설명문일 가능성이 높아서 넓게 */
+  .layout--single:not(.home-page) .page__content table th:last-child,
+  .layout--single:not(.home-page) .page__content table td:last-child {
+    min-width: 240px !important;
     white-space: normal !important;
-    word-break: keep-all !important;
     overflow-wrap: break-word !important;
   }
 
-  /* 3열 이상은 스크롤용 최소 폭 */
-  .page__content table:has(th:nth-child(3)) thead,
-  .page__content table:has(th:nth-child(3)) tbody,
-  .page__content table:has(td:nth-child(3)) thead,
-  .page__content table:has(td:nth-child(3)) tbody {
-    min-width: 680px !important;
-    width: 680px !important;
+  /* 2열 표는 본문 안에 맞춰도 되게 */
+  .layout--single:not(.home-page) .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) tr {
+    width: 100% !important;
+    min-width: 100% !important;
   }
 
-  .page__content table:has(th:nth-child(4)) thead,
-  .page__content table:has(th:nth-child(4)) tbody,
-  .page__content table:has(td:nth-child(4)) thead,
-  .page__content table:has(td:nth-child(4)) tbody {
+  .layout--single:not(.home-page) .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th,
+  .layout--single:not(.home-page) .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td {
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    min-width: 0 !important;
+  }
+
+  .layout--single:not(.home-page) .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th:first-child,
+  .layout--single:not(.home-page) .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td:first-child {
+    width: 34% !important;
+  }
+
+  .layout--single:not(.home-page) .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) th:nth-child(2),
+  .layout--single:not(.home-page) .page__content table:not(:has(th:nth-child(3))):not(:has(td:nth-child(3))) td:nth-child(2) {
+    width: 66% !important;
+  }
+
+  /* 4열 이상 표는 더 넓게 */
+  .layout--single:not(.home-page) .page__content table:has(th:nth-child(4)) tr,
+  .layout--single:not(.home-page) .page__content table:has(td:nth-child(4)) tr {
     min-width: 760px !important;
-    width: 760px !important;
   }
 }
