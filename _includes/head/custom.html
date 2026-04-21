@@ -36,30 +36,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ===============================
-     2. 모바일 햄버거 메뉴 중복 제거
+     2. 햄버거 메뉴 중복 제거
      =============================== */
-  function normalizeMobileHamburgerMenu() {
-    const nav = document.querySelector(".greedy-nav");
-    if (!nav) return;
+  function removeDuplicateHamburgerLinks() {
+    const hiddenLinks = document.querySelector(".greedy-nav .hidden-links");
+    if (!hiddenLinks) return;
 
-    const visibleLinks = nav.querySelector(".visible-links");
-    const hiddenLinks = nav.querySelector(".hidden-links");
-
-    if (!visibleLinks || !hiddenLinks) return;
-
-    /* 예전에 JS로 복사했던 메뉴 제거 */
-    hiddenLinks.querySelectorAll(".mobile-cloned-link").forEach(function (item) {
-      item.remove();
-    });
-
-    /* hidden-links 안의 중복 메뉴 제거 */
     const seen = new Set();
 
     Array.from(hiddenLinks.querySelectorAll("li")).forEach(function (item) {
       const link = item.querySelector("a");
-      if (!link) return;
 
-      const key = (link.getAttribute("href") || "") + "|" + link.textContent.trim();
+      if (!link) {
+        item.remove();
+        return;
+      }
+
+      const text = link.textContent.trim().replace(/\s+/g, " ");
+      const href = link.getAttribute("href") || "";
+      const key = text + "|" + href;
 
       if (seen.has(key)) {
         item.remove();
@@ -67,30 +62,24 @@ document.addEventListener("DOMContentLoaded", function () {
         seen.add(key);
       }
     });
-
-    /*
-      hidden-links가 비어있는 경우에만
-      visible-links의 3번째 이후 메뉴를 복사
-    */
-    const currentHiddenItems = hiddenLinks.querySelectorAll("li");
-
-    if (currentHiddenItems.length === 0 && visibleLinks) {
-      const mobileOnlyItems = visibleLinks.querySelectorAll("li:nth-child(n+3)");
-
-      mobileOnlyItems.forEach(function (item) {
-        const clone = item.cloneNode(true);
-        clone.classList.add("mobile-cloned-link");
-        clone.style.display = "block";
-        hiddenLinks.appendChild(clone);
-      });
-    }
   }
 
-  normalizeMobileHamburgerMenu();
+  removeDuplicateHamburgerLinks();
 
-  /* Minimal Mistakes greedy nav가 나중에 메뉴를 다시 만지는 경우 대비 */
-  setTimeout(normalizeMobileHamburgerMenu, 300);
-  setTimeout(normalizeMobileHamburgerMenu, 800);
-  window.addEventListener("resize", normalizeMobileHamburgerMenu);
+  setTimeout(removeDuplicateHamburgerLinks, 200);
+  setTimeout(removeDuplicateHamburgerLinks, 600);
+  setTimeout(removeDuplicateHamburgerLinks, 1200);
+
+  const nav = document.querySelector(".greedy-nav");
+  if (nav) {
+    const observer = new MutationObserver(function () {
+      removeDuplicateHamburgerLinks();
+    });
+
+    observer.observe(nav, {
+      childList: true,
+      subtree: true
+    });
+  }
 });
 </script>
