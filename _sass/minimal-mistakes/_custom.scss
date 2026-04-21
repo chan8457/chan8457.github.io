@@ -564,20 +564,241 @@ body {
 }
 
 /* =========================================================
-   Mobile Fix Pack
-   - home profile / tables / typography
+   Mobile Final Override
+   - nav / home author / table scroll
    ========================================================= */
 
 @media (max-width: 768px) {
   /* ===============================
-     1. 모바일 전체 기본 폰트 축소
+     1. 모바일 상단 네비 한 줄 정리
      =============================== */
 
-  html {
-    font-size: 13px !important;
+  .masthead {
+    height: auto !important;
   }
 
-  body {
+  .masthead__inner-wrap {
+    padding: 12px 14px !important;
+  }
+
+  .greedy-nav {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 0 !important;
+  }
+
+  .greedy-nav .site-title {
+    flex: 0 0 auto !important;
+    font-size: 15px !important;
+    font-weight: 900 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.055em !important;
+    margin-right: 14px !important;
+    white-space: nowrap !important;
+  }
+
+  .greedy-nav .visible-links {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .greedy-nav .visible-links li {
+    flex: 0 0 auto !important;
+  }
+
+  .greedy-nav .visible-links a {
+    font-size: 14px !important;
+    font-weight: 850 !important;
+    line-height: 1.2 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.045em !important;
+  }
+
+  /* 모바일에서는 Contact는 햄버거 쪽으로 보내는 게 안전 */
+  .greedy-nav .visible-links li:nth-child(n+4) {
+    display: none !important;
+  }
+
+  .greedy-nav__toggle,
+  .greedy-nav button {
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+  }
+
+
+  /* ===============================
+     2. 모바일 메인 프로필 완전 재정렬
+     =============================== */
+
+  .home-page #main {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 18px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  .home-page .sidebar,
+  .home-page .sidebar.sticky {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    clear: both !important;
+    padding: 0 !important;
+    margin: 24px 0 34px 0 !important;
+    text-align: center !important;
+  }
+
+  .home-page .author__avatar {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto 14px auto !important;
+    text-align: center !important;
+  }
+
+  .home-page .author__avatar img {
+    display: block !important;
+    width: 150px !important;
+    max-width: 150px !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    border-radius: 14px !important;
+  }
+
+  .home-page .author__content {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+  }
+
+  .home-page .author__name {
+    display: block !important;
+    width: 100% !important;
+    font-size: 24px !important;
+    line-height: 1.25 !important;
+    margin: 10px 0 8px 0 !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+  }
+
+  .home-page .author__bio {
+    display: block !important;
+    max-width: 310px !important;
+    margin: 0 auto 14px auto !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+  }
+
+  /* Minimal Mistakes 모바일 Follow 드롭다운 제거 */
+  .home-page .author__urls-wrapper {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    margin: 12px auto 0 auto !important;
+    text-align: center !important;
+  }
+
+  .home-page .author__urls-wrapper button {
+    display: none !important;
+  }
+
+  .home-page .author__urls {
+    display: flex !important;
+    position: static !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    width: 100% !important;
+    max-width: 330px !important;
+    margin: 12px auto 0 auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px 12px !important;
+  }
+
+  .home-page .author__urls li {
+    display: inline-flex !important;
+    align-items: center !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+  }
+
+  .home-page .author__urls a {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.4 !important;
+    white-space: nowrap !important;
+  }
+
+  .home-page .page,
+  .home-page .page__inner-wrap,
+  .home-page .page__content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+
+  /* ===============================
+     3. 모바일 GitHub 카드
+     =============================== */
+
+  .home-page .github-card-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .home-page .github-card-wrap img,
+  .home-page .gh-summary,
+  .home-page .gh-graph,
+  .home-page .home-section img {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+  }
+
+
+  /* ===============================
+     4. 모바일 본문 폰트 살짝 축소
+     =============================== */
+
+  .layout--single:not(.home-page) .page {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .layout--single:not(.home-page) .page__content {
+    padding: 22px 18px !important;
+    border-radius: 14px !important;
     overflow-x: hidden !important;
   }
 
@@ -592,16 +813,9 @@ body {
     line-height: 1.65 !important;
   }
 
-  .page__content h1 {
-    font-size: 22px !important;
-    line-height: 1.35 !important;
-  }
-
   .page__content h2 {
     font-size: 18px !important;
-    line-height: 1.4 !important;
-    margin-top: 1.45em !important;
-    margin-bottom: 0.75em !important;
+    line-height: 1.42 !important;
   }
 
   .page__content h3 {
@@ -609,255 +823,21 @@ body {
     line-height: 1.45 !important;
   }
 
-  .page__title,
-  .page__hero--overlay .page__title {
-    font-size: 24px !important;
-    line-height: 1.35 !important;
-  }
-
-  .page__hero--overlay .page__lead {
-    font-size: 13px !important;
-    line-height: 1.55 !important;
-  }
-
 
   /* ===============================
-     2. 모바일 상단 네비게이션
+     5. 모바일 표: 3열 이상은 진짜 가로 스크롤
      =============================== */
 
-  .masthead {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .masthead__inner-wrap {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-  .site-title {
-    font-size: 17px !important;
-    line-height: 1.2 !important;
-    letter-spacing: -0.045em !important;
-  }
-
-  .greedy-nav a {
-    font-size: 15px !important;
-    font-weight: 800 !important;
-  }
-
-
-  /* ===============================
-     3. 모바일 메인 페이지 레이아웃
-     =============================== */
-
-  .home-page #main {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 18px !important;
-    padding-right: 18px !important;
-    margin: 0 auto !important;
-    box-sizing: border-box !important;
-  }
-
-  .home-page .sidebar {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 24px 0 34px 0 !important;
-  }
-
-  .home-page .sidebar.sticky {
-    position: static !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  /* 프로필 영역을 모바일에서 세로 카드처럼 정리 */
-  .home-page .author__avatar {
-    display: block !important;
-    text-align: center !important;
-    margin: 0 auto 14px auto !important;
-  }
-
-  .home-page .author__avatar img {
-    display: block !important;
-    width: 150px !important;
-    max-width: 150px !important;
-    height: auto !important;
-    margin: 0 auto !important;
-    border-radius: 14px !important;
-  }
-
-  .home-page .author__content {
-    text-align: center !important;
-    width: 100% !important;
-  }
-
-  .home-page .author__name {
-    font-size: 24px !important;
-    line-height: 1.25 !important;
-    margin: 10px 0 8px 0 !important;
-    word-break: keep-all !important;
-  }
-
-  .home-page .author__bio {
-    max-width: 280px !important;
-    margin: 0 auto 14px auto !important;
-    font-size: 13px !important;
-    line-height: 1.6 !important;
-    word-break: keep-all !important;
-  }
-
-  /* 스킬 배지 줄바꿈 정리 */
-  .home-page .author__urls-wrapper,
-  .home-page .author__urls {
-    text-align: center !important;
-  }
-
-  .home-page .author__urls {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 8px 10px !important;
-    margin-top: 14px !important;
-    font-size: 13px !important;
-    line-height: 1.5 !important;
-  }
-
-  .home-page .author__urls li {
-    display: inline-flex !important;
-    align-items: center !important;
-    margin: 0 !important;
-  }
-
-  /* 혹시 Follow 버튼이 생기면 숨김 */
-  .home-page .author__urls-wrapper button {
-    display: none !important;
-  }
-
-  .home-page .page {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .home-page .page__inner-wrap,
-  .home-page .page__content {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-
-  /* ===============================
-     4. 모바일 GitHub 카드 정리
-     =============================== */
-
-  .home-page .home-section-title {
-    font-size: 22px !important;
-    line-height: 1.35 !important;
-    margin-bottom: 18px !important;
-  }
-
-  .home-page .github-card-wrap {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px !important;
-    width: 100% !important;
-  }
-
-  .home-page .github-card-wrap img,
-  .home-page .gh-summary,
-  .home-page .gh-graph {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    display: block !important;
-  }
-
-  .home-page .home-section img {
-    max-width: 100% !important;
-  }
-
-
-  /* ===============================
-     5. 모바일 최근 작성한 글
-     =============================== */
-
-  .home-page .home-latest-list {
-    gap: 18px !important;
-  }
-
-  .home-page .home-latest-card {
-    display: block !important;
-    padding: 18px 0 !important;
-  }
-
-  .home-page .home-latest-card > a {
-    display: block !important;
-    width: 100% !important;
-    margin-bottom: 12px !important;
-  }
-
-  .home-page .home-latest-thumb,
-  .home-page .home-latest-placeholder {
-    width: 100% !important;
-    min-width: 0 !important;
-    height: auto !important;
-    aspect-ratio: 16 / 9 !important;
-    object-fit: contain !important;
-    padding: 8px !important;
-    background: #f7f4ee !important;
-  }
-
-  .home-page .home-latest-title {
-    font-size: 18px !important;
-    line-height: 1.38 !important;
-  }
-
-  .home-page .home-latest-excerpt {
-    font-size: 13px !important;
-    line-height: 1.65 !important;
-  }
-
-
-  /* ===============================
-     6. 모바일 표 깨짐 방지
-     =============================== */
-
-  .page__content {
+  body {
     overflow-x: hidden !important;
   }
 
-  .page__content figure,
-  .page__content .table-wrapper,
-  .page__content div:has(> table) {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-  }
-
+  /* 기본 2열 표 */
   .page__content table {
-    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    table-layout: auto !important;
-    white-space: normal !important;
-    margin: 0.6em 0 1.2em 0 !important;
-  }
-
-  .page__content table thead,
-  .page__content table tbody,
-  .page__content table tr {
-    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
   }
 
   .page__content table th,
@@ -870,58 +850,58 @@ body {
     overflow-wrap: break-word !important;
   }
 
-  /* 2열 표는 화면 안에서 자연스럽게 */
   .page__content table th:first-child,
   .page__content table td:first-child {
-    width: auto !important;
-    min-width: 86px !important;
-    max-width: none !important;
+    width: 34% !important;
+    min-width: 0 !important;
   }
 
   .page__content table th:nth-child(2),
   .page__content table td:nth-child(2) {
-    width: auto !important;
-    min-width: 180px !important;
-    max-width: none !important;
+    width: 66% !important;
+    min-width: 0 !important;
   }
 
-  /* 3열 이상 표는 가로 스크롤 전용 */
+  /* 3열 이상 표는 카드 내부에서만 가로 스크롤 */
   .page__content table:has(th:nth-child(3)),
   .page__content table:has(td:nth-child(3)) {
-    display: table !important;
-    min-width: 620px !important;
-    width: max-content !important;
-    max-width: none !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
     table-layout: auto !important;
+    white-space: nowrap !important;
+  }
+
+  .page__content table:has(th:nth-child(3)) thead,
+  .page__content table:has(td:nth-child(3)) tbody {
+    display: table !important;
+    min-width: 640px !important;
+    width: 640px !important;
+  }
+
+  .page__content table:has(th:nth-child(3)) tr {
+    display: table-row !important;
   }
 
   .page__content table:has(th:nth-child(3)) th,
+  .page__content table:has(th:nth-child(3)) td,
+  .page__content table:has(td:nth-child(3)) th,
   .page__content table:has(td:nth-child(3)) td {
-    min-width: 90px !important;
+    width: auto !important;
+    min-width: 110px !important;
     white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
   }
 
   .page__content table:has(th:nth-child(4)) th:nth-child(4),
+  .page__content table:has(th:nth-child(4)) td:nth-child(4),
+  .page__content table:has(td:nth-child(4)) th:nth-child(4),
   .page__content table:has(td:nth-child(4)) td:nth-child(4) {
-    min-width: 240px !important;
-  }
-
-
-  /* ===============================
-     7. 모바일 상세 페이지 카드
-     =============================== */
-
-  .layout--single:not(.home-page) .page {
-    padding-left: 14px !important;
-    padding-right: 14px !important;
-  }
-
-  .layout--single:not(.home-page) .page__content {
-    border-radius: 14px !important;
-    padding: 22px 18px !important;
-  }
-
-  .layout--single:not(.home-page) .sidebar__right {
-    display: none !important;
+    min-width: 250px !important;
   }
 }
