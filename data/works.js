@@ -113,6 +113,25 @@ window.WORKS = [
     media: []
   },
   {
+    id: "product-ai-images",
+    title: "실제 상품 사진 기반 AI 상품·프로모션 이미지 제작",
+    cat: "ai-media",
+    year: "2026",
+    featured: false,
+    org: "농산물 브랜드",
+    summary: "실제 상품 사진을 바탕으로 AI 이미지를 만들어, 행사 프로모션·선물세트·상품 컷을 제작했습니다.",
+    problem: "AI로만 이미지를 만들면 실제 상품과 다른 모습이 나와 고객에게 오해를 줄 수 있습니다. 그래서 실제 상품 사진을 기준으로 삼아 AI 이미지를 만드는 방식이 필요했습니다.",
+    process: [
+      "실제 상품 사진을 기준 이미지로 삼아, 상품의 모양과 색이 실제와 달라지지 않도록 유지하며 배경·소품·구도만 AI로 확장",
+      "행사용 프로모션 이미지는 상품만 바꿔 같은 틀로 시리즈(홍로사과, 아리수사과, 고구마)를 한 번에 제작",
+      "명절 선물세트는 상품 구성은 그대로 두고 연출 컷(상차림 위에서 본 구도, 한복 모델이 들고 있는 구도)을 따로 제작",
+      "블루베리는 접시, 손에 담은 모습, 그릇 구도로 나눠 제작"
+    ],
+    result: "행사 프로모션 3종, 선물세트 2종, 블루베리 3종 등 상품 이미지를 제작했습니다. 아래 이미지는 제작 결과 일부이며, 브랜드 로고는 모자이크 처리했습니다.",
+    tools: ["AI 이미지"],
+    media: ["assets/ai-product/cover.jpg", "assets/ai-product/promo-poster.jpg", "assets/ai-product/gift-box-flatlay.jpg", "assets/ai-product/gift-box-hanbok.jpg", "assets/ai-product/blueberry-plate.jpg", "assets/ai-product/blueberry-hands.jpg", "assets/ai-product/blueberry-bowl.jpg"]
+  },
+  {
     id: "photoreal",
     title: "포토리얼 AI 이미지 프롬프트 방법론",
     cat: "ai-media",
