@@ -223,7 +223,7 @@ window.WORKS = [
     ],
     result: "상품이 늘어도 같은 틀의 후기 카드를 빠르게 만들 수 있습니다. 아래는 실제 생성한 카드 예시 중 일부이며, 고객 이름은 가림 처리된 상태로 사용했습니다.",
     tools: ["Python", "Pillow", "HTML", "Claude"],
-    media: ["assets/review/cover.jpg", "assets/review/review-01.jpg", "assets/review/review-02.jpg", "assets/review/review-03.jpg"]
+    media: ["assets/review/cover.jpg", "assets/review/review-04.jpg", "assets/review/review-01.jpg", "assets/review/review-02.jpg", "assets/review/review-03.jpg"]
   },
   {
     id: "crm-campaign",
