@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Analysis — 조성찬</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="progress"><i id="bar"></i></div>
+<header class="nav light" id="nav">
+  <a class="logo" href="index.html">조성찬<b>.</b></a>
+  <nav class="menu" style="display:flex;position:static;opacity:1;transform:none;pointer-events:auto;background:none;color:inherit;padding:0;flex-direction:row">
+    <a href="index.html#works">← AI Works</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+</header>
+<main class="page-top">
+  <section style="padding-top:40px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag rv">Data Analysis</div>
+        <h2 class="rv">데이터로 문제를 <em>진단</em>하고 개선안을 낸 프로젝트</h2>
+      </div>
+      <div class="alist" id="alist"></div>
+    </div>
+  </section>
+</main>
+<footer><span>© 2026 조성찬</span><a href="index.html">메인으로</a></footer>
+<script src="data/works.js"></script>
+<script>
+(function(){
+  var l=document.getElementById("alist");
+  l.innerHTML=(window.ANALYSIS||[]).map(function(a,i){
+    return '<div class="arow rv" style="--d:'+(i*0.06)+'s"><div class="d">'+a.date+'</div><h3>'+a.title+'</h3><p>'+a.desc+'</p></div>';
+  }).join("");
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll(".rv").forEach(function(n){io.observe(n)});
+  addEventListener("scroll",function(){var h=document.documentElement.scrollHeight-innerHeight;document.getElementById("bar").style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
+})();
+</script>
+</body>
+</html>

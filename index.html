@@ -1,344 +1,195 @@
----
-layout: single
-author_profile: true
-title: ""
-classes: home-page
----
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>조성찬 · AI 활용 전문가 포트폴리오</title>
+<meta name="description" content="AI를 다루는 실력, 결과로 보여드립니다. AI 이미지·영상 제작과 업무 자동화 포트폴리오.">
+<meta property="og:title" content="조성찬 · AI 활용 전문가 포트폴리오">
+<meta property="og:description" content="AI를 다루는 실력, 결과로 보여드립니다.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="progress"><i id="bar"></i></div>
 
-<style>
-/* 메인 페이지 구분선 */
-.custom-hr {
-  border: none;
-  border-top: 1px solid #e5e5e5;
-  margin: 36px 0;
-}
+<header class="nav" id="nav">
+  <a class="logo" href="#top">조성찬<b> · </b><span>AI 활용 전문가</span></a>
+  <button class="burger" id="burger" aria-label="메뉴 열기">MENU</button>
+  <nav class="menu" id="menu">
+    <a href="#about">About</a>
+    <a href="#featured">Selected</a>
+    <a href="#works">Works</a>
+    <a href="#resume">Résumé</a>
+    <a href="analysis.html" class="ext">Data Analysis ↗</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-/* GitHub 영역 */
-.home-section {
-  margin-bottom: 34px;
-}
+<main id="top">
+  <section class="hero" style="padding-bottom:0">
+    <div class="grid"></div><div class="glow" id="glow"></div>
+    <div class="wrap" style="position:relative;width:100%">
+      <div class="badges">
+        <span class="badge main"><i></i>AI Specialist</span>
+        <span class="badge">AI활용지도사 1급</span>
+        <span class="badge">Google Analytics 4 인증</span>
+      </div>
+      <h1>
+        <span class="ln"><span>AI를 다루는 실력,</span></span>
+        <span class="ln"><span><em>결과</em>로 보여드립니다.</span></span>
+      </h1>
+      <p class="lead">이미지·영상·콘텐츠 제작부터 업무 자동화까지. 완성도를 끝까지 챙기고, 효율이 나는 곳에 AI를 씁니다.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#works">작업물 보기 →</a>
+        <a class="btn ghost" href="#contact">함께 일하기</a>
+      </div>
+    </div>
+    <div class="marquee"><div id="marq"></div></div>
+  </section>
 
-.home-section-title {
-  margin: 0 0 16px 0 !important;
-  padding: 0 !important;
-  border-bottom: 0 !important;
-  font-size: 22px !important;
-  font-weight: 800 !important;
-  line-height: 1.35 !important;
-  color: #222;
-  letter-spacing: -0.04em;
-}
-
-.github-card-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  align-items: center;
-}
-
-.github-card-wrap img {
-  max-width: 48%;
-  min-width: 300px;
-  flex: 1;
-}
-
-.gh-summary {
-  width: 100%;
-  max-width: 900px;
-}
-
-.gh-graph {
-  width: 100%;
-  max-width: 900px;
-  margin-top: 20px;
-}
-
-/* 최근 작성한 글 카드형 목록 */
-.home-latest-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.home-latest-card {
-  display: flex;
-  gap: 18px;
-  padding: 13px 0 15px;
-  border-bottom: 1px solid #e9e4db;
-  align-items: flex-start;
-}
-
-.home-latest-card > a {
-  display: block;
-  flex: 0 0 180px;
-  line-height: 0;
-}
-
-.home-latest-thumb,
-.home-latest-placeholder {
-  display: block;
-  width: 180px;
-  min-width: 180px;
-  height: 112px;
-  border-radius: 10px;
-  object-fit: cover;
-  border: 1px solid #eeeeee;
-  background: #f7f7f7;
-}
-
-.home-latest-placeholder {
-  background: linear-gradient(135deg, #f8f8f8, #eeeeee);
-}
-
-.home-latest-info {
-  flex: 1;
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-}
-
-/* PROJECT / INSIGHT 태그 */
-.home-latest-type {
-  display: inline-block;
-  margin: 0 0 2px 0 !important;
-  padding: 3px 8px;
-  border-radius: 999px;
-  background: #f6f0e7;
-  color: #8a6d3b;
-  font-size: 11px;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: 0.02em;
-}
-
-/* 전역 h2 스타일 무력화 */
-.home-latest-title {
-  font-size: 19px !important;
-  font-weight: 800 !important;
-  margin: 0 0 6px 0 !important;
-  padding: 0 !important;
-  border-bottom: 0 !important;
-  line-height: 1.35 !important;
-  letter-spacing: -0.045em;
-}
-
-.home-latest-title a {
-  color: #333;
-  text-decoration: none;
-}
-
-.home-latest-title a:hover {
-  color: #9a743f;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.home-latest-excerpt {
-  font-size: 14px;
-  line-height: 1.58;
-  color: #666;
-  margin: 0 0 7px 0 !important;
-}
-
-.home-latest-date {
-  font-size: 12.5px;
-  line-height: 1.3;
-  color: #aaa;
-}
-
-/* 모바일 */
-@media (max-width: 768px) {
-  .github-card-wrap img {
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .home-latest-list {
-    gap: 14px;
-  }
-
-  .home-latest-card {
-    flex-direction: column;
-    gap: 10px;
-    padding: 16px 0;
-  }
-
-  .home-latest-card > a {
-    flex: none;
-  }
-
-  .home-latest-thumb,
-  .home-latest-placeholder {
-    width: 190px;
-    min-width: 190px;
-    height: 118px;
-  }
-
-  .home-latest-title {
-    font-size: 20px !important;
-    margin: 0 0 6px 0 !important;
-    padding: 0 !important;
-    border-bottom: 0 !important;
-  }
-}
-</style>
-
-<!-- GitHub Stats Section -->
-<div class="home-section">
-  <h2 class="home-section-title">
-    GitHub 활동 요약
-  </h2>
-
-  <div class="github-card-wrap">
-    <img 
-      src="https://github-readme-stats.vercel.app/api?username=chan8457&show_icons=true&theme=default" 
-      alt="GitHub Stats"
-    >
-
-    <img 
-      src="https://github-readme-stats.vercel.app/api/top-langs/?username=chan8457&layout=compact&theme=default" 
-      alt="Top Languages"
-    >
-  </div>
-
-  <div style="margin-top: 20px;">
-    <img 
-      src="https://streak-stats.demolab.com/?user=chan8457&theme=default" 
-      alt="GitHub Streak" 
-      style="width: 100%; max-width: 800px;"
-    >
-  </div>
-</div>
-
-<!-- GitHub Contribution Graph Section -->
-<div style="margin: 38px 0 48px 0;">
-  <h2 class="home-section-title">
-    GitHub 활동 기록
-  </h2>
-
-  <img 
-    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=chan8457&theme=default" 
-    alt="GitHub Profile Summary" 
-    class="gh-summary"
-  >
-
-  <img 
-    src="https://github-readme-activity-graph.vercel.app/graph?username=chan8457&theme=minimal" 
-    alt="GitHub Contribution Graph" 
-    class="gh-graph"
-  >
-</div>
-
-<hr class="custom-hr">
-
-<h2 class="home-section-title">최근 작성한 글</h2>
-
-<div id="home-latest-output" class="home-latest-list"></div>
-
-<div id="home-latest-source" style="display: none;">
-
-  {% assign project_pages_raw = site.pages | where_exp: "p", "p.categories contains 'projects'" %}
-  {% assign project_pages = project_pages_raw | where_exp: "p", "p.date" | sort: "date" | reverse %}
-
-  {% for p in project_pages %}
-    <article 
-      class="home-latest-card latest-item"
-      data-date="{{ p.date | date: '%Y-%m-%d' }}"
-    >
-      {% if p.header.teaser %}
-        <a href="{{ p.url | relative_url }}">
-          <img
-            class="home-latest-thumb"
-            src="{{ p.header.teaser | relative_url }}"
-            alt="{{ p.title }}"
-          >
-        </a>
-      {% else %}
-        <a href="{{ p.url | relative_url }}">
-          <div class="home-latest-placeholder"></div>
-        </a>
-      {% endif %}
-
-      <div class="home-latest-info">
-        <span class="home-latest-type">PROJECT</span>
-
-        <h2 class="home-latest-title">
-          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-        </h2>
-
-        {% if p.excerpt %}
-          <p class="home-latest-excerpt">
-            {{ p.excerpt | strip_html | truncate: 120 }}
-          </p>
-        {% endif %}
-
-        <div class="home-latest-date">
-          {{ p.date | date: "%Y.%m.%d" }}
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag rv">About</div>
+        <h2 class="rv">AI를 쓰는 사람은 많습니다.<br><span class="nb">하지만 <em>잘 다루는 사람</em>은 많지 않습니다.</span></h2>
+      </div>
+      <div class="about-grid">
+        <div></div>
+        <div>
+          <div class="principles">
+            <div class="principle rv"><div class="n">01</div><div><h3>AI 티가 나지 않을 때까지 다듬습니다</h3><p>한 번에 나온 결과물을 그대로 쓰지 않습니다. 프롬프트 설계, 선별, 보정까지 거쳐 광고와 판매에 바로 쓸 수 있는 완성도를 맞춥니다.</p></div></div>
+            <div class="principle rv"><div class="n">02</div><div><h3>작업에 맞는 도구를 골라 조합합니다</h3><p>이미지, 영상, 문서, 자동화마다 잘 맞는 도구가 다릅니다. 여러 도구를 직접 써보고 비교해서, 목적에 맞는 조합과 작업 순서를 정합니다.</p></div></div>
+            <div class="principle rv"><div class="n">03</div><div><h3>반복되는 일은 자동화로 효율을 높입니다</h3><p>같은 일이 반복되면 도구로 만들어 시간을 아낍니다. 댓글 DM, 블로그 작성, 시장 조사를 시스템으로 옮기되, 발행처럼 판단이 필요한 단계는 사람이 맡도록 나눕니다.</p></div></div>
+            <div class="principle rv"><div class="n">04</div><div><h3>다시 쓸 수 있게 기록합니다</h3><p>잘 나온 방법은 프롬프트, 템플릿, SOP로 남깁니다. 담당자가 바뀌어도 같은 품질이 나오게 하는 것까지가 작업이라고 생각합니다.</p></div></div>
+          </div>
+          <div class="abilities rv">
+            <span>AI 이미지 · 영상 제작</span><span>엑셀 · 업무 자동화</span><span>상세페이지 · 커머스 콘텐츠</span><span>SNS 콘텐츠 운영</span><span>워크플로우 문서화</span>
+          </div>
         </div>
       </div>
-    </article>
-  {% endfor %}
+    </div>
+  </section>
 
-  {% assign insight_pages = site.insights | where_exp: "p", "p.date" | sort: "date" | reverse %}
+  <section class="featured" id="featured">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag rv">Selected</div>
+        <h2 class="rv">가장 먼저 보여드리고 싶은 <em>작업</em></h2>
+      </div>
+      <div class="stack" id="stack"></div>
+    </div>
+  </section>
 
-  {% for p in insight_pages %}
-    <article 
-      class="home-latest-card latest-item"
-      data-date="{{ p.date | date: '%Y-%m-%d' }}"
-    >
-      {% if p.header.teaser %}
-        <a href="{{ p.url | relative_url }}">
-          <img
-            class="home-latest-thumb"
-            src="{{ p.header.teaser | relative_url }}"
-            alt="{{ p.title }}"
-          >
-        </a>
-      {% else %}
-        <a href="{{ p.url | relative_url }}">
-          <div class="home-latest-placeholder"></div>
-        </a>
-      {% endif %}
+  <section id="works">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag rv">Works</div>
+        <h2 class="rv">AI로 만든 작업물 <em>전체</em></h2>
+      </div>
+      <div class="chips rv" id="chips"></div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
 
-      <div class="home-latest-info">
-        <span class="home-latest-type">INSIGHT</span>
-
-        <h2 class="home-latest-title">
-          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-        </h2>
-
-        {% if p.excerpt %}
-          <p class="home-latest-excerpt">
-            {{ p.excerpt | strip_html | truncate: 120 }}
-          </p>
-        {% endif %}
-
-        <div class="home-latest-date">
-          {{ p.date | date: "%Y.%m.%d" }}
+  <section class="resume" id="resume">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="tag rv">Résumé</div>
+        <h2 class="rv">일을 더 <em>수월하게</em> 만드는 일, 그 길을 걸어왔습니다.</h2>
+      </div>
+      <div class="tl-wrap">
+        <div class="tl-item rv">
+          <div class="when">Story</div>
+          <div>
+            <p>요리사를 목표로 조리과를 졸업한 뒤 호텔, 매장, 물류 현장에서 일했습니다. 그때부터 가장 자주 한 고민은 &ldquo;어떻게 하면 이 일을 더 수월하고 정확하게 할 수 있을까&rdquo;였습니다. 작업 순서를 다시 짜고, 재고 흐름을 조정하고, 교육 방식을 바꾸는 일이었습니다.</p>
+            <p>이후 빅데이터학과와 Codeit 부트캠프에서 문제를 숫자로 진단하는 법을 익혔고, 지금은 AI로 그 개선을 한 단계 더 밀고 갑니다. 이미지·영상·카피는 완성도가 나올 때까지 다듬고, 반복되는 업무는 직접 자동화 시스템으로 만듭니다.</p>
+            <p>도구는 계속 바뀌지만 일하는 방식은 같습니다. 불편한 지점을 찾아서, 더 쾌적하게 돌아가게 만드는 것입니다.</p>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="when">2026.06.19 ~ 2026.10.31</div>
+          <div>
+            <h3>콘텐츠 · 마케팅 · 커머스 운영, AI 자동화 구축</h3>
+            <div class="org">파머프렌즈 · 팀장</div>
+            <ul>
+              <li>릴스, Threads, 네이버 블로그, 숏폼 영상 등 다채널 콘텐츠를 1인으로 기획·제작·운영</li>
+              <li>댓글 자동 DM, 블로그 작성 도구, 마케팅 AI 위키 등 업무 자동화 시스템 구축</li>
+              <li>상품 라벨, 마케팅 카피, 스마트스토어·당근 등 판매 채널 운영</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="when">2025.12.09 ~ 2026.04.03</div>
+          <div>
+            <h3>채용 광고 기획 · 성과 분석</h3>
+            <div class="org">한국고용플랫폼 유한회사 · 매니저</div>
+            <ul>
+              <li>채용 광고 시안과 공고 문구를 기획하고, 고객사별 전환 흐름을 분석해 개선</li>
+              <li>지원자 수뿐 아니라 가용 전환, 면접 참석까지 이어지는 퍼널을 관리</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="when">2025</div>
+          <div>
+            <h3>데이터 분석 학습</h3>
+            <div class="org">빅데이터학과 · Codeit 부트캠프</div>
+            <ul><li>고객 행동, 결제 예측, 서비스 로그, 이탈, 마케팅 퍼널 등 실전 프로젝트 수행 (<a href="analysis.html" style="text-decoration:underline">Data Analysis 보기</a>)</li></ul>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="when">2015 ~ 2025</div>
+          <div>
+            <h3>현장 운영 경력</h3>
+            <ul>
+              <li>2023.02 ~ 2025.01 · (주)세이브존 사원 — 배송 물품 정리, 물류 흐름 관리</li>
+              <li>2017.01 ~ 2022.12 · (주)이랜드이츠 트레이너 — 직원 교육, 매장 관리, 운영 프로세스 개선</li>
+              <li>2015.10 ~ 2016.11 · SK네트웍스(주) 워커힐 사원 — 주방 보조, 메뉴별 조리 운영</li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="when">자격증</div>
+          <div>
+            <ul class="certs">
+              <li><b>AI활용지도사 1급</b> <span>2025.11.14 · 한국평생학습진흥원</span></li>
+              <li><b>Google Analytics 4 Certification</b> <span>2025.12.04 · Google Skillshop</span></li>
+              <li><b>양식 조리기능사</b> <span>2015.07.02 · 한국산업인력공단</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tl-item rv">
+          <div class="when">Tools</div>
+          <div>
+            <ul>
+              <li>생성형 AI: Claude, ChatGPT, Google Flow/Veo, Midjourney, Sora, Kling, Higgsfield</li>
+              <li>제작·편집: Canva, CapCut, Figma</li>
+              <li>자동화·분석: Python, SQL, GA4, Meta Graph API, Notion, GitHub</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </article>
-  {% endfor %}
+    </div>
+  </section>
 
-</div>
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="eyebrow">Contact</div>
+      <h2>손이 많이 가는 일,<br>같이 <em>덜어내요.</em></h2>
+      <div class="links">
+        <a class="btn primary" href="https://open.kakao.com/o/sWlO6aWi" target="_blank" rel="noopener">카카오톡으로 문의</a>
+        <a class="btn ghost" href="mailto:jscro@naver.com">jscro@naver.com</a>
+      </div>
+      <p class="note">파트타임 · 프리랜서 문의 환영 — AI 이미지·영상 제작, 엑셀·업무 자동화, 커머스 콘텐츠</p>
+    </div>
+  </section>
+</main>
+<footer><span>© 2026 조성찬</span><span>Designed &amp; built with Claude</span></footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const source = document.querySelector("#home-latest-source");
-  const output = document.querySelector("#home-latest-output");
+<div class="modal" id="modal" aria-hidden="true"><div class="panel" id="panel" role="dialog" aria-modal="true"></div></div>
 
-  if (!source || !output) return;
-
-  const items = Array.from(source.querySelectorAll(".latest-item"));
-
-  items.sort(function (a, b) {
-    const dateA = new Date(a.dataset.date);
-    const dateB = new Date(b.dataset.date);
-    return dateB - dateA;
-  });
-
-  items.slice(0, 6).forEach(function (item) {
-    output.appendChild(item);
-  });
-});
-</script>
+<script src="data/works.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
