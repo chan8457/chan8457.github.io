@@ -221,9 +221,9 @@ window.WORKS = [
       "고객 사진은 보정 없이 그대로 쓰고, 사진이 없는 후기는 공식 로고로 채워 레이아웃을 동일하게 유지",
       "코딩 없이 쓸 수 있도록 웹 생성기도 별도로 제작하고, 결과물은 상품별 폴더로 분리해 관리"
     ],
-    result: "상품이 늘어도 같은 품질의 후기 카드를 빠르게 만들 수 있습니다.",
+    result: "상품이 늘어도 같은 틀의 후기 카드를 빠르게 만들 수 있습니다. 아래는 실제 생성한 카드 예시 중 일부이며, 고객 이름은 가림 처리된 상태로 사용했습니다.",
     tools: ["Python", "Pillow", "HTML", "Claude"],
-    media: []
+    media: ["assets/review/cover.jpg", "assets/review/review-01.jpg", "assets/review/review-02.jpg", "assets/review/review-03.jpg"]
   },
   {
     id: "crm-campaign",
