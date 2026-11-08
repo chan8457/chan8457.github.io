@@ -127,7 +127,7 @@ window.WORKS = [
       "명절 선물세트는 상품 구성은 그대로 두고 연출 컷(상차림 위에서 본 구도, 한복 모델이 들고 있는 구도)을 따로 제작",
       "블루베리는 접시, 손에 담은 모습, 그릇 구도로 나눠 제작"
     ],
-    result: "행사 프로모션 3종, 선물세트 2종, 블루베리 3종 등 상품 이미지를 제작했습니다. 아래 이미지는 제작 결과 일부이며, 브랜드 로고는 모자이크 처리했습니다.",
+    result: "행사 프로모션, 명절 선물세트, 과일 상품 컷 등 다양한 상품 이미지를 제작해 왔습니다. 아래는 그중 몇 가지만 골라 담은 것이며, 브랜드 로고는 모자이크 처리했습니다.",
     tools: ["GPT Image"],
     media: ["assets/ai-product/cover.jpg", "assets/ai-product/promo-poster.jpg", "assets/ai-product/gift-box-flatlay.jpg", "assets/ai-product/gift-box-hanbok.jpg", "assets/ai-product/blueberry-plate.jpg", "assets/ai-product/blueberry-hands.jpg", "assets/ai-product/blueberry-bowl.jpg"]
   },
