@@ -313,7 +313,7 @@ window.WORKS = [
       "과장 표현 없이 확인된 사실만 쓰고, 브랜드 톤에 맞는 따뜻하고 쉬운 문장으로 통일"
     ],
     result: "첫 화면부터 보관·배송 안내까지 12개 섹션의 상세페이지를 완성했습니다. 아래 이미지는 실제 제작 결과이며, 브랜드명과 인물은 모자이크 처리했습니다.",
-    tools: ["Naver Smart Store", "Claude", "AI 이미지"],
+    tools: ["Naver Smart Store", "Canva", "Claude", "AI 이미지"],
     media: ["assets/smartstore/cover.jpg"].concat([1,2,3,4,5,6,7,8,9,10,11,12].map(function (n) { return "assets/smartstore/detail-" + (n < 10 ? "0" : "") + n + ".jpg"; }))
   }
 ];
