@@ -286,7 +286,7 @@ window.WORKS = [
   },
   {
     id: "game-clan",
-    title: "게임 클랜 전용 성장 계산기·운영 웹앱 (IUV Forge Helper)",
+    title: "게임 클랜 전용 성장 계산기·운영 웹앱",
     cat: "dev",
     year: "2026",
     featured: false,
