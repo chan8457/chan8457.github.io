@@ -128,7 +128,7 @@ window.WORKS = [
       "블루베리는 접시, 손에 담은 모습, 그릇 구도로 나눠 제작"
     ],
     result: "행사 프로모션 3종, 선물세트 2종, 블루베리 3종 등 상품 이미지를 제작했습니다. 아래 이미지는 제작 결과 일부이며, 브랜드 로고는 모자이크 처리했습니다.",
-    tools: ["AI 이미지"],
+    tools: ["GPT Image"],
     media: ["assets/ai-product/cover.jpg", "assets/ai-product/promo-poster.jpg", "assets/ai-product/gift-box-flatlay.jpg", "assets/ai-product/gift-box-hanbok.jpg", "assets/ai-product/blueberry-plate.jpg", "assets/ai-product/blueberry-hands.jpg", "assets/ai-product/blueberry-bowl.jpg"]
   },
   {
