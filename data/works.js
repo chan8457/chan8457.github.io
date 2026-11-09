@@ -202,9 +202,9 @@ window.WORKS = [
       "본문이 넘치면 경고가 뜨게 하고, 지침에는 핵심 사실과 대표의 마음을 남긴 채 500~650자로 줄이는 규칙을 포함",
       "비개발자도 쓸 수 있도록 더블클릭 실행 파일과 사용 설명서를 함께 제공"
     ],
-    result: "원문을 붙여 넣고 버튼 몇 번이면 같은 형식의 카카오톡용 뉴스레터 이미지 두 장이 만들어집니다.",
+    result: "원문을 붙여 넣고 버튼 몇 번이면 같은 형식의 카카오톡용 뉴스레터 이미지 두 장이 만들어집니다. 아래는 제작기 화면, 8월호로 실제 생성한 편지 2장, 처음 쓰는 사람을 위한 사용 안내문입니다.",
     tools: ["Claude", "HTML · CSS · JS", "PowerShell"],
-    media: []
+    media: ["assets/letter/cover.jpg", "assets/letter/letter-tool.jpg", "assets/letter/letter-01.jpg", "assets/letter/letter-02.jpg", "assets/letter/letter-readme.jpg"]
   },
   {
     id: "review-card",
