@@ -171,4 +171,4 @@
 ## Works 섹션 구조 (2026-11-09 변경)
 - 사진(media) 있는 작업만 카드로 표시, 사진 없는 작업은 "그 밖의 작업 N건 보기" 접이식 목록(클릭 시 상세 모달).
 - `draft: true`이고 사진 없는 작업(릴스)은 목록에서 숨김. 사진을 `media`에 추가하면 자동으로 카드로 승격됨.
-- Selected(대표 4개): smartstore, slicer-log, game-clan, review-card (`ORDER` 배열은 main.js).
+- Selected(대표 4개): smartstore, slicer-log, sketchup-ruby, game-clan, review-card (`ORDER` 배열은 main.js).

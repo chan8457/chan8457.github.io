@@ -23,7 +23,7 @@
   $("#marq").innerHTML = mq + mq;
 
   /* featured stack */
-  var ORDER = ["smartstore", "slicer-log", "game-clan", "review-card"];
+  var ORDER = ["smartstore", "slicer-log", "sketchup-ruby", "game-clan", "review-card"];
   var feat = WORKS.filter(function (w) { return w.featured; }).sort(function (a, b) { return ORDER.indexOf(a.id) - ORDER.indexOf(b.id); });
   $("#stack").innerHTML = feat.map(function (w, i) {
     return '<article class="stack-card" style="--i:' + i + '" data-id="' + w.id + '" tabindex="0">' +
