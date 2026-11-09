@@ -191,3 +191,15 @@ footer{background:#c6dbff;color:var(--sub);padding:28px var(--pad);font-size:13p
   .hero .lead,.cta,.hero-cta{opacity:1;animation:none}
   .marquee div{animation:none}
 }
+
+.more{margin-top:34px}
+.more-toggle{font:inherit;font-weight:700;font-size:15px;padding:14px 22px;border-radius:99px;border:1px solid var(--line);background:var(--card);cursor:pointer;display:inline-flex;gap:10px;align-items:center;transition:background .3s}
+.more-toggle:hover{background:var(--bg)}
+.more-list{margin-top:16px;border-top:1px solid var(--line)}
+.more-list .row{display:grid;grid-template-columns:130px 1fr 24px;gap:18px;align-items:center;padding:18px 6px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .3s,padding .3s}
+.more-list .row:hover{background:var(--card);padding-left:16px}
+.more-list .cat{font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--mute)}
+.more-list h3{font-size:16.5px;letter-spacing:-.02em;line-height:1.35}
+.more-list p{font-size:13.5px;color:var(--mute);margin-top:4px}
+.more-list .go{color:var(--mute)}
+@media(max-width:640px){.more-list .row{grid-template-columns:1fr 20px}.more-list .row .cat{grid-column:1/-1}}

@@ -23,7 +23,8 @@
   $("#marq").innerHTML = mq + mq;
 
   /* featured stack */
-  var feat = WORKS.filter(function (w) { return w.featured; });
+  var ORDER = ["smartstore", "slicer-log", "game-clan", "review-card"];
+  var feat = WORKS.filter(function (w) { return w.featured; }).sort(function (a, b) { return ORDER.indexOf(a.id) - ORDER.indexOf(b.id); });
   $("#stack").innerHTML = feat.map(function (w, i) {
     return '<article class="stack-card" style="--i:' + i + '" data-id="' + w.id + '" tabindex="0">' +
       '<div><div class="num">0' + (i + 1) + " / " + esc(CATS[w.cat]) + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="more">자세히 보기 →</div></div>' +
@@ -37,16 +38,26 @@
       return '<button class="chip' + (k === cur ? " on" : "") + '" data-k="' + k + '">' + esc(CATS[k]) + "</button>";
     }).join("");
   }
+  var hasMedia = function (w) { return (w.media || []).length > 0; };
   function renderCards() {
-    $("#cards").innerHTML = WORKS.map(function (w, i) {
-      var show = cur === "all" || w.cat === cur;
-      return '<article class="card rv' + (show ? "" : " hide") + '" data-id="' + w.id + '" tabindex="0" style="--d:' + ((i % 3) * 0.08) + 's">' +
+    var shown = WORKS.filter(function (w) { return (cur === "all" || w.cat === cur) && hasMedia(w); }).sort(function (x, y) { return (y.featured ? 1 : 0) - (x.featured ? 1 : 0) || (ORDER.indexOf(x.id) + 99) % 99 - (ORDER.indexOf(y.id) + 99) % 99; });
+    $("#cards").innerHTML = shown.map(function (w, i) {
+      return '<article class="card rv" data-id="' + w.id + '" tabindex="0" style="--d:' + ((i % 3) * 0.08) + 's">' +
         visual(w) + '<div class="body"><div class="cat">' + esc(CATS[w.cat]) + (w.year ? " · " + esc(w.year) : "") + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="tl">' +
         (w.tools || []).slice(0, 4).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("") + "</div></div></article>";
     }).join("");
+    var more = WORKS.filter(function (w) { return (cur === "all" || w.cat === cur) && !hasMedia(w) && !w.draft; });
+    $("#more").innerHTML = more.length ? '<button class="more-toggle" id="moreBtn" aria-expanded="false">그 밖의 작업 ' + more.length + '건 보기 <span>＋</span></button>' +
+      '<div class="more-list" id="moreList" hidden>' + more.map(function (w) {
+        return '<div class="row" data-id="' + w.id + '" tabindex="0"><div class="cat">' + esc(CATS[w.cat]) + '</div><div><h3>' + esc(w.title) + '</h3><p>' + esc(w.summary) + '</p></div><span class="go">→</span></div>';
+      }).join("") + "</div>" : "";
     observe();
   }
   renderChips(); renderCards();
+  $("#more").addEventListener("click", function (e) {
+    var b = e.target.closest("#moreBtn"); if (!b) return;
+    var l = $("#moreList"), o = l.hidden; l.hidden = !o; b.setAttribute("aria-expanded", o ? "true" : "false"); b.querySelector("span").textContent = o ? "－" : "＋";
+  });
   $("#chips").addEventListener("click", function (e) {
     var b = e.target.closest(".chip"); if (!b) return;
     cur = b.dataset.k; renderChips(); renderCards();
