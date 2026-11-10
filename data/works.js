@@ -16,25 +16,6 @@ window.CATS = {
 
 window.WORKS = [
   {
-    id: "auto-dm",
-    title: "댓글 트리거 인스타그램 자동 DM 시스템",
-    cat: "automation",
-    year: "2026",
-    featured: false,
-    org: "농산물 브랜드",
-    summary: "외부 유료 툴 없이 Meta Graph API로 직접 만든, 댓글을 달면 DM이 자동 발송되는 시스템.",
-    problem: "댓글 이벤트와 안내 DM을 사람이 일일이 보내느라 시간이 들고 놓치는 건이 생겼습니다. 유료 자동화 툴은 비용과 자유도 문제가 있었습니다.",
-    process: [
-      "Meta Graph API 웹훅으로 댓글 이벤트를 수신하고, 웹앱과 백그라운드 워커로 역할을 분리",
-      "Redis 큐(Upstash)로 발송 순서와 재시도를 관리, 토큰은 암호화 키로 보관",
-      "Oracle Cloud 무료 VM에 배포해 운영비 없이 상시 구동",
-      "AI와 대화하며 구축 순서를 문서화해 재현 가능한 가이드로 정리"
-    ],
-    result: "유료 자동화 툴 없이 하룻밤에 구축한 구조를 그대로 문서화했습니다.",
-    tools: ["Claude", "Meta Graph API", "Redis", "Oracle Cloud"],
-    media: []
-  },
-  {
     id: "ai-wiki",
     title: "회사 전담 AI 위키, 지식 관리 시스템",
     cat: "automation",
