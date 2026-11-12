@@ -4,12 +4,24 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
 
+  var LANG = "ko";
+  try { var q = new URLSearchParams(location.search).get("lang"); LANG = (q === "en" || q === "ko") ? q : (localStorage.getItem("lang") || "ko"); } catch (e) {}
+  if (LANG !== "en") LANG = "ko";
+  var T = {
+    ko: { more: "자세히 보기 →", close: "닫기 ✕", problem: "문제", process: "과정", result: "결과", tools: "사용한 도구", others: function (n) { return "그 밖의 작업 " + n + "건 보기"; }, draft: "상세 내용은 작성 중입니다. 결과 이미지·영상과 과정 설명이 곧 추가됩니다.", res: " 결과물" },
+    en: { more: "View details →", close: "Close ✕", problem: "Problem", process: "Process", result: "Result", tools: "Tools used", others: function (n) { return "Show " + n + " more works"; }, draft: "Details are being written. Result images and a process write-up are coming soon.", res: " result" }
+  };
+  var t = function (k) { return T[LANG][k]; };
+  var CX = function () { return LANG === "en" && window.CATS_EN ? window.CATS_EN : CATS; };
+  var W = function (w) { return LANG === "en" && window.WORKS_EN && window.WORKS_EN[w.id] ? Object.assign({}, w, window.WORKS_EN[w.id]) : w; };
+
   function visual(w, big) {
+    w = W(w);
     var m = (w.media || [])[0], inner = "";
     if (m) inner = /\.(mp4|webm)$/i.test(m)
       ? '<video src="' + esc(m) + '" muted loop playsinline autoplay></video>'
       : '<img src="' + esc(m) + '" alt="' + esc(w.title) + '" loading="lazy">';
-    return '<div class="vis g-' + esc(w.cat) + '">' + inner + (m ? "" : "<span>" + esc(CATS[w.cat] ? CATS[w.cat].split("·")[0] : "") + "</span>") + "</div>";
+    return '<div class="vis g-' + esc(w.cat) + '">' + inner + (m ? "" : "<span>" + esc(CX()[w.cat] ? CX()[w.cat].split("·")[0] : "") + "</span>") + "</div>";
   }
 
   /* hero stats + marquee */
@@ -25,31 +37,37 @@
   /* featured stack */
   var ORDER = ["smartstore", "slicer-log", "sketchup-ruby", "game-clan", "review-card"];
   var feat = WORKS.filter(function (w) { return w.featured; }).sort(function (a, b) { return ORDER.indexOf(a.id) - ORDER.indexOf(b.id); });
-  $("#stack").innerHTML = feat.map(function (w, i) {
+  function renderStack() {
+  $("#stack").innerHTML = feat.map(function (w0, i) {
+    var w = W(w0);
     return '<article class="stack-card" style="--i:' + i + '" data-id="' + w.id + '" tabindex="0">' +
-      '<div><div class="num">0' + (i + 1) + " / " + esc(CATS[w.cat]) + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="more">자세히 보기 →</div></div>' +
+      '<div><div class="num">0' + (i + 1) + " / " + esc(CX()[w.cat]) + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="more">" + t("more") + "</div></div>' +
       visual(w, true) + "</article>";
   }).join("");
+  }
+  renderStack();
 
   /* works grid + filter */
   var cur = "all";
   function renderChips() {
     $("#chips").innerHTML = Object.keys(CATS).map(function (k) {
-      return '<button class="chip' + (k === cur ? " on" : "") + '" data-k="' + k + '">' + esc(CATS[k]) + "</button>";
+      return '<button class="chip' + (k === cur ? " on" : "") + '" data-k="' + k + '">' + esc(CX()[k]) + "</button>";
     }).join("");
   }
   var hasMedia = function (w) { return (w.media || []).length > 0; };
   function renderCards() {
     var shown = WORKS.filter(function (w) { return (cur === "all" || w.cat === cur) && hasMedia(w); }).sort(function (x, y) { return (y.featured ? 1 : 0) - (x.featured ? 1 : 0) || (ORDER.indexOf(x.id) + 99) % 99 - (ORDER.indexOf(y.id) + 99) % 99; });
-    $("#cards").innerHTML = shown.map(function (w, i) {
+    $("#cards").innerHTML = shown.map(function (w0, i) {
+      var w = W(w0);
       return '<article class="card rv" data-id="' + w.id + '" tabindex="0" style="--d:' + ((i % 3) * 0.08) + 's">' +
-        visual(w) + '<div class="body"><div class="cat">' + esc(CATS[w.cat]) + (w.year ? " · " + esc(w.year) : "") + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="tl">' +
+        visual(w) + '<div class="body"><div class="cat">' + esc(CX()[w.cat]) + (w.year ? " · " + esc(w.year) : "") + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="tl">' +
         (w.tools || []).slice(0, 4).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("") + "</div></div></article>";
     }).join("");
     var more = WORKS.filter(function (w) { return (cur === "all" || w.cat === cur) && !hasMedia(w) && !w.draft; });
-    $("#more").innerHTML = more.length ? '<button class="more-toggle" id="moreBtn" aria-expanded="false">그 밖의 작업 ' + more.length + '건 보기 <span>＋</span></button>' +
-      '<div class="more-list" id="moreList" hidden>' + more.map(function (w) {
-        return '<div class="row" data-id="' + w.id + '" tabindex="0"><div class="cat">' + esc(CATS[w.cat]) + '</div><div><h3>' + esc(w.title) + '</h3><p>' + esc(w.summary) + '</p></div><span class="go">→</span></div>';
+    $("#more").innerHTML = more.length ? '<button class="more-toggle" id="moreBtn" aria-expanded="false">' + t("others")(more.length) + ' <span>＋</span></button>' +
+      '<div class="more-list" id="moreList" hidden>' + more.map(function (w0) {
+        var w = W(w0);
+        return '<div class="row" data-id="' + w.id + '" tabindex="0"><div class="cat">' + esc(CX()[w.cat]) + '</div><div><h3>' + esc(w.title) + '</h3><p>' + esc(w.summary) + '</p></div><span class="go">→</span></div>';
       }).join("") + "</div>" : "";
     observe();
   }
@@ -68,16 +86,16 @@
   var modal = $("#modal"), panel = $("#panel"), lastFocus;
   function gallery(w) {
     var g = (w.media || []).slice(1); if (!g.length) return "";
-    return '<div class="gallery">' + g.map(function (u) { return '<a href="' + esc(u) + '" target="_blank" rel="noopener"><img src="' + esc(u) + '" alt="' + esc(w.title) + ' 결과물" loading="lazy"></a>'; }).join("") + "</div>";
+    return '<div class="gallery">' + g.map(function (u) { return '<a href="' + esc(u) + '" target="_blank" rel="noopener"><img src="' + esc(u) + '" alt="' + esc(w.title) + t("res") + '" loading="lazy"></a>'; }).join("") + "</div>";
   }
   function open(id) {
-    var w = WORKS.filter(function (x) { return x.id === id; })[0]; if (!w) return;
+    var w = WORKS.filter(function (x) { return x.id === id; })[0]; if (!w) return; w = W(w);
     lastFocus = document.activeElement;
-    panel.innerHTML = '<button class="close" id="closeBtn">닫기 ✕</button>' + visual(w, true) +
-      '<div class="meta">' + esc(CATS[w.cat]) + (w.org ? " · " + esc(w.org) : "") + (w.year ? " · " + esc(w.year) : "") + "</div><h2>" + esc(w.title) + "</h2><p>" + esc(w.summary) + "</p>" +
-      (w.draft ? '<div class="draft">상세 내용은 작성 중입니다. 결과 이미지·영상과 과정 설명이 곧 추가됩니다.</div>' : "") +
-      "<h4>문제</h4><p>" + esc(w.problem) + "</p><h4>과정</h4><ol>" + (w.process || []).map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ol>" +
-      "<h4>결과</h4><p>" + esc(w.result) + "</p>" + gallery(w) + "<h4>사용한 도구</h4><div class=\"tl\" style=\"display:flex;gap:6px;flex-wrap:wrap\">" + (w.tools || []).map(function (t) { return '<span class="chip on">' + esc(t) + "</span>"; }).join("") + "</div>";
+    panel.innerHTML = '<button class="close" id="closeBtn">' + t("close") + '</button>' + visual(w, true) +
+      '<div class="meta">' + esc(CX()[w.cat]) + (w.org ? " · " + esc(w.org) : "") + (w.year ? " · " + esc(w.year) : "") + "</div><h2>" + esc(w.title) + "</h2><p>" + esc(w.summary) + "</p>" +
+      (w.draft ? '<div class="draft">' + t("draft") + "</div>" : "") +
+      "<h4>" + t("problem") + "</h4><p>" + esc(w.problem) + "</p><h4>" + t("process") + "</h4><ol>" + (w.process || []).map(function (p) { return "<li>" + esc(p) + "</li>"; }).join("") + "</ol>" +
+      "<h4>" + t("result") + "</h4><p>" + esc(w.result) + "</p>" + gallery(w) + "<h4>" + t("tools") + "</h4><div class=\"tl\" style=\"display:flex;gap:6px;flex-wrap:wrap\">" + (w.tools || []).map(function (t) { return '<span class="chip on">' + esc(t) + "</span>"; }).join("") + "</div>";
     modal.classList.add("open"); modal.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
     $("#closeBtn").focus();
   }
@@ -126,6 +144,33 @@
   }
   addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
   onScroll();
+
+  /* language */
+  function applyStatic() {
+    var en = LANG === "en" && window.I18N_EN, E = window.I18N_EN || {};
+    document.documentElement.lang = LANG;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      if (el._ko == null) el._ko = el.innerHTML;
+      var k = el.getAttribute("data-i18n");
+      el.innerHTML = en && E[k] != null ? E[k] : el._ko;
+    });
+    if (document._koTitle == null) document._koTitle = document.title;
+    document.title = en && E.title ? E.title : document._koTitle;
+    var md = document.querySelector('meta[name="description"]'), ot = document.querySelector('meta[property="og:title"]'), od = document.querySelector('meta[property="og:description"]');
+    [md, ot, od].forEach(function (x) { if (x && x._ko == null) x._ko = x.getAttribute("content"); });
+    if (md) md.setAttribute("content", en && E.desc ? E.desc : md._ko);
+    if (ot) ot.setAttribute("content", en && E.title ? E.title : ot._ko);
+    if (od) od.setAttribute("content", en && E.desc ? E.desc : od._ko);
+    var b = $("#lang"); if (b) { b.textContent = LANG === "en" ? "한국어" : "EN"; b.setAttribute("aria-label", LANG === "en" ? "한국어로 보기" : "View in English"); }
+    var bg = $("#burger"); if (bg) bg.setAttribute("aria-label", LANG === "en" ? "Open menu" : "메뉴 열기");
+  }
+  function setLang(l) {
+    LANG = l === "en" ? "en" : "ko";
+    try { localStorage.setItem("lang", LANG); } catch (e) {}
+    applyStatic(); renderStack(); renderChips(); renderCards(); close(); onScroll();
+  }
+  if ($("#lang")) $("#lang").addEventListener("click", function () { setLang(LANG === "en" ? "ko" : "en"); });
+  if (LANG === "en") applyStatic(); else applyStatic();
 
   /* mobile menu */
   var menu = $("#menu");

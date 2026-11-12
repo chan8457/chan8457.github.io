@@ -203,3 +203,7 @@ footer{background:#c6dbff;color:var(--sub);padding:28px var(--pad);font-size:13p
 .more-list p{font-size:13.5px;color:var(--mute);margin-top:4px}
 .more-list .go{color:var(--mute)}
 @media(max-width:640px){.more-list .row{grid-template-columns:1fr 20px}.more-list .row .cat{grid-column:1/-1}}
+
+/* language toggle */
+.lang{margin-left:10px;padding:7px 13px;border:1px solid currentColor;border-radius:99px;background:none;color:inherit;font:700 12px/1 inherit;letter-spacing:.04em;cursor:pointer;opacity:.85;transition:.2s}
+.lang:hover{opacity:1;background:rgba(127,127,127,.18)}

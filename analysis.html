@@ -9,31 +9,54 @@
 <body>
 <div class="progress"><i id="bar"></i></div>
 <header class="nav light" id="nav">
-  <a class="logo" href="index.html">조성찬<b>.</b></a>
+  <a class="logo" href="index.html" data-i18n="a1">조성찬<b>.</b></a>
   <nav class="menu" style="display:flex;position:static;opacity:1;transform:none;pointer-events:auto;background:none;color:inherit;padding:0;flex-direction:row">
-    <a href="index.html#works">← AI Works</a>
+    <a href="index.html#works" data-i18n="a2">← AI Works</a>
     <a href="index.html#contact">Contact</a>
   </nav>
+  <button class="lang" id="lang" type="button" aria-label="Language">EN</button>
 </header>
 <main class="page-top">
   <section style="padding-top:40px">
     <div class="wrap">
       <div class="sec-head">
         <div class="tag rv">Data Analysis</div>
-        <h2 class="rv">데이터로 문제를 <em>진단</em>하고 개선안을 낸 프로젝트</h2>
+        <h2 class="rv" data-i18n="a3">데이터로 문제를 <em>진단</em>하고 개선안을 낸 프로젝트</h2>
       </div>
       <div class="alist" id="alist"></div>
     </div>
   </section>
 </main>
-<footer><span>© 2026 조성찬</span><a href="index.html">메인으로</a></footer>
+<footer data-i18n="a4"><span>© 2026 조성찬</span><a href="index.html">메인으로</a></footer>
 <script src="data/works.js"></script>
+<script src="data/works.en.js"></script>
+<script src="data/i18n.en.js"></script>
 <script>
 (function(){
-  var l=document.getElementById("alist");
-  l.innerHTML=(window.ANALYSIS||[]).map(function(a,i){
-    return '<div class="arow rv" style="--d:'+(i*0.06)+'s"><div class="d">'+a.date+'</div><h3>'+a.title+'</h3><p>'+a.desc+'</p></div>';
-  }).join("");
+  var LANG="ko";
+  try{var q=new URLSearchParams(location.search).get("lang");LANG=(q==="en"||q==="ko")?q:(localStorage.getItem("lang")||"ko")}catch(e){}
+  if(LANG!=="en")LANG="ko";
+  var l=document.getElementById("alist"),E=window.I18N_EN||{};
+  function render(){
+    var en=LANG==="en"&&window.ANALYSIS_EN;
+    l.innerHTML=(window.ANALYSIS||[]).map(function(a,i){
+      var x=en&&window.ANALYSIS_EN[i]?window.ANALYSIS_EN[i]:a;
+      return '<div class="arow in" style="--d:'+(i*0.06)+'s"><div class="d">'+a.date+'</div><h3>'+x.title+'</h3><p>'+x.desc+'</p></div>';
+    }).join("");
+    document.documentElement.lang=LANG;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      if(el._ko==null)el._ko=el.innerHTML;
+      var k=el.getAttribute("data-i18n");
+      el.innerHTML=(LANG==="en"&&E[k]!=null)?E[k]:el._ko;
+    });
+    if(document._t==null)document._t=document.title;
+    document.title=(LANG==="en"&&E.atitle)?E.atitle:document._t;
+    var b=document.getElementById("lang");b.textContent=LANG==="en"?"한국어":"EN";
+  }
+  document.getElementById("lang").addEventListener("click",function(){
+    LANG=LANG==="en"?"ko":"en";try{localStorage.setItem("lang",LANG)}catch(e){}render();
+  });
+  render();
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.1});
   document.querySelectorAll(".rv").forEach(function(n){io.observe(n)});
   addEventListener("scroll",function(){var h=document.documentElement.scrollHeight-innerHeight;document.getElementById("bar").style.width=(h>0?scrollY/h*100:0)+"%"},{passive:true});
