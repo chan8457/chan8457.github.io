@@ -31,27 +31,9 @@ window.WORKS = [
       "자료 반영(ingest), 질의(query), 점검(lint) 절차를 정의하고, 모든 작업을 로그에 기록한 뒤 git으로 버전 관리",
       "클라우드 루틴으로 정기 점검과 일일 마케팅 트렌드 브리핑을 자동 실행"
     ],
-    result: "위키 문서 230여 개와 작업 로그 400여 건(2026년 11월 기준)이 쌓였고, 상세페이지·릴스 등 다른 자동화가 이 위키를 기준 지식으로 읽어 톤과 사실을 일관되게 유지합니다.",
+    result: "위키 문서 230여 개와 작업 로그 400여 건(2026년 11월 기준)이 쌓였고, 상세페이지·릴스 등 다른 자동화가 이 위키를 기준 지식으로 읽어 톤과 사실을 일관되게 유지합니다. 아래 이미지는 실제 옵시디언 화면입니다. 왼쪽은 02_AI_Wiki의 폴더 구조와 AI 운영 규칙 문서(CLAUDE.md), 오른쪽은 문서 사이 링크를 보여 주는 그래프 뷰(점이 문서, 선이 링크)이며, 사내 이름이 들어간 폴더명은 모자이크 처리했습니다.",
     tools: ["Claude Code", "Obsidian", "git · GitHub", "Scheduled Routine"],
-    media: []
-  },
-  {
-    id: "chuseok-ad",
-    title: "추석 과일 선물세트 AI 영상 광고 (15초, 세로형)",
-    cat: "ai-media",
-    year: "2026",
-    featured: false,
-    org: "농산물 브랜드",
-    summary: "Google Flow(Veo)로 제작한 15초 세로 광고. 마스코트 얼굴 일관성 문제를 모션 설계로 해결했습니다.",
-    problem: "AI 영상에서 캐릭터 얼굴이 흔들리고 움직임이 미끄러지는 문제가 반복됐습니다.",
-    process: [
-      "프롬프트를 반복 수정하며 얼굴 변형과 슬라이딩 현상의 원인을 좁힘",
-      "AI가 다시 그려야 하는 부분을 줄이는 방향으로 모션 콘셉트를 변경",
-      "Higgsfield, Kling, Pika 등 여러 툴을 비교해 용도별 역할 분담"
-    ],
-    result: "툴의 한계를 프롬프트가 아니라 연출 설계로 우회하는 방식을 확립했습니다.",
-    tools: ["Google Flow", "Veo", "Kling", "Higgsfield"],
-    media: []
+    media: ["assets/aiwiki/cover.jpg", "assets/aiwiki/obsidian.jpg", "assets/aiwiki/graph.jpg"]
   },
   {
     id: "product-ai-images",
@@ -71,80 +53,6 @@ window.WORKS = [
     result: "행사 프로모션, 명절 선물세트, 과일 상품 컷 등 다양한 상품 이미지를 제작해 왔습니다. 아래는 그중 몇 가지만 골라 담은 것이며, 브랜드 로고는 모자이크 처리했습니다.",
     tools: ["GPT Image"],
     media: ["assets/ai-product/cover.jpg", "assets/ai-product/promo-poster.jpg", "assets/ai-product/gift-box-flatlay.jpg", "assets/ai-product/gift-box-hanbok.jpg", "assets/ai-product/blueberry-plate.jpg", "assets/ai-product/blueberry-hands.jpg", "assets/ai-product/blueberry-bowl.jpg"]
-  },
-  {
-    id: "photoreal",
-    title: "포토리얼 AI 이미지 프롬프트 방법론",
-    cat: "ai-media",
-    year: "2026",
-    featured: false,
-    org: "개인 연구",
-    summary: "'시네마틱·8K' 같은 키워드를 빼고 카메라 스펙과 보도사진 언어로 쓰면 CG 느낌이 사라집니다.",
-    problem: "AI 이미지가 CG나 일러스트처럼 보여 광고·콘텐츠에 쓰기 어려웠습니다.",
-    process: [
-      "수식어 중심 프롬프트와 카메라 모델·조리개·촬영 상황 중심 프롬프트를 비교 실험",
-      "초현실 콘셉트(서울 도심 위의 달과 눈)에도 같은 원칙을 적용해 검증"
-    ],
-    result: "사진처럼 보이는 결과를 안정적으로 얻는 프롬프트 작성 원칙을 정리했습니다.",
-    tools: ["GPT Image", "Midjourney"],
-    media: []
-  },
-  {
-    id: "detail-modules",
-    title: "상세페이지 디자인 템플릿과 AI 문구 생성 시스템",
-    cat: "commerce",
-    year: "2026",
-    featured: false,
-    org: "농산물 브랜드",
-    summary: "스프레드시트 한 줄만 채우면 AI가 상품 위키와 대조해 상세페이지 문구를 채우거나 검증하는 구조.",
-    problem: "상품이 바뀔 때마다 상세페이지를 처음부터 만들면 품질이 들쭉날쭉했고, 근거 없는 효능 표현이 들어갈 위험도 있었습니다.",
-    process: [
-      "모바일 폭 기준 HTML 디자인 템플릿을 만들고, 값만 바꾸면 다른 상품에 쓸 수 있게 수정 지점을 표시",
-      "스프레드시트 입력 양식을 정의하고, 사실 정보만 채우면 AI가 카피를 채우도록 시스템 프롬프트 설계",
-      "위키에 없는 수치·효능·인증·리뷰는 만들지 않고, 광고심의 주의 상품에서는 건강 효능 표현을 금지하는 규칙을 프롬프트에 포함",
-      "신규 문구 생성과 기존 문구 검증, 두 가지 시나리오에 같은 프롬프트를 사용",
-      "Canva Bulk Create로 기획서 데이터를 디자인에 일괄 반영"
-    ],
-    result: "상품 정보만 채우면 일정한 품질의 문구와 레이아웃이 나오고, 과장 표현은 작성 단계에서 걸러집니다.",
-    tools: ["Claude", "HTML", "Spreadsheet", "Canva"],
-    media: []
-  },
-  {
-    id: "threads-growth",
-    title: "Threads 계정 운영 SOP와 반응 데이터 기반 소재 조정",
-    cat: "content",
-    year: "2026",
-    featured: false,
-    org: "농산물 브랜드",
-    summary: "숫자 채우기가 아니라 진짜 대화할 사람을 모으는 운영 원칙을 SOP로 만들고, 반응 데이터를 보며 글 소재와 동선을 바꿔 갔습니다.",
-    problem: "계정을 처음부터 다시 시작하면서 일관된 말투와 활동 기준, 그리고 무엇이 반응이 좋은지 판단할 근거가 필요했습니다.",
-    process: [
-      "스레드에서 반응이 잘 나오는 유저들의 글과 운영 방식을 분석해 따라 하며 콘텐츠 작성에 반영하고, 운영 절차를 SOP로 고정",
-      "게시글 반응을 주기적으로 집계해 반응이 좋은 유형(호소형 글 등)을 확인하고 소재와 말투를 조정",
-      "Threads 자동 게시 도구(Buffer)에 하루 글 여러 개를 묶어 예약 등록해 운영 시간을 줄임",
-      "랜딩 페이지를 만들어 보고 반응을 확인한 뒤 폐기, 프로필 링크는 오픈채팅으로 바로 연결하도록 결정하고 기록"
-    ],
-    result: "AI가 계정 톤을 유지한 채 글을 쓰고, 반응 데이터로 방향을 고치는 운영 흐름을 문서와 로그로 남겼습니다.",
-    tools: ["Threads", "Buffer", "Claude", "Google Drive"],
-    media: []
-  },
-  {
-    id: "momcafe-posts",
-    title: "맘카페 매장 소식 글 자동 발행 (대표 말투 AI 분석)",
-    cat: "content",
-    year: "2026",
-    featured: false,
-    org: "농산물 브랜드",
-    summary: "대표의 말투를 AI로 분석해, 일주일에 한 번 맘카페에 올리는 매장 소식 글을 자동 발행 흐름으로 운영했습니다.",
-    problem: "맘카페에 올리는 매장 소식은 글마다 말투가 달라지기 쉽고, 주기적으로 올리는 일 자체가 부담이었습니다.",
-    process: [
-      "대표의 말투와 표현 습관을 AI로 분석해 글의 기준 톤으로 정리",
-      "일주일에 한 번 매장 소식 글을 작성",
-      "맘카페 글을 자동으로 발행하는 흐름으로 구성해 꾸준히 올릴 수 있게 운영"
-    ],
-    result: "대표의 말투를 유지한 매장 소식 글을 매주 꾸준히 올렸습니다.",
-    tools: ["Claude", "맘카페"],
-    media: []
   },
   {
     id: "cardnews-peach",
@@ -203,25 +111,6 @@ window.WORKS = [
     result: "상품이 늘어도 같은 틀의 후기 카드를 빠르게 만들 수 있습니다. 아래는 실제 생성한 카드 예시 중 일부이며, 고객 이름은 가림 처리된 상태로 사용했습니다.",
     tools: ["Python", "Pillow", "HTML", "Claude"],
     media: ["assets/review/cover.jpg", "assets/review/review-04.jpg", "assets/review/review-01.jpg", "assets/review/review-02.jpg", "assets/review/review-03.jpg"]
-  },
-  {
-    id: "crm-campaign",
-    title: "회원 데이터 RFM 분석 보고서와 CRM 캠페인 전략",
-    cat: "report",
-    year: "2026",
-    featured: false,
-    org: "농산물 브랜드",
-    summary: "자사몰 회원 데이터를 분석해 보고서로 정리하고, 구매 이력이 없는 회원을 위한 문자 CRM 캠페인 전략을 세웠습니다.",
-    problem: "가입만 하고 구매하지 않은 회원이 많은데, 누구에게 어떤 방식으로 연락해야 하는지 기준이 없었습니다.",
-    process: [
-      "회원 데이터를 구매 이력과 등급 기준으로 분석해 첫 구매 유도 대상을 구분하고, 수신동의 여부는 회원등급을 대리 지표로 교차 검증",
-      "개인 카카오톡 수동·매크로 발송은 이용약관 위반과 계정 정지 위험이 있어 제외하고, 문자 API 예약발송을 최종안으로 선정",
-      "발송 비용과 소요 기간을 산출하고, 하루 발송 한도에 맞춰 일정을 설계",
-      "RFM 분석 결과는 슬라이드 보고서로 정리"
-    ],
-    result: "누구에게 어떤 채널로 언제까지 보낼지, 비용과 기간까지 근거가 있는 실행안과 보고서를 만들었습니다.",
-    tools: ["Claude", "Excel · CSV", "PowerPoint"],
-    media: []
   },
   {
     id: "reels-production",

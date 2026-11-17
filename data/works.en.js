@@ -22,21 +22,8 @@ window.WORKS_EN = {
       "Defined ingest, query and lint procedures, logged every task, and version-controlled everything with git.",
       "Set up scheduled cloud routines for regular wiki checks and a daily marketing-trend briefing."
     ],
-    result: "The wiki holds about 230 documents and 400 work-log entries (as of Nov 2026). Other automations, such as product pages and Reels, read it as their reference knowledge, which keeps tone and facts consistent.",
+    result: "The wiki holds about 230 documents and 400 work-log entries (as of Nov 2026). Other automations, such as product pages and Reels, read it as their reference knowledge, which keeps tone and facts consistent. The images below are the real Obsidian screens: the folder structure of 02_AI_Wiki with the AI operating-rules document (CLAUDE.md), and the graph view (each dot is a document, each line a link). Folder names that contain the company name are mosaicked.",
     tools: ["Claude Code", "Obsidian", "git · GitHub", "Scheduled Routine"]
-  },
-  "chuseok-ad": {
-    title: "Chuseok Fruit Gift Set: AI Video Ad (15 sec, vertical)",
-    org: "Agricultural brand",
-    summary: "A 15-second vertical ad made with Google Flow (Veo). I solved the mascot's face-consistency problem through motion design.",
-    problem: "In AI video, the character's face kept drifting and its movement kept sliding.",
-    process: [
-      "Revised prompts repeatedly to narrow down the causes of face distortion and sliding.",
-      "Changed the motion concept so the AI has less to redraw.",
-      "Compared tools such as Higgsfield, Kling and Pika, and assigned each a role."
-    ],
-    result: "Established a way to work around tool limits through direction design rather than prompting alone.",
-    tools: ["Google Flow", "Veo", "Kling", "Higgsfield"]
   },
   "product-ai-images": {
     title: "AI Product & Promotion Images Based on Real Product Photos",
@@ -51,60 +38,6 @@ window.WORKS_EN = {
     ],
     result: "Produced a range of product images for event promotions, holiday gift sets and fruit shots. Below is a small selection. Brand logos are mosaic-blurred.",
     tools: ["GPT Image"]
-  },
-  "photoreal": {
-    title: "A Prompt Method for Photorealistic AI Images",
-    org: "Personal research",
-    summary: "Dropping keywords like \"cinematic, 8K\" and writing in camera specs and photojournalism language removes the CG look.",
-    problem: "AI images looked like CG or illustration and were hard to use in ads and content.",
-    process: [
-      "Compared adjective-heavy prompts against prompts built on camera model, aperture and shooting situation.",
-      "Verified the same principle on a surreal concept (a moon and snow over downtown Seoul)."
-    ],
-    result: "Wrote down prompt principles that reliably produce photo-like results.",
-    tools: ["GPT Image", "Midjourney"]
-  },
-  "detail-modules": {
-    title: "Product Page Design Template and AI Copy Generation System",
-    org: "Agricultural brand",
-    summary: "Fill in one spreadsheet row and the AI writes or verifies product page copy by checking it against the product wiki.",
-    problem: "Building each product page from scratch made quality uneven, and there was a risk of unsupported efficacy claims slipping in.",
-    process: [
-      "Built a mobile-width HTML design template and marked the points to edit, so it can be reused for other products by changing values.",
-      "Defined the spreadsheet input form and designed a system prompt so the AI fills in copy once only factual information is entered.",
-      "Put rules in the prompt: no numbers, efficacy claims, certifications or reviews that are not in the wiki, and no health claims for products under advertising review.",
-      "Used the same prompt for two scenarios: generating new copy and verifying existing copy.",
-      "Applied planning data to the design in bulk with Canva Bulk Create."
-    ],
-    result: "Filling in product information produces consistent copy and layout, and exaggerated claims are filtered out at the writing stage.",
-    tools: ["Claude", "HTML", "Spreadsheet", "Canva"]
-  },
-  "threads-growth": {
-    title: "Threads Account Operation SOP and Data-Based Topic Adjustment",
-    org: "Agricultural brand",
-    summary: "I turned the operating principle of gathering people who really talk, rather than chasing numbers, into an SOP, and adjusted topics and flow by watching response data.",
-    problem: "Restarting the account from scratch required a consistent voice, activity rules and evidence for what works.",
-    process: [
-      "Analyzed posts and operating styles of Threads users who get strong responses, applied what worked to my own content, and fixed the procedure as an SOP.",
-      "Tallied post responses regularly to find which types work (such as personal-appeal posts) and adjusted topics and tone.",
-      "Scheduled several posts a day in a batch with a Threads auto-posting tool (Buffer) to cut daily operating time.",
-      "Built a landing page, checked the response, then dropped it. Decided to link the profile directly to an open chat and recorded the decision."
-    ],
-    result: "Documented an operating flow in which AI writes in the account's tone and response data corrects direction, in documents and logs.",
-    tools: ["Threads", "Buffer", "Claude", "Google Drive"]
-  },
-  "momcafe-posts": {
-    title: "Weekly Store-News Posts for a Parenting Community Cafe (AI Analysis of the Owner's Voice)",
-    org: "Agricultural brand",
-    summary: "Analyzed the owner's way of speaking with AI and ran a weekly flow that publishes store-news posts to a parenting community cafe.",
-    problem: "Store-news posts easily changed tone from post to post, and posting regularly was a burden in itself.",
-    process: [
-      "Analyzed the owner's voice and expression habits with AI and organized them into a base tone for posts.",
-      "Wrote one store-news post a week.",
-      "Set up the flow to publish the posts to the cafe automatically so they could go out steadily."
-    ],
-    result: "Posted store-news in the owner's voice every week without gaps.",
-    tools: ["Claude", "Parenting community cafe"]
   },
   "cardnews-peach": {
     title: "Peach Card News, 5 Slides",
@@ -148,20 +81,6 @@ window.WORKS_EN = {
     ],
     result: "Even as products grow, review cards in the same template can be made quickly. Below are some actually generated examples, with customer names blurred.",
     tools: ["Python", "Pillow", "HTML", "Claude"]
-  },
-  "crm-campaign": {
-    title: "Member Data RFM Report and CRM Campaign Strategy",
-    org: "Agricultural brand",
-    summary: "Analyzed online-store member data into a report and planned a text-message CRM campaign for members with no purchase history.",
-    problem: "Many members had signed up without ever buying, and there was no standard for whom to contact or how.",
-    process: [
-      "Analyzed members by purchase history and tier to pick first-purchase targets, and cross-checked marketing consent using member tier as a proxy.",
-      "Ruled out manual or macro sending through personal KakaoTalk because of terms-of-service and account-suspension risk, and chose scheduled sending through a text-message API.",
-      "Estimated sending cost and lead time, and designed the schedule around the daily sending limit.",
-      "Summarized the RFM result as a slide report."
-    ],
-    result: "Produced an executable plan and report with evidence: whom to send to, through which channel, by when, with cost and duration.",
-    tools: ["Claude", "Excel · CSV", "PowerPoint"]
   },
   "reels-production": {
     title: "Reels and Short-Form Production Workflow",
