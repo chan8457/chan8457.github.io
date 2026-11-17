@@ -106,6 +106,21 @@ window.WORKS_EN = {
     result: "Posted store-news in the owner's voice every week without gaps.",
     tools: ["Claude", "Parenting community cafe"]
   },
+  "cardnews-peach": {
+    title: "Peach Card News, 5 Slides (Built on a Farm Visit)",
+    org: "Agricultural brand",
+    summary: "A set of five 4:5 Instagram card-news slides that answer a customer's questions in order: origin, variety, then sweetness.",
+    problem: "Peaches come in many varieties and origins, and customers find it hard to choose, or to trust that they are sweet even in the rainy season. Simply listing product details did not build trust.",
+    process: [
+      "Built the five slides around the order of questions a customer would ask: a question-style cover hook, origin and brand, variety comparison, sweetness evidence, then a summary of what was checked and ripening advice.",
+      "Put in sweetness measured on a farm visit (12 Brix on average, 16 at best) together with the measuring photos, so trust comes from checked facts rather than claims.",
+      "Compared two varieties side by side, white peach (Akatsuki) and yellow peach (Jewang), by taste and who each suits.",
+      "Made a text-only five-slide draft first, then rebuilt it as a designed version with real product and measuring photos.",
+      "Used only confirmed facts with no exaggeration, in a soft, easy tone."
+    ],
+    result: "Completed five slides that read as one flow, from the cover to the ripening advice. The images below are the actual result. Brand names, logos, a co-brand mark and the measuring device maker's mark are blurred.",
+    tools: ["ChatGPT", "AI images"]
+  },
   "monthly-letter": {
     title: "Monthly Letter Newsletter Maker",
     org: "Agricultural brand",
