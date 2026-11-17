@@ -107,7 +107,7 @@ window.WORKS_EN = {
     tools: ["Claude", "Parenting community cafe"]
   },
   "cardnews-peach": {
-    title: "Peach Card News, 5 Slides (Built on a Farm Visit)",
+    title: "Peach Card News, 5 Slides",
     org: "Agricultural brand",
     summary: "A set of five 4:5 Instagram card-news slides that answer a customer's questions in order: origin, variety, then sweetness.",
     problem: "Peaches come in many varieties and origins, and customers find it hard to choose, or to trust that they are sweet even in the rainy season. Simply listing product details did not build trust.",
@@ -227,6 +227,51 @@ window.WORKS_EN = {
     ],
     result: "Closing entry and KakaoTalk sharing finish in one go, and records land on the actual closing date even when shared late. Even when the staff changes, records can be viewed in one place in the same items and units, and downloaded to Excel to compare trim weight changes by meat. The images below are real screens, with staff names blurred.",
     tools: ["ChatGPT", "React", "Netlify", "PostgreSQL", "ExcelJS"]
+  },
+  "order-sorter": {
+    title: "Order CSV Auto-Sorter for Packing and Delivery Sheets",
+    org: "Small farm products seller",
+    summary: "I built, with AI, a program that splits an order CSV downloaded from the online shop into packing, delivery and pickup sheets in one step, and used it in daily work.",
+    problem: "For every batch of orders I had to open the CSV by hand, count options and quantities to pack, separate direct delivery, courier and in-store pickup, and filter out test orders and pre-order items that must not be packed yet. Whenever an option name changed, the rules drifted and mistakes crept in.",
+    process: [
+      "Designed the flow so one CSV produces three sheets: packing (with an option-quantity summary), delivery (ordered by nearby addresses) and pickup.",
+      "Highlighted rows where one address ordered several options and cells where one option was ordered twice or more, so combined packing is obvious at a glance.",
+      "Made test orders with malformed postal codes, farm-direct items and pre-order items excluded by default, with a warning shown instead of silently dropping them.",
+      "Moved product recognition rules (keywords and display names) out of the code into a Product tab where they can be added, edited and reordered on screen, so option changes need no code edits.",
+      "Packaged it as an exe that runs by double-click on PCs without Python."
+    ],
+    result: "Pick the order CSV, press one button, and the sheets for each job are created. The images below show the real program run on made-up sample orders and its Excel output; every name, phone number and address is fictional.",
+    tools: ["Python", "Tkinter", "openpyxl", "Claude"]
+  },
+  "youtube-embed": {
+    title: "YouTube Embed Code Generator for Product Pages",
+    org: "Small farm products seller",
+    summary: "A program that turns a pasted YouTube link into an autoplay video embed code ready for shop product pages.",
+    problem: "Putting a GIF-like looping video on a product page meant hand-editing the embed code every time. A first web-page version could not play the preview inside its frame, so I needed a way to check playback under the same conditions as the real product page.",
+    process: [
+      "Extracts the video ID automatically from regular links, Shorts links and links with share parameters.",
+      "Choose autoplay, mute, loop, hidden controls and display width, and a responsive 16:9 embed code is generated instantly.",
+      "A \"preview in browser\" button builds a temporary page so playback can be tested in a real browser, with on-screen hints for what to check if it fails (embedding allowed, age restriction).",
+      "The program also explains how to set a video to Unlisted so it stays out of search but plays on the product page.",
+      "Bundled as a single exe that needs no Python, so a colleague only needs the file."
+    ],
+    result: "Paste a link, press copy, and the code to paste into the product-page HTML editor is ready. The image below is the real screen running with a sample link.",
+    tools: ["Python", "Tkinter", "Claude"]
+  },
+  "link-shortener": {
+    title: "Product Link Shortener with Click Stats (Deployed on Cloudflare)",
+    org: "Small farm products seller",
+    summary: "A web tool, deployed on Cloudflare, that turns shop product URLs into short product-number links and shows click counts per product.",
+    problem: "Shop product URLs carry long product names and category paths, which are awkward in social posts and messages, and there was no way to see which product links were actually clicked.",
+    process: [
+      "Finds the product number inside a URL and builds a short link; several lines can be pasted at once and each is converted.",
+      "URLs without a product number are flagged with the reason, and all converted links can be copied in one click.",
+      "Split the redirect server (Cloudflare Workers) from the page (Cloudflare Pages), and counted total clicks and unique visitors per link.",
+      "Product names are registered automatically, and the stats table supports search, renaming and deletion.",
+      "For staff on phones, the table turns into cards on narrow screens and the page can be added to the home screen."
+    ],
+    result: "Paste a product URL and the short link appears at once; any staff member opens the same address in a browser. The images below show the page on desktop and phone with sample URLs, the real shop address is replaced with an example domain, and the click counts in the stats view are sample values for the demo.",
+    tools: ["Cloudflare Workers", "Cloudflare Pages", "JavaScript", "Claude"]
   },
   "smartstore": {
     title: "Building a Small Farm's Smart Store and Its Product Pages",

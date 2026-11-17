@@ -41,7 +41,7 @@
   $("#stack").innerHTML = feat.map(function (w0, i) {
     var w = W(w0);
     return '<article class="stack-card" style="--i:' + i + '" data-id="' + w.id + '" tabindex="0">' +
-      '<div><div class="num">0' + (i + 1) + " / " + esc(CX()[w.cat]) + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="more">" + t("more") + "</div></div>' +
+      '<div><div class="num">0' + (i + 1) + " / " + esc(CX()[w.cat]) + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="more">' + t("more") + "</div></div>" +
       visual(w, true) + "</article>";
   }).join("");
   }
