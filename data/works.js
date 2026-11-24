@@ -16,8 +16,9 @@ window.CATS = {
 
 /* 작업물 묶음 (Works 섹션 상단 타일). 각 작업의 group 값과 연결됩니다. */
 window.GROUPS = {
-  image: { name: "이미지", desc: "AI로 만든 상품 이미지·카드뉴스" },
+  image: { name: "이미지", desc: "AI로 만든 상품·프로모션 이미지" },
   detail: { name: "상세페이지", desc: "상품 상세페이지 기획·디자인" },
+  cardnews: { name: "카드뉴스", desc: "인스타그램용 카드뉴스 기획·제작" },
   automation: { name: "자동화", desc: "반복 업무를 줄이는 도구·웹앱" }
 };
 
@@ -65,7 +66,7 @@ window.WORKS = [
   },
   {
     id: "cardnews-peach",
-    group: "image",
+    group: "cardnews",
     title: "복숭아 카드뉴스 5장 제작",
     cat: "content",
     year: "2026",
@@ -83,6 +84,26 @@ window.WORKS = [
     result: "표지부터 후숙 안내까지 한 흐름으로 읽히는 카드뉴스 5장을 완성했습니다. 아래 이미지는 실제 제작 결과이며, 브랜드명과 로고, 공동브랜드 표기, 측정기 제조사 표기는 모자이크 처리했습니다.",
     tools: ["ChatGPT", "AI 이미지"],
     media: ["assets/cardnews/cover.jpg", "assets/cardnews/card-01.jpg", "assets/cardnews/card-02.jpg", "assets/cardnews/card-03.jpg", "assets/cardnews/card-04.jpg", "assets/cardnews/card-05.jpg"]
+  },
+  {
+    id: "cardnews-t1",
+    group: "cardnews",
+    title: "e스포츠 시즌 프리뷰 카드뉴스 9장 (T1 골든 로드)",
+    cat: "content",
+    year: "2026",
+    featured: false,
+    org: "개인 작업 · 비공식 팬 제작",
+    summary: "\"T1은 골든 로드를 완성할 수 있을까?\"라는 질문 하나로 9장을 이어 가는 인스타그램 4:5 시즌 프리뷰 카드뉴스.",
+    problem: "정보가 많은 스포츠 콘텐츠는 한 장에 다 담으면 읽히지 않고, 아직 확정되지 않은 소식(선수 복귀, 다음 시즌 대회 체계)을 사실처럼 쓰면 신뢰를 잃습니다.",
+    process: [
+      "직접 쓴 기획안을 바탕으로 표지 → 골든 로드의 조건 → 아깝게 놓친 팀들 → 새 코칭진 → 선수 복귀 가능성 → 예상 로스터 → 경쟁 팀 → 마무리 순서로 9장 구성",
+      "블랙·레드·샴페인 골드로 색을 정하고, 장마다 제목·핵심 문구·보조 설명의 위계를 같게 맞춤",
+      "HTML·CSS로 9장을 만들고 자동 렌더링하면서 글 넘침, 안전 여백, 최소 글자 크기, 폰트 누락을 검사(오류 0건)",
+      "확정되지 않은 내용은 별표와 각주로 '가정', '추정'이라고 밝히고, AI로 만든 로스터 사진에는 'AI 생성 이미지'를 표기"
+    ],
+    result: "1080×1350 카드뉴스 9장을 완성했습니다. T1·LCK와 관계없는 비공식 팬 제작 연습 작업이며, 모든 카드에 'UNOFFICIAL · PORTFOLIO'를 표기했습니다. 6번째 장의 선수 사진은 AI로 만든 연출 이미지입니다.",
+    tools: ["Claude", "HTML · CSS", "Playwright", "AI 이미지"],
+    media: ["assets/cardnews-t1/cover.jpg"].concat([1,2,3,4,5,6,7,8,9].map(function (n) { return "assets/cardnews-t1/card-0" + n + ".jpg"; }))
   },
   {
     id: "monthly-letter",
