@@ -10,12 +10,27 @@ window.CATS_EN = {
 };
 
 window.GROUPS_EN = {
-  image: { name: "Images", desc: "AI product images and card news" },
+  image: { name: "Images", desc: "AI product and promotion images" },
   detail: { name: "Product Pages", desc: "Product detail page planning and design" },
+  cardnews: { name: "Card News", desc: "Instagram card news planning and design" },
   automation: { name: "Automation", desc: "Tools and web apps that cut repetitive work" }
 };
 
 window.WORKS_EN = {
+  "cardnews-t1": {
+    title: "Esports Season Preview Card News, 9 Slides (T1 Golden Road)",
+    org: "Personal project · unofficial fan work",
+    summary: "A 4:5 Instagram season preview that carries one question across nine slides: can T1 complete the Golden Road?",
+    problem: "Information-heavy sports content stops being readable when it is crammed onto one slide, and stating unconfirmed news (a player's return, next season's format) as fact costs trust.",
+    process: [
+      "Built nine slides from my own plan: cover, what the Golden Road means, teams that came close, the new coaching staff, a possible player return, the expected roster, rivals and a closing slide.",
+      "Set a black, red and champagne-gold palette and kept the same hierarchy of title, key line and supporting note on every slide.",
+      "Made the slides in HTML and CSS and rendered them automatically while checking for text overflow, safe margins, minimum font size and missing fonts (0 errors).",
+      "Marked anything unconfirmed as an assumption or estimate with asterisks and footnotes, and labelled the AI-made roster photo \"AI-generated image\"."
+    ],
+    result: "Finished nine 1080×1350 slides. This is an unofficial fan-made practice piece with no connection to T1 or the LCK, and every slide carries \"UNOFFICIAL · PORTFOLIO\". The player photo on slide 6 is an AI-generated staged image.",
+    tools: ["Claude", "HTML · CSS", "Playwright", "AI images"]
+  },
   "ai-wiki": {
     title: "Company AI Wiki: a Knowledge Management System",
     org: "Agricultural brand",

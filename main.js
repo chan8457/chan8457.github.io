@@ -48,8 +48,8 @@
   renderStack();
 
   /* works: group tiles (이미지 / 상세페이지 / 자동화) + cards */
-  var GROUP_KEYS = ["image", "detail", "automation"];
-  var REP = { image: "product-ai-images", detail: "sample-lotion-detail", automation: "slicer-log" };
+  var GROUP_KEYS = ["image", "detail", "cardnews", "automation"];
+  var REP = { image: "product-ai-images", detail: "sample-lotion-detail", cardnews: "cardnews-t1", automation: "slicer-log" };
   var GX = function () { return LANG === "en" && window.GROUPS_EN ? window.GROUPS_EN : (window.GROUPS || {}); };
   var cur = "all";
   var hasMedia = function (w) { return (w.media || []).length > 0; };
