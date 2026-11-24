@@ -229,3 +229,12 @@
 - 연락처 아래 근무 조건 한 줄 추가: "재택 근무 · 근무 시간은 프로젝트 일정에 맞춰 협의합니다" (영문 동일).
 - Data Analysis: 바탕화면의 프로젝트 PDF 5개(예전 포트폴리오 페이지 인쇄본, 연락처·개인정보 없음 확인)를 `assets/analysis/`에 넣고 제목에 "PDF ↗" 링크. `ANALYSIS` 항목에 `pdf` 필드. "AI 및 데이터 기반 광고 운영 효율화"(2026.04)는 PDF가 없어 링크 없음.
 - 캐시 번호 `?v=20261124b`.
+
+## 2026-11-24 추가 변경 2: Works 묶음(이미지·상세페이지·자동화) + 샘플 화장품 상세페이지
+- Works 섹션 상단의 카테고리 칩을 **묶음 타일 3개**(이미지 / 상세페이지 / 자동화, 대표 썸네일·건수·한 줄 설명)로 바꿈. 기본은 "전체 보기"로 세 묶음을 제목과 함께 차례로 보여 주고, 타일을 누르면 그 묶음 작업만 나옴(다시 누르면 전체). Selected·Résumé는 그대로.
+- 데이터: `works.js`에 `window.GROUPS`, 각 작업에 `group` 필드(image | detail | automation) 추가. 영문은 `works.en.js`의 `GROUPS_EN`. 카드의 작은 분류 표시는 기존 `cat`를 그대로 씀. 묶음 대표 썸네일은 `main.js`의 `REP`.
+- 분류: 이미지 = product-ai-images, cardnews-peach (+reels-production, draft라 숨김) / 상세페이지 = smartstore, sample-lotion-detail / 자동화 = ai-wiki, monthly-letter, review-card, sketchup-ruby, game-clan, slicer-log, order-sorter, youtube-embed, link-shortener.
+  - 애매한 것: 카드뉴스(디자인 콘텐츠지만 이미지로), 월간 편지·후기 카드(결과는 이미지지만 만드는 "도구"라 자동화), 유튜브 임베드(상세페이지용이지만 도구라 자동화), 스케치업 Ruby·게임 클랜(개발이라 가장 가까운 자동화).
+- 신규 작업 `sample-lotion-detail`(가상 화장품 상세페이지, 상세페이지 묶음): 이미지 `assets/detail-lotion/`(section-01~11.jpg 860px, full.jpg 전체 한 장, cover.jpg 1600×1000 합성). 원본 PNG(약 29MB)를 860px JPG로 줄여 합계 약 1.7MB. 가상 제품·AI 생성 이미지·가격과 함량 가상이라는 고지를 설명과 페이지 마지막 섹션에 넣음.
+- 상세 모달: 작업에 `longpage: true`이면 갤러리 대신 이미지를 세로로 이어 붙여 실제 상세페이지처럼 보여 줌(smartstore, sample-lotion-detail). `full`이 있으면 "전체 페이지 한 장으로 보기" 링크.
+- 캐시 번호 `?v=20261124c`.

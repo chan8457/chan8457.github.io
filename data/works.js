@@ -14,9 +14,17 @@ window.CATS = {
   dev: "제작·개발"
 };
 
+/* 작업물 묶음 (Works 섹션 상단 타일). 각 작업의 group 값과 연결됩니다. */
+window.GROUPS = {
+  image: { name: "이미지", desc: "AI로 만든 상품 이미지·카드뉴스" },
+  detail: { name: "상세페이지", desc: "상품 상세페이지 기획·디자인" },
+  automation: { name: "자동화", desc: "반복 업무를 줄이는 도구·웹앱" }
+};
+
 window.WORKS = [
   {
     id: "ai-wiki",
+    group: "automation",
     title: "회사 전담 AI 위키, 지식 관리 시스템",
     cat: "automation",
     year: "2026",
@@ -37,6 +45,7 @@ window.WORKS = [
   },
   {
     id: "product-ai-images",
+    group: "image",
     title: "실제 상품 사진 기반 AI 상품·프로모션 이미지 제작",
     cat: "ai-media",
     year: "2026",
@@ -56,6 +65,7 @@ window.WORKS = [
   },
   {
     id: "cardnews-peach",
+    group: "image",
     title: "복숭아 카드뉴스 5장 제작",
     cat: "content",
     year: "2026",
@@ -76,6 +86,7 @@ window.WORKS = [
   },
   {
     id: "monthly-letter",
+    group: "automation",
     title: "월간 편지 뉴스레터 제작 도구",
     cat: "content",
     year: "2026",
@@ -95,6 +106,7 @@ window.WORKS = [
   },
   {
     id: "review-card",
+    group: "automation",
     title: "고객 후기 카드 자동 생성기 (Python · 웹)",
     cat: "content",
     year: "2026",
@@ -114,6 +126,7 @@ window.WORKS = [
   },
   {
     id: "reels-production",
+    group: "image",
     title: "릴스·숏폼 제작 워크플로우",
     cat: "content",
     year: "2026",
@@ -132,6 +145,7 @@ window.WORKS = [
   },
   {
     id: "sketchup-ruby",
+    group: "automation",
     title: "스케치업 부품 수량 집계 Ruby 확장 프로그램",
     cat: "dev",
     year: "2026",
@@ -154,6 +168,7 @@ window.WORKS = [
   },
   {
     id: "game-clan",
+    group: "automation",
     title: "게임 클랜 전용 성장 계산기·운영 웹앱",
     cat: "dev",
     year: "2026",
@@ -177,6 +192,7 @@ window.WORKS = [
   },
   {
     id: "slicer-log",
+    group: "automation",
     title: "육절기 마감일지 웹앱 제작 (매장 의뢰)",
     cat: "automation",
     year: "2026",
@@ -200,6 +216,7 @@ window.WORKS = [
   },
   {
     id: "smartstore",
+    group: "detail",
     title: "소규모 농산물 스마트스토어 구축과 상세페이지 제작",
     cat: "commerce",
     year: "2026",
@@ -216,10 +233,35 @@ window.WORKS = [
     ],
     result: "첫 화면부터 보관·배송 안내까지 12개 섹션의 상세페이지를 완성했습니다. 아래 이미지는 실제 제작 결과이며, 브랜드명과 인물은 모자이크 처리했습니다.",
     tools: ["Naver Smart Store", "Canva", "Claude", "AI 이미지"],
+    longpage: true,
     media: ["assets/smartstore/cover.jpg"].concat([1,2,3,4,5,6,7,8,9,10,11,12].map(function (n) { return "assets/smartstore/detail-" + (n < 10 ? "0" : "") + n + ".jpg"; }))
   },
   {
+    id: "sample-lotion-detail",
+    group: "detail",
+    title: "가상 화장품 상세페이지 제작 (AI 이미지 + 자동 조판)",
+    cat: "commerce",
+    year: "2026",
+    featured: false,
+    org: "개인 작업 · 가상 제품",
+    summary: "가상 로션 제품으로 기획부터 카피 점검, AI 이미지, 자동 조판까지 진행한 11개 섹션 상세페이지 샘플.",
+    problem: "상세페이지는 기획·카피·이미지·디자인을 매번 처음부터 손으로 맞추느라 시간이 오래 걸리고, 화장품은 광고 표현도 조심해야 합니다. 한 번 정한 디자인 규칙으로 빠르게 다시 만들 수 있는 방식이 필요했습니다.",
+    process: [
+      "가상 제품(SAMPLE HYDRA BARRIER LOTION)의 카피와 성분 설정을 바탕으로, 히어로부터 고지까지 11개 섹션의 흐름을 기획",
+      "제품·모델·텍스처 이미지는 GPT로 생성하고, 병 모양과 톤이 한 제품처럼 보이도록 골라 섹션별로 배치",
+      "기획 내용을 정리한 파일 하나를 디자인 명령 96개로 바꾸는 변환 스크립트를 만들어, 폭 860px 상세페이지를 자동으로 조판",
+      "화장품 금지·주의 표현 목록으로 카피 56개를 점검하고, 효능으로 읽힐 수 있는 표현은 따로 표시",
+      "결과를 보고 한글 줄바꿈, 숫자 글꼴, 성분표 배치를 고쳐 다시 생성하는 방식으로 세 번 다듬음"
+    ],
+    result: "섹션 11장과 전체 1장으로 된 상세페이지를 완성했습니다. 판매하지 않는 포트폴리오용 가상 제품이며, 이미지는 모두 AI로 만든 연출 이미지입니다. 성분 함량과 가격도 가상 설정입니다. 아래는 실제 페이지 순서 그대로 이어 붙인 화면입니다.",
+    tools: ["GPT Image", "Claude", "Python", "FigCraft"],
+    longpage: true,
+    full: "assets/detail-lotion/full.jpg",
+    media: ["assets/detail-lotion/cover.jpg", "assets/detail-lotion/section-01-hero.jpg", "assets/detail-lotion/section-02-concern.jpg", "assets/detail-lotion/section-03-point1.jpg", "assets/detail-lotion/section-04-point2.jpg", "assets/detail-lotion/section-05-point3.jpg", "assets/detail-lotion/section-06-texture.jpg", "assets/detail-lotion/section-07-recommend.jpg", "assets/detail-lotion/section-08-ingredients.jpg", "assets/detail-lotion/section-09-howto.jpg", "assets/detail-lotion/section-10-closing.jpg", "assets/detail-lotion/section-11-notice.jpg"]
+  },
+  {
     id: "order-sorter",
+    group: "automation",
     title: "쇼핑몰 주문 CSV 포장·배송 시트 자동 정리 프로그램",
     cat: "automation",
     year: "2026",
@@ -240,6 +282,7 @@ window.WORKS = [
   },
   {
     id: "youtube-embed",
+    group: "automation",
     title: "상세페이지용 유튜브 임베드 코드 생성 프로그램",
     cat: "automation",
     year: "2026",
@@ -260,6 +303,7 @@ window.WORKS = [
   },
   {
     id: "link-shortener",
+    group: "automation",
     title: "상품 링크 단축·클릭 통계 웹 도구 (Cloudflare 배포)",
     cat: "automation",
     year: "2026",
