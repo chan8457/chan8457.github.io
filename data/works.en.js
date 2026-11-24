@@ -232,7 +232,6 @@ window.WORKS_EN = {
 
 window.ANALYSIS_EN = [
   { title: "AI and Data-Driven Ad Operations Efficiency Project", desc: "Generative AI and Python automation, sample-data dashboard" },
-  { title: "LLM-Based Travel Recommendation Platform (in progress)", desc: "Integrated travel and restaurant data, natural-language recommendations" },
   { title: "Data Analysis of a Discontinued Teen Anonymous Voting App", desc: "Diagnosed the DAU drop and a relaunch strategy" },
   { title: "Recruitment Platform Application Funnel Diagnosis and Improvements", desc: "Improving conversion at each stage" },
   { title: "ML-Based Payment Conversion Strategy for a Shared Office", desc: "Payment conversion prediction and membership improvements" },

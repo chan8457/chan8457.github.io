@@ -238,3 +238,7 @@
 - 신규 작업 `sample-lotion-detail`(가상 화장품 상세페이지, 상세페이지 묶음): 이미지 `assets/detail-lotion/`(section-01~11.jpg 860px, full.jpg 전체 한 장, cover.jpg 1600×1000 합성). 원본 PNG(약 29MB)를 860px JPG로 줄여 합계 약 1.7MB. 가상 제품·AI 생성 이미지·가격과 함량 가상이라는 고지를 설명과 페이지 마지막 섹션에 넣음.
 - 상세 모달: 작업에 `longpage: true`이면 갤러리 대신 이미지를 세로로 이어 붙여 실제 상세페이지처럼 보여 줌(smartstore, sample-lotion-detail). `full`이 있으면 "전체 페이지 한 장으로 보기" 링크.
 - 캐시 번호 `?v=20261124c`.
+
+## 2026-11-24 추가 변경 3: 폐기 프로젝트 삭제
+- Data Analysis에서 "LLM 기반 여행지 추천 플랫폼 개발"(2025.11.17)을 완전히 삭제: `works.js`의 `ANALYSIS` 항목, `works.en.js`의 `ANALYSIS_EN` 같은 순번 항목, PDF `assets/analysis/travel-llm.pdf`. 진행 중이 아니라 폐기된 프로젝트라는 성찬 요청. (`ANALYSIS_EN`은 순번으로 짝을 맞추므로 두 배열을 같이 지워야 함)
+- 캐시 번호 `?v=20261124d`.
