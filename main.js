@@ -35,7 +35,7 @@
   $("#marq").innerHTML = mq + mq;
 
   /* featured stack */
-  var ORDER = ["smartstore", "slicer-log", "sketchup-ruby", "game-clan", "review-card"];
+  var ORDER = ["smartstore", "product-ai-images", "slicer-log", "sketchup-ruby", "review-card"];
   var feat = WORKS.filter(function (w) { return w.featured; }).sort(function (a, b) { return ORDER.indexOf(a.id) - ORDER.indexOf(b.id); });
   function renderStack() {
   $("#stack").innerHTML = feat.map(function (w0, i) {
