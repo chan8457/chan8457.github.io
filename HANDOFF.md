@@ -177,7 +177,7 @@
 ## Works 섹션 구조 (2026-11-09 변경)
 - 사진(media) 있는 작업만 카드로 표시, 사진 없는 작업은 "그 밖의 작업 N건 보기" 접이식 목록(클릭 시 상세 모달).
 - `draft: true`이고 사진 없는 작업(릴스)은 목록에서 숨김. 사진을 `media`에 추가하면 자동으로 카드로 승격됨.
-- Selected(대표 4개): smartstore, slicer-log, sketchup-ruby, game-clan, review-card (`ORDER` 배열은 main.js).
+- Selected(대표 5개): smartstore, product-ai-images, slicer-log, sketchup-ruby, review-card (`ORDER` 배열은 main.js). 2026-11-24에 game-clan을 빼고 product-ai-images를 넣음.
 
 ## 2026-11-10 변경
 - 사이트에서 제거: 블로그 작성 도구(blog-tool), 블로그 멀티에이전트 파이프라인(blog-pipeline). 이력서에서도 제외.
@@ -215,3 +215,17 @@
 - 사이트에서 **삭제**(works.js·works.en.js 양쪽): 추석 광고 영상(chuseok-ad), 포토리얼 프롬프트(photoreal), 상세페이지 템플릿·문구 생성(detail-modules), Threads 운영 SOP(threads-growth), 맘카페 글 자동 발행(momcafe-posts), CRM 보고서(crm-campaign). 사진이 없고 포폴에 필요 없다는 판단. (CONTENT.md의 해당 설명은 그대로 남아 있음. 이력서·다른 문구에 이 작업들이 언급돼 있는지는 별도 확인 필요.)
 - `ai-wiki` 이미지 보강: 실제 옵시디언 화면 `assets/aiwiki/obsidian.jpg`(02_AI_Wiki 폴더 구조 + CLAUDE.md 3층 구조 규칙) 추가, 카드 썸네일 `cover.jpg`는 옵시디언 화면 + 그래프 뷰 합성. 사이드바의 `도레미_*`·기업 이메일 수집기 등 폴더명은 모자이크. 본문에 고객 수·인증번호·가격이 나오는 문서(index.md, 상품 위키, log.md)는 일부러 화면에 쓰지 않음.
 - 촬영 방법: 옵시디언에서 폴더 모두 접기 → 02_AI_Wiki 펼치기 → CLAUDE 문서 열기 → 창 전체 캡처(윈도우 배율 때문에 DPI 인식 캡처 필요) → 브랜드명 행 모자이크.
+
+## 2026-11-24 변경: Selected 교체 + 링크 미리보기
+- 방향: 지금은 알바몬·알바천국으로 기업 프로젝트를 돕는 단계라, 사이트의 주 독자는 채용 담당자. 가격·서비스 패키지는 개인사업자 등록 뒤에 다룬다.
+- Selected: `game-clan`(비상업 개인 작업)을 `featured: false`로 내리고 `product-ai-images`(AI 상품·프로모션 이미지)를 `featured: true`로 올림. `main.js`의 `ORDER`도 같이 바꿈. 게임 클랜 웹앱은 Works 카드에는 그대로 나옴.
+- 카톡·SNS 링크 미리보기: `assets/og.jpg`(1200×630, Pretendard로 렌더, 상품 이미지·상세페이지 썸네일 합성)를 `og:image`로 지정, `twitter:card` 추가. `index.html`·`analysis.html` 둘 다.
+- 파비콘: `favicon.png`, `favicon.ico`(루트), `assets/apple-touch-icon.png` ("찬." 검정 라운드 사각형).
+- 캐시 번호 `?v=20261124`로 올림.
+- 남은 일(성찬 확인 필요): 근무 조건 한 줄(재택/출근, 가능 요일·시간, 시작 가능일), 작업별 수치 성과, 영상 사례, Data Analysis 결과물 링크.
+
+## 2026-11-24 추가 변경: 영상 문구 정리 + 근무 조건 + 분석 PDF
+- 영상 사례가 없어 "영상" 문구를 내림(한/영): meta description, 히어로 리드(t4), 능력 칩(t15 "AI 이미지 제작"), 스토리(t20), 연락처(t46). 실제 회사 업무였던 t24(숏폼 영상 운영)와 도구 비교 문장 t10은 유지.
+- 연락처 아래 근무 조건 한 줄 추가: "재택 근무 · 근무 시간은 프로젝트 일정에 맞춰 협의합니다" (영문 동일).
+- Data Analysis: 바탕화면의 프로젝트 PDF 5개(예전 포트폴리오 페이지 인쇄본, 연락처·개인정보 없음 확인)를 `assets/analysis/`에 넣고 제목에 "PDF ↗" 링크. `ANALYSIS` 항목에 `pdf` 필드. "AI 및 데이터 기반 광고 운영 효율화"(2026.04)는 PDF가 없어 링크 없음.
+- 캐시 번호 `?v=20261124b`.

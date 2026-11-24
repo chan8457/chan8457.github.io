@@ -40,7 +40,7 @@ window.WORKS = [
     title: "실제 상품 사진 기반 AI 상품·프로모션 이미지 제작",
     cat: "ai-media",
     year: "2026",
-    featured: false,
+    featured: true,
     org: "농산물 브랜드",
     summary: "실제 상품 사진을 바탕으로 AI 이미지를 만들어, 행사 프로모션·선물세트·상품 컷을 제작했습니다.",
     problem: "AI로만 이미지를 만들면 실제 상품과 다른 모습이 나와 고객에게 오해를 줄 수 있습니다. 그래서 실제 상품 사진을 기준으로 삼아 AI 이미지를 만드는 방식이 필요했습니다.",
@@ -157,7 +157,7 @@ window.WORKS = [
     title: "게임 클랜 전용 성장 계산기·운영 웹앱",
     cat: "dev",
     year: "2026",
-    featured: true,
+    featured: false,
     org: "게임 클랜 (비공개·비상업 사용)",
     summary: "게임 데이터를 바탕으로 성장 계산, 전투 비교, 클랜 운영까지 한곳에 모은 한국어 웹앱을 ChatGPT로 개발해 클랜원들이 실제로 쓰게 했습니다.",
     problem: "같은 게임 수치를 계산기마다 다시 입력해야 했고, 영어 중심의 정보를 클랜원이 각자 해석해야 했습니다. 클랜 일정과 공지, 기술 연구 추천도 여러 곳에 흩어져 있었습니다.",
@@ -283,9 +283,9 @@ window.WORKS = [
 /* 데이터 분석 프로젝트: analysis.html 에서 사용 */
 window.ANALYSIS = [
   { date: "2026.04.20", title: "AI 및 데이터 기반 광고 운영 효율화 프로젝트", desc: "생성형 AI·Python 자동화, 샘플 데이터 대시보드" },
-  { date: "2025.11.17", title: "LLM 기반 여행지 추천 플랫폼 개발 (진행중)", desc: "여행·맛집 데이터 통합, 자연어 추천" },
-  { date: "2025.11.10", title: "서비스 종료된 10대 익명 투표 앱 데이터 분석", desc: "DAU 급락 원인 진단, 재출시 전략" },
-  { date: "2025.11.08", title: "채용 플랫폼 지원 퍼널 진단 및 개선 제안", desc: "단계별 전환율 개선" },
-  { date: "2025.11.07", title: "머신러닝 기반 공유오피스 결제 유도 전략", desc: "결제 전환 예측, 회원권 개선안" },
-  { date: "2025.11.02", title: "서울시 따릉이 대여소 광고 타겟 분석", desc: "LED 패널 광고 입지 선정" }
+  { date: "2025.11.17", pdf: "assets/analysis/travel-llm.pdf", title: "LLM 기반 여행지 추천 플랫폼 개발 (진행중)", desc: "여행·맛집 데이터 통합, 자연어 추천" },
+  { date: "2025.11.10", pdf: "assets/analysis/vote-app.pdf", title: "서비스 종료된 10대 익명 투표 앱 데이터 분석", desc: "DAU 급락 원인 진단, 재출시 전략" },
+  { date: "2025.11.08", pdf: "assets/analysis/hiring-funnel.pdf", title: "채용 플랫폼 지원 퍼널 진단 및 개선 제안", desc: "단계별 전환율 개선" },
+  { date: "2025.11.07", pdf: "assets/analysis/coworking-ml.pdf", title: "머신러닝 기반 공유오피스 결제 유도 전략", desc: "결제 전환 예측, 회원권 개선안" },
+  { date: "2025.11.02", pdf: "assets/analysis/ddareungi.pdf", title: "서울시 따릉이 대여소 광고 타겟 분석", desc: "LED 패널 광고 입지 선정" }
 ];

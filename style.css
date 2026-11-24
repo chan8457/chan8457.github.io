@@ -181,6 +181,7 @@ footer{background:#c6dbff;color:var(--sub);padding:28px var(--pad);font-size:13p
 .arow .d{color:var(--mute);font-weight:600}
 .arow h3{font-size:clamp(17px,1.8vw,22px);letter-spacing:-.03em}
 .arow p{color:var(--mute)}
+.arow h3 a{color:inherit;text-decoration:none;border-bottom:1px solid var(--line)}.arow h3 a:hover{border-color:currentColor}.arow h3 .pdf{font-size:.62em;font-weight:700;color:var(--mute);letter-spacing:0;white-space:nowrap}
 @media(max-width:760px){.arow{grid-template-columns:1fr;gap:4px}}
 
 @media(max-width:420px){.logo{font-size:16px}.logo span{font-size:.78em}.badge{font-size:12px;padding:7px 12px}}
