@@ -208,3 +208,29 @@ footer{background:#c6dbff;color:var(--sub);padding:28px var(--pad);font-size:13p
 /* language toggle */
 .lang{margin-left:10px;padding:7px 13px;border:1px solid currentColor;border-radius:99px;background:none;color:inherit;font:700 12px/1 inherit;letter-spacing:.04em;cursor:pointer;opacity:.85;transition:.2s}
 .lang:hover{opacity:1;background:rgba(127,127,127,.18)}
+/* Works 묶음 타일 (2026-11-24) */
+.chips .gtiles{flex-basis:100%;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:6px}
+.gtile{font:inherit;color:inherit;text-align:left;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:pointer;padding:0;transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .2s}
+.gtile:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(0,0,0,.35)}
+.gtile.on{border-color:var(--ink);box-shadow:0 0 0 2px var(--ink)}
+.gtile .gimg{display:block;aspect-ratio:16/9;background:var(--bg);overflow:hidden}
+.gtile .gimg img{width:100%;height:100%;object-fit:cover;display:block}
+.gtile .gtxt{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:16px 18px 18px;align-items:baseline}
+.gtile b{font-size:20px;letter-spacing:-.03em}
+.gtile em{font-style:normal;font-size:13px;font-weight:700;color:var(--accent)}
+.gtile small{grid-column:1/-1;font-size:13.5px;color:var(--mute)}
+.grp+.grp{margin-top:56px}
+.grp-h{font-size:22px;letter-spacing:-.03em;margin-bottom:18px;display:flex;gap:10px;align-items:baseline}
+.grp-h span{font-size:14px;font-weight:700;color:var(--mute)}
+.longpage{max-width:430px;margin:0 auto 12px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.longpage img{display:block;width:100%;height:auto}
+.fulllink{text-align:center;margin-bottom:28px}.fulllink a{text-decoration:underline;font-weight:600}
+@media(max-width:760px){
+.chips .gtiles{grid-template-columns:1fr;gap:10px}
+.gtile{flex-direction:row;align-items:stretch}
+.gtile .gimg{aspect-ratio:auto;width:38%;flex:none;min-height:96px}
+.gtile .gtxt{padding:12px 14px;align-content:center}
+.gtile b{font-size:17px}
+.gtile small{font-size:12.5px}
+.grp+.grp{margin-top:40px}
+}

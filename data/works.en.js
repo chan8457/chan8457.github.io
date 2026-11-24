@@ -9,6 +9,12 @@ window.CATS_EN = {
   dev: "Build & Development"
 };
 
+window.GROUPS_EN = {
+  image: { name: "Images", desc: "AI product images and card news" },
+  detail: { name: "Product Pages", desc: "Product detail page planning and design" },
+  automation: { name: "Automation", desc: "Tools and web apps that cut repetitive work" }
+};
+
 window.WORKS_EN = {
   "ai-wiki": {
     title: "Company AI Wiki: a Knowledge Management System",
@@ -206,12 +212,26 @@ window.WORKS_EN = {
     ],
     result: "Completed a 12-section product page, from the first screen to storage and delivery guidance. The images below are the actual result, with the brand name and people blurred.",
     tools: ["Naver Smart Store", "Canva", "Claude", "AI images"]
+  },
+  "sample-lotion-detail": {
+    title: "Product Page for a Fictional Skincare Lotion (AI Images + Automated Layout)",
+    org: "Personal project · fictional product",
+    summary: "An 11-section product page sample for a fictional lotion, taken from planning and copy checks through AI images to automated layout.",
+    problem: "Product pages usually mean hand-fitting planning, copy, images and design from scratch every time, and cosmetics copy has to avoid risky claims. I wanted a way to rebuild a page quickly from one set of design rules.",
+    process: [
+      "Planned an 11-section flow, from the hero to the disclaimer, based on the copy and ingredient settings of a fictional product (SAMPLE HYDRA BARRIER LOTION).",
+      "Generated product, model and texture images with GPT, choosing ones whose bottle and tone read as a single product, and placed them per section.",
+      "Wrote a conversion script that turns one planning file into 96 design commands, laying out an 860px-wide product page automatically.",
+      "Checked 56 lines of copy against a list of banned and risky cosmetics expressions, and flagged phrases that could read as efficacy claims.",
+      "Reviewed the output and regenerated it three times, fixing Korean line breaks, numeral fonts and the ingredient table layout."
+    ],
+    result: "Finished a product page made of 11 section images plus one full-length image. It is a fictional product for this portfolio and is not for sale; every image is an AI-generated staged image, and the ingredient amounts and price are made up. The screens below follow the page in its real order.",
+    tools: ["GPT Image", "Claude", "Python", "FigCraft"]
   }
 };
 
 window.ANALYSIS_EN = [
   { title: "AI and Data-Driven Ad Operations Efficiency Project", desc: "Generative AI and Python automation, sample-data dashboard" },
-  { title: "LLM-Based Travel Recommendation Platform (in progress)", desc: "Integrated travel and restaurant data, natural-language recommendations" },
   { title: "Data Analysis of a Discontinued Teen Anonymous Voting App", desc: "Diagnosed the DAU drop and a relaunch strategy" },
   { title: "Recruitment Platform Application Funnel Diagnosis and Improvements", desc: "Improving conversion at each stage" },
   { title: "ML-Based Payment Conversion Strategy for a Shared Office", desc: "Payment conversion prediction and membership improvements" },

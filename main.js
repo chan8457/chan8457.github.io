@@ -8,8 +8,8 @@
   try { var q = new URLSearchParams(location.search).get("lang"); LANG = (q === "en" || q === "ko") ? q : (localStorage.getItem("lang") || "ko"); } catch (e) {}
   if (LANG !== "en") LANG = "ko";
   var T = {
-    ko: { more: "자세히 보기 →", close: "닫기 ✕", problem: "문제", process: "과정", result: "결과", tools: "사용한 도구", others: function (n) { return "그 밖의 작업 " + n + "건 보기"; }, draft: "상세 내용은 작성 중입니다. 결과 이미지·영상과 과정 설명이 곧 추가됩니다.", res: " 결과물" },
-    en: { more: "View details →", close: "Close ✕", problem: "Problem", process: "Process", result: "Result", tools: "Tools used", others: function (n) { return "Show " + n + " more works"; }, draft: "Details are being written. Result images and a process write-up are coming soon.", res: " result" }
+    ko: { more: "자세히 보기 →", close: "닫기 ✕", problem: "문제", process: "과정", result: "결과", tools: "사용한 도구", others: function (n) { return "그 밖의 작업 " + n + "건 보기"; }, draft: "상세 내용은 작성 중입니다. 결과 이미지·영상과 과정 설명이 곧 추가됩니다.", res: " 결과물", all: "전체 보기", count: function (n) { return n + "건"; }, full: "전체 페이지 한 장으로 보기 ↗" },
+    en: { more: "View details →", close: "Close ✕", problem: "Problem", process: "Process", result: "Result", tools: "Tools used", others: function (n) { return "Show " + n + " more works"; }, draft: "Details are being written. Result images and a process write-up are coming soon.", res: " result", all: "Show all", count: function (n) { return n + (n === 1 ? " work" : " works"); }, full: "Open the full page as one image ↗" }
   };
   var t = function (k) { return T[LANG][k]; };
   var CX = function () { return LANG === "en" && window.CATS_EN ? window.CATS_EN : CATS; };
@@ -47,23 +47,37 @@
   }
   renderStack();
 
-  /* works grid + filter */
+  /* works: group tiles (이미지 / 상세페이지 / 자동화) + cards */
+  var GROUP_KEYS = ["image", "detail", "automation"];
+  var REP = { image: "product-ai-images", detail: "sample-lotion-detail", automation: "slicer-log" };
+  var GX = function () { return LANG === "en" && window.GROUPS_EN ? window.GROUPS_EN : (window.GROUPS || {}); };
   var cur = "all";
-  function renderChips() {
-    $("#chips").innerHTML = Object.keys(CATS).map(function (k) {
-      return '<button class="chip' + (k === cur ? " on" : "") + '" data-k="' + k + '">' + esc(CX()[k]) + "</button>";
-    }).join("");
-  }
   var hasMedia = function (w) { return (w.media || []).length > 0; };
+  var inGroup = function (w, g) { return (w.group || "automation") === g; };
+  var byId = function (id) { return WORKS.filter(function (x) { return x.id === id; })[0]; };
+  function renderChips() {
+    $("#chips").innerHTML = '<div class="gtiles">' + GROUP_KEYS.map(function (k) {
+      var g = GX()[k] || { name: k, desc: "" }, n = WORKS.filter(function (w) { return inGroup(w, k) && hasMedia(w); }).length;
+      var r = byId(REP[k]), img = r && hasMedia(r) ? '<img src="' + esc(r.media[0]) + '" alt="" loading="lazy">' : "";
+      return '<button class="gtile' + (k === cur ? " on" : "") + '" data-k="' + k + '" aria-pressed="' + (k === cur) + '"><span class="gimg">' + img + '</span><span class="gtxt"><b>' + esc(g.name) + '</b><em>' + t("count")(n) + '</em><small>' + esc(g.desc) + "</small></span></button>";
+    }).join("") + "</div>" + '<button class="chip' + (cur === "all" ? " on" : "") + '" data-k="all">' + t("all") + "</button>";
+  }
+  function cardHtml(w0, i) {
+    var w = W(w0);
+    return '<article class="card rv" data-id="' + w.id + '" tabindex="0" style="--d:' + ((i % 3) * 0.08) + 's">' +
+      visual(w) + '<div class="body"><div class="cat">' + esc(CX()[w.cat]) + (w.year ? " · " + esc(w.year) : "") + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="tl">' +
+      (w.tools || []).slice(0, 4).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("") + "</div></div></article>";
+  }
+  var sortW = function (x, y) { return (y.featured ? 1 : 0) - (x.featured ? 1 : 0) || (ORDER.indexOf(x.id) + 99) % 99 - (ORDER.indexOf(y.id) + 99) % 99; };
   function renderCards() {
-    var shown = WORKS.filter(function (w) { return (cur === "all" || w.cat === cur) && hasMedia(w); }).sort(function (x, y) { return (y.featured ? 1 : 0) - (x.featured ? 1 : 0) || (ORDER.indexOf(x.id) + 99) % 99 - (ORDER.indexOf(y.id) + 99) % 99; });
-    $("#cards").innerHTML = shown.map(function (w0, i) {
-      var w = W(w0);
-      return '<article class="card rv" data-id="' + w.id + '" tabindex="0" style="--d:' + ((i % 3) * 0.08) + 's">' +
-        visual(w) + '<div class="body"><div class="cat">' + esc(CX()[w.cat]) + (w.year ? " · " + esc(w.year) : "") + "</div><h3>" + esc(w.title) + "</h3><p>" + esc(w.summary) + '</p><div class="tl">' +
-        (w.tools || []).slice(0, 4).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("") + "</div></div></article>";
+    var keys = cur === "all" ? GROUP_KEYS : [cur];
+    $("#cards").innerHTML = keys.map(function (k) {
+      var shown = WORKS.filter(function (w) { return inGroup(w, k) && hasMedia(w); }).sort(sortW);
+      if (!shown.length) return "";
+      var g = GX()[k] || { name: k };
+      return '<div class="grp"><h3 class="grp-h">' + esc(g.name) + " <span>" + t("count")(shown.length) + '</span></h3><div class="cards">' + shown.map(cardHtml).join("") + "</div></div>";
     }).join("");
-    var more = WORKS.filter(function (w) { return (cur === "all" || w.cat === cur) && !hasMedia(w) && !w.draft; });
+    var more = WORKS.filter(function (w) { return (cur === "all" || inGroup(w, cur)) && !hasMedia(w) && !w.draft; });
     $("#more").innerHTML = more.length ? '<button class="more-toggle" id="moreBtn" aria-expanded="false">' + t("others")(more.length) + ' <span>＋</span></button>' +
       '<div class="more-list" id="moreList" hidden>' + more.map(function (w0) {
         var w = W(w0);
@@ -77,15 +91,18 @@
     var l = $("#moreList"), o = l.hidden; l.hidden = !o; b.setAttribute("aria-expanded", o ? "true" : "false"); b.querySelector("span").textContent = o ? "－" : "＋";
   });
   $("#chips").addEventListener("click", function (e) {
-    var b = e.target.closest(".chip"); if (!b) return;
-    cur = b.dataset.k; renderChips(); renderCards();
+    var b = e.target.closest(".gtile,.chip"); if (!b) return;
+    cur = b.dataset.k === cur ? "all" : b.dataset.k; renderChips(); renderCards();
     document.querySelectorAll("#cards .rv").forEach(function (c) { c.classList.add("in"); });
+    if (cur !== "all") { var top = $("#cards").getBoundingClientRect().top; if (top > innerHeight * 0.6 || top < 0) $("#cards").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); }
   });
 
   /* modal */
   var modal = $("#modal"), panel = $("#panel"), lastFocus;
   function gallery(w) {
     var g = (w.media || []).slice(1); if (!g.length) return "";
+    if (w.longpage) return '<div class="longpage">' + g.map(function (u) { return '<img src="' + esc(u) + '" alt="' + esc(w.title) + t("res") + '" loading="lazy">'; }).join("") + "</div>" +
+      (w.full ? '<p class="fulllink"><a href="' + esc(w.full) + '" target="_blank" rel="noopener">' + t("full") + "</a></p>" : "");
     return '<div class="gallery">' + g.map(function (u) { return '<a href="' + esc(u) + '" target="_blank" rel="noopener"><img src="' + esc(u) + '" alt="' + esc(w.title) + t("res") + '" loading="lazy"></a>'; }).join("") + "</div>";
   }
   function open(id) {
