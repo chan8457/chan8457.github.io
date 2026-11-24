@@ -283,9 +283,9 @@ window.WORKS = [
 /* 데이터 분석 프로젝트: analysis.html 에서 사용 */
 window.ANALYSIS = [
   { date: "2026.04.20", title: "AI 및 데이터 기반 광고 운영 효율화 프로젝트", desc: "생성형 AI·Python 자동화, 샘플 데이터 대시보드" },
-  { date: "2025.11.17", title: "LLM 기반 여행지 추천 플랫폼 개발 (진행중)", desc: "여행·맛집 데이터 통합, 자연어 추천" },
-  { date: "2025.11.10", title: "서비스 종료된 10대 익명 투표 앱 데이터 분석", desc: "DAU 급락 원인 진단, 재출시 전략" },
-  { date: "2025.11.08", title: "채용 플랫폼 지원 퍼널 진단 및 개선 제안", desc: "단계별 전환율 개선" },
-  { date: "2025.11.07", title: "머신러닝 기반 공유오피스 결제 유도 전략", desc: "결제 전환 예측, 회원권 개선안" },
-  { date: "2025.11.02", title: "서울시 따릉이 대여소 광고 타겟 분석", desc: "LED 패널 광고 입지 선정" }
+  { date: "2025.11.17", pdf: "assets/analysis/travel-llm.pdf", title: "LLM 기반 여행지 추천 플랫폼 개발 (진행중)", desc: "여행·맛집 데이터 통합, 자연어 추천" },
+  { date: "2025.11.10", pdf: "assets/analysis/vote-app.pdf", title: "서비스 종료된 10대 익명 투표 앱 데이터 분석", desc: "DAU 급락 원인 진단, 재출시 전략" },
+  { date: "2025.11.08", pdf: "assets/analysis/hiring-funnel.pdf", title: "채용 플랫폼 지원 퍼널 진단 및 개선 제안", desc: "단계별 전환율 개선" },
+  { date: "2025.11.07", pdf: "assets/analysis/coworking-ml.pdf", title: "머신러닝 기반 공유오피스 결제 유도 전략", desc: "결제 전환 예측, 회원권 개선안" },
+  { date: "2025.11.02", pdf: "assets/analysis/ddareungi.pdf", title: "서울시 따릉이 대여소 광고 타겟 분석", desc: "LED 패널 광고 입지 선정" }
 ];
