@@ -105,9 +105,17 @@
       (w.full ? '<p class="fulllink"><a href="' + esc(w.full) + '" target="_blank" rel="noopener">' + t("full") + "</a></p>" : "");
     return '<div class="gallery">' + g.map(function (u) { return '<a href="' + esc(u) + '" target="_blank" rel="noopener"><img src="' + esc(u) + '" alt="' + esc(w.title) + t("res") + '" loading="lazy"></a>'; }).join("") + "</div>";
   }
-  function open(id) {
+  /* 뒤로가기: 상세를 열 때 history 항목을 하나 쌓고, 뒤로가기(popstate)가 오면 상세만 닫는다.
+     닫기 버튼·바깥 클릭·Esc로 닫을 때는 쌓아 둔 항목을 history.back()으로 정리한다. URL은 바꾸지 않는다. */
+  function isOpen() { return modal.classList.contains("open"); }
+  function hasEntry() { return !!(history.state && history.state.work); }
+  function open(id, fromHistory) {
     var w = WORKS.filter(function (x) { return x.id === id; })[0]; if (!w) return; w = W(w);
-    lastFocus = document.activeElement;
+    if (!isOpen()) lastFocus = document.activeElement;
+    if (!fromHistory) {
+      var st = { work: id };
+      try { if (hasEntry()) history.replaceState(st, ""); else history.pushState(st, ""); } catch (e) {}
+    }
     panel.innerHTML = '<button class="close" id="closeBtn">' + t("close") + '</button>' + visual(w, true) +
       '<div class="meta">' + esc(CX()[w.cat]) + (w.org ? " · " + esc(w.org) : "") + (w.year ? " · " + esc(w.year) : "") + "</div><h2>" + esc(w.title) + "</h2><p>" + esc(w.summary) + "</p>" +
       (w.draft ? '<div class="draft">' + t("draft") + "</div>" : "") +
@@ -116,7 +124,11 @@
     modal.classList.add("open"); modal.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden";
     $("#closeBtn").focus();
   }
-  function close() { modal.classList.remove("open"); modal.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+  function hide() { if (!isOpen()) return; modal.classList.remove("open"); modal.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; panel.scrollTop = 0; if (lastFocus) lastFocus.focus(); }
+  function close() { if (!isOpen()) return; if (hasEntry()) history.back(); else hide(); }
+  addEventListener("popstate", function (e) {
+    if (e.state && e.state.work) open(e.state.work, true); else hide();
+  });
   document.addEventListener("click", function (e) {
     var c = e.target.closest("[data-id]"); if (c && !e.target.closest("#modal")) return open(c.dataset.id);
     if (e.target.id === "modal" || e.target.id === "closeBtn") close();
@@ -134,6 +146,8 @@
     document.querySelectorAll(".rv:not(.in)").forEach(function (n) { io.observe(n); });
   }
   observe();
+  /* 새로고침했을 때 상세가 열려 있던 상태면 다시 열어 둔다(뒤로가기 한 번이 헛돌지 않게) */
+  if (hasEntry()) open(history.state.work, true);
 
   /* scroll: progress, header, parallax, active link, stack scale */
   var nav = $("#nav"), bar = $("#bar"), glow = $("#glow"), links = [].slice.call(document.querySelectorAll(".menu a[href^='#']"));
@@ -184,7 +198,7 @@
   function setLang(l) {
     LANG = l === "en" ? "en" : "ko";
     try { localStorage.setItem("lang", LANG); } catch (e) {}
-    applyStatic(); renderStack(); renderChips(); renderCards(); close(); onScroll();
+    applyStatic(); renderStack(); renderChips(); renderCards(); if (isOpen() && hasEntry()) open(history.state.work, true); else hide(); onScroll();
   }
   if ($("#lang")) $("#lang").addEventListener("click", function () { setLang(LANG === "en" ? "ko" : "en"); });
   if (LANG === "en") applyStatic(); else applyStatic();
